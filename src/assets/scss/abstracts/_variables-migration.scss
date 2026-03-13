@@ -1,0 +1,110 @@
+/**
+ * Variable Migration Helper
+ * Maps old SCSS variables to modern CSS variable system
+ * This file enables existing components to work during migration
+ * Remove this file once all components are migrated to use @use abstracts
+ */
+
+@use './variables' as *;
+
+// ============================================================================
+// OLD VARIABLE NAMES → NEW CSS VARIABLES / DESIG.N TOKENS
+// ============================================================================
+// These SCSS variables act as adapters for existing code
+
+// Colors - Primary
+$project_name_primary: var(--color-primary, $color-primary-500);
+$project_name_primary_light: var(--color-primary-light, $color-primary-100);
+$project_name_primary_dark: var(--color-primary-dark, $color-primary-700);
+
+// Colors - Secondary
+$project_name_secondary: var(--color-secondary, $color-secondary-500);
+$project_name_secondary_light: var(--color-secondary-light, $color-secondary-100);
+$project_name_secondary_dark: var(--color-secondary-dark, $color-secondary-700);
+
+// Colors - Text
+$project_name_text_primary: var(--color-text, $color-neutral-900);
+$project_name_text_secondary: var(--color-text-secondary, $color-neutral-800);
+$project_name_text_normal: var(--color-text, $color-neutral-900);
+$project_name_text_muted: var(--color-text-muted, $color-neutral-600);
+$project_name_text_light: var(--color-text-light, $color-neutral-500);
+
+// Colors - Background
+$project_name_white: var(--color-bg, $color-neutral-0);
+$project_name_theme_bg: var(--color-bg-secondary, $color-neutral-50);
+$project_name_bg_light: var(--color-bg-tertiary, $color-neutral-100);
+
+// Colors - Border & Divider
+$project_name_border: var(--color-border, $color-neutral-200);
+$project_name_border_hover: var(--color-border-hover, $color-neutral-300);
+
+// Colors - Status/Semantic
+$project_name_success: var(--color-success, $color-success);
+$project_name_error: var(--color-error, $color-error);
+$project_name_warning: var(--color-warning, $color-warning);
+$project_name_info: var(--color-info, $color-info);
+
+// Colors - Component Specific
+$project_name_active_indicator: var(--color-primary, $color-primary-500);
+$project_name_btn_hover_primary: var(--color-primary-dark, $color-primary-600);
+$project_name_btn_hover_secondary: var(--color-secondary-dark, $color-secondary-600);
+
+// ============================================================================
+// SIZING - Font Sizes
+// ============================================================================
+
+$project_name_font_size_xs: $font-size-xs;
+$project_name_font_size_sm: $font-size-sm;
+$project_name_font_size_base: $font-size-base;
+$project_name_font_size_lg: $font-size-lg;
+$project_name_font_size_xl: $font-size-xl;
+
+// ============================================================================
+// SIZING - Border Radius
+// ============================================================================
+
+$project_name_radius_xs: $radius-sm;
+$project_name_radius_sm: $radius-md;
+$project_name_radius_md: $radius-lg;
+$project_name_radius_lg: $radius-xl;
+$project_name_radius_full: $radius-full;
+
+// ============================================================================
+// TYPOGRAPHY - Font Weights
+// ============================================================================
+
+$project_name_font_thin: $font-weight-100;
+$project_name_font_light: $font-weight-300;
+$project_name_font_regular: $font-weight-400;
+$project_name_font_medium: $font-weight-500;
+$project_name_font_semibold: $font-weight-600;
+$project_name_font_bold: $font-weight-700;
+$project_name_font_extrabold: $font-weight-800;
+
+// ============================================================================
+// SHADOWS
+// ============================================================================
+
+$project_name_shadow_sm: $shadow-sm;
+$project_name_shadow_base: $shadow-base;
+$project_name_shadow_md: $shadow-md;
+$project_name_shadow_lg: $shadow-lg;
+$project_name_shadow_xl: $shadow-xl;
+
+// ============================================================================
+// TRANSITIONS
+// ============================================================================
+
+$project_name_transition_fast: $transition-fast;
+$project_name_transition_base: $transition-base;
+$project_name_transition_slow: $transition-slow;
+
+// ============================================================================
+// BREAKPOINTS
+// ============================================================================
+
+$project_name_breakpoint_xs: $breakpoint-xs;
+$project_name_breakpoint_sm: $breakpoint-sm;
+$project_name_breakpoint_md: $breakpoint-md;
+$project_name_breakpoint_lg: $breakpoint-lg;
+$project_name_breakpoint_xl: $breakpoint-xl;

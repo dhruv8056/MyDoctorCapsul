@@ -1,0 +1,197 @@
+/**
+ * Design Tokens & Variables
+ * Single source of truth for all design system values
+ * Using Dart Sass - these are SASS variables, not CSS custom properties
+ */
+
+// ============================================================================
+// COLORS - Design Token Palette
+// ============================================================================
+
+// Brand Colors - Primary Palette
+$color-primary-50: #f0f5fa;
+$color-primary-100: #d9e6f5;
+$color-primary-200: #b0cde8;
+$color-primary-300: #88b5db;
+$color-primary-400: #5a9cce;
+$color-primary-500: #345c7f; // Base primary
+$color-primary-600: #2a4966;
+$color-primary-700: #1f364d;
+$color-primary-800: #152333;
+$color-primary-900: #0a111a;
+
+// Brand Colors - Secondary Palette
+$color-secondary-50: #fffaf0;
+$color-secondary-100: #fef3d9;
+$color-secondary-200: #fde8b0;
+$color-secondary-300: #fbdd88;
+$color-secondary-400: #f9d25a;
+$color-secondary-500: #fbbd19; // Base secondary
+$color-secondary-600: #d9a614;
+$color-secondary-700: #b78f0f;
+$color-secondary-800: #95780a;
+$color-secondary-900: #734005;
+
+// Semantic Colors
+$color-success: #3cb371;
+$color-success-light: #e8f5e9;
+$color-success-dark: #2d8659;
+
+$color-error: #e63946;
+$color-error-light: #fde8e8;
+$color-error-dark: #b82835;
+
+$color-warning: #ebb316;
+$color-warning-light: #fff9e6;
+$color-warning-dark: #c9960f;
+
+$color-info: #0ea5e9;
+$color-info-light: #e0f7ff;
+$color-info-dark: #0284c7;
+
+// Neutral Colors - Grayscale
+$color-neutral-0: #ffffff;
+$color-neutral-50: #f9fafb;
+$color-neutral-100: #f3f4f6;
+$color-neutral-200: #e5e7eb;
+$color-neutral-300: #d1d5db;
+$color-neutral-400: #9ca3af;
+$color-neutral-500: #6b7280;
+$color-neutral-600: #4b5563;
+$color-neutral-700: #374151;
+$color-neutral-800: #1f2937;
+$color-neutral-900: #111827;
+$color-neutral-950: #030712;
+
+// ============================================================================
+// TYPOGRAPHY
+// ============================================================================
+
+// Font Families
+$font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$font-family-mono: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+$font-family-display: 'Poppins', 'Inter', 'Helvetica Neue', sans-serif;
+
+// Font Sizes
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-base: 1rem;    // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-2xl: 1.5rem;   // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem;  // 36px
+$font-size-5xl: 3rem;     // 48px
+
+// Font Weights
+$font-weight-100: 100;
+$font-weight-200: 200;
+$font-weight-300: 300;
+$font-weight-400: 400; // normal
+$font-weight-500: 500; // medium
+$font-weight-600: 600; // semibold
+$font-weight-700: 700; // bold
+$font-weight-800: 800;
+$font-weight-900: 900;
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+// Letter Spacing
+$letter-spacing-tighter: -0.05em;
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+
+// ============================================================================
+// SPACING
+// ============================================================================
+
+// Using 8px as base unit for consistency
+$space-0: 0;
+$space-1: 0.25rem;   // 4px
+$space-2: 0.5rem;    // 8px
+$space-3: 0.75rem;   // 12px
+$space-4: 1rem;      // 16px
+$space-5: 1.25rem;   // 20px
+$space-6: 1.5rem;    // 24px
+$space-8: 2rem;      // 32px
+$space-10: 2.5rem;   // 40px
+$space-12: 3rem;     // 48px
+$space-16: 4rem;     // 64px
+$space-20: 5rem;     // 80px
+$space-24: 6rem;     // 96px
+
+// ============================================================================
+// BORDER RADIUS
+// ============================================================================
+
+$radius-none: 0;
+$radius-sm: 0.25rem;   // 4px
+$radius-md: 0.5rem;    // 8px
+$radius-lg: 0.75rem;   // 12px
+$radius-xl: 1rem;      // 16px
+$radius-2xl: 1.5rem;   // 24px
+$radius-3xl: 2rem;     // 32px
+$radius-full: 9999px;
+
+// ============================================================================
+// SHADOWS
+// ============================================================================
+
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+$shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+// ============================================================================
+// TRANSITIONS & ANIMATIONS
+// ============================================================================
+
+$transition-fast: 150ms ease-in-out;
+$transition-base: 200ms ease-in-out;
+$transition-slow: 300ms ease-in-out;
+$transition-slower: 500ms ease-in-out;
+
+// ============================================================================
+// BREAKPOINTS
+// ============================================================================
+
+$breakpoint-xs: 375px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+$breakpoints: (
+  'xs': $breakpoint-xs,
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  '2xl': $breakpoint-2xl,
+);
+
+// ============================================================================
+// Z-INDEX SCALE
+// ============================================================================
+
+$z-index-hide: -1;
+$z-index-auto: auto;
+$z-index-base: 0;
+$z-index-dropdown: 100;
+$z-index-sticky: 120;
+$z-index-fixed: 130;
+$z-index-modal-backdrop: 140;
+$z-index-modal: 150;
+$z-index-popover: 160;
+$z-index-tooltip: 170;

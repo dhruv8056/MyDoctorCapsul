@@ -1,0 +1,52 @@
+/**
+ * Page Not Found Component Styles
+ * Updated to use modern Dart Sass modules and CSS variables
+ */
+
+@use '../../abstracts' as *;
+
+.not-found-image-container {
+  margin-bottom: $space-4;
+}
+
+.not-found-image {
+  width: toRem(256);
+  height: toRem(256);
+  object-fit: contain;
+}
+
+.not-found-title {
+  font-size: toRem(36);
+  font-weight: $font-weight-700;
+  color: var(--color-text);
+  margin-bottom: $space-4;
+}
+
+.not-found-description {
+  color: var(--color-text-muted);
+  margin-bottom: $space-8;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+}
+
+.not-found-button {
+  padding: $space-3 $space-6;
+  color: $color-neutral-0;
+  background-color: var(--color-primary);
+  border-radius: $radius-md;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

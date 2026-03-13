@@ -1,0 +1,445 @@
+/**
+ * CSS Reset & Normalize Styles
+ * Provides consistent baseline styling across browsers
+ */
+
+// ============================================================================
+// RESET DEFAULT STYLES
+// ============================================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// ============================================================================
+// ROOT & BODY STYLES
+// ============================================================================
+
+html {
+  // Base font size for rem calculations
+  font-size: 16px;
+
+  // Enable smooth scrolling
+  scroll-behavior: smooth;
+
+  // Prevent font size adjustments when device orientation changes
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  // Remove tap highlight in mobile devices
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-background, white);
+  color: var(--color-text-primary, $color-neutral-900);
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  text-rendering: optimizeLegibility;
+  @include font-smooth();
+}
+
+// ============================================================================
+// TYPOGRAPHY ELEMENTS
+// ============================================================================
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: var(--color-text-primary, $color-neutral-900);
+}
+
+h1 {
+  @include heading('h1');
+}
+
+h2 {
+  @include heading('h2');
+}
+
+h3 {
+  @include heading('h3');
+}
+
+h4 {
+  @include heading('h4');
+}
+
+h5 {
+  @include heading('h5');
+}
+
+h6 {
+  @include heading('h6');
+}
+
+p {
+  margin: 0;
+  line-height: $line-height-normal;
+}
+
+// ============================================================================
+// LISTS
+// ============================================================================
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dt {
+  font-weight: $font-weight-semibold;
+}
+
+dd {
+  margin: 0;
+}
+
+// ============================================================================
+// LINKS
+// ============================================================================
+
+a {
+  color: var(--color-link, $color-primary-500);
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color $transition-base;
+
+  &:hover {
+    color: var(--color-link-hover, $color-primary-600);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-link, $color-primary-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  // Prevent the outline when the link is focused
+  &:focus {
+    outline: none;
+  }
+
+  // Visited state
+  &:visited {
+    color: var(--color-link-visited, $color-primary-700);
+  }
+}
+
+// ============================================================================
+// CODE & PREFORMATTED TEXT
+// ============================================================================
+
+code,
+kbd,
+samp {
+  font-family: $font-family-mono;
+  font-size: 0.9em;
+}
+
+code {
+  background-color: var(--color-background-tertiary, $color-neutral-100);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: var(--color-background-secondary, $color-neutral-100);
+  padding: $spacing-4;
+  border-radius: $radius-md;
+  overflow-x: auto;
+
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// ============================================================================
+// FORM ELEMENTS
+// ============================================================================
+
+input,
+button,
+textarea,
+select,
+optgroup {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+input,
+textarea,
+select {
+  @include input-base();
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: $spacing-2 $spacing-2 0 0;
+  cursor: pointer;
+}
+
+input[type='file'] {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+input::file-selector-button {
+  @include button-base();
+  @include button-state(
+    var(--color-button-primary-bg, $color-primary-500),
+    var(--color-button-primary-hover, $color-primary-600)
+  );
+  color: var(--color-button-primary-text, #ffffff);
+  padding: $spacing-2 $spacing-4;
+  margin-right: $spacing-2;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right $spacing-3 center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5em;
+  cursor: pointer;
+}
+
+// ============================================================================
+// MEDIA ELEMENTS
+// ============================================================================
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+picture {
+  display: contents;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+// ============================================================================
+// TABLE STYLES
+// ============================================================================
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--color-background-secondary, $color-neutral-100);
+}
+
+th {
+  padding: $spacing-4;
+  text-align: left;
+  font-weight: $font-weight-semibold;
+  color: var(--color-text-primary, $color-neutral-900);
+  border-bottom: 2px solid var(--color-border, $color-neutral-200);
+}
+
+td {
+  padding: $spacing-4;
+  border-bottom: 1px solid var(--color-border-light, $color-neutral-100);
+}
+
+tbody tr {
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: var(--color-surface-hover, $color-neutral-50);
+  }
+}
+
+// ============================================================================
+// BLOCKQUOTE & HR
+// ============================================================================
+
+blockquote {
+  margin: 0 0 $spacing-4 0;
+  padding: 0 0 0 $spacing-4;
+  border-left: 4px solid var(--color-border, $color-neutral-200);
+  color: var(--color-text-secondary, $color-neutral-600);
+  font-style: italic;
+}
+
+hr {
+  margin: $spacing-6 0;
+  border: 0;
+  border-top: 1px solid var(--color-border, $color-neutral-200);
+}
+
+// ============================================================================
+// UTILITY ELEMENTS
+// ============================================================================
+
+mark {
+  background-color: ylw;
+  color: inherit;
+  padding: 0 0.25em;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+strong,
+b {
+  font-weight: $font-weight-bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+del {
+  text-decoration: line-through;
+  color: var(--color-error, $color-error-500);
+}
+
+ins {
+  text-decoration: underline;
+  color: var(--color-success, $color-success-500);
+}
+
+// ============================================================================
+// SCROLLBAR STYLING
+// ============================================================================
+
+// Firefox
+* {
+  scrollbar-color: var(--color-scrollbar-thumb, $color-neutral-300)
+    var(--color-scrollbar-track, $color-neutral-100);
+  scrollbar-width: thin;
+}
+
+// Chrome, Safari, Edge
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track, $color-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb, $color-neutral-300);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--color-scrollbar-thumb-hover, $color-neutral-400);
+  }
+}
+
+// ============================================================================
+// PRINT STYLES
+// ============================================================================
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: ' (' attr(href) ')';
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  p {
+    page-break-inside: avoid;
+  }
+
+  ul,
+  ol,
+  pre {
+    page-break-inside: avoid;
+  }
+
+  li {
+    page-break-inside: avoid;
+  }
+}

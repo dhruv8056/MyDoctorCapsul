@@ -1,0 +1,115 @@
+/**
+ * Light Theme
+ * CSS custom properties for light mode
+ * Applied to :root by default or [data-theme="light"]
+ */
+
+@use '../abstracts' as *;
+
+// Light theme root styles
+:root {
+  color-scheme: light;
+
+  // Primary colors - adjusted for light background
+  --color-primary: #{$color-primary-500};
+  --color-primary-50: #{$color-primary-50};
+  --color-primary-100: #{$color-primary-100};
+  --color-primary-200: #{$color-primary-200};
+  --color-primary-300: #{$color-primary-300};
+  --color-primary-400: #{$color-primary-400};
+  --color-primary-500: #{$color-primary-500};
+  --color-primary-600: #{$color-primary-600};
+  --color-primary-700: #{$color-primary-700};
+  --color-primary-800: #{$color-primary-800};
+  --color-primary-900: #{$color-primary-900};
+  --color-primary-light: #{$color-primary-100};
+  --color-primary-dark: #{$color-primary-700};
+
+  // Secondary colors
+  --color-secondary: #{$color-secondary-500};
+  --color-secondary-50: #{$color-secondary-50};
+  --color-secondary-100: #{$color-secondary-100};
+  --color-secondary-200: #{$color-secondary-200};
+  --color-secondary-300: #{$color-secondary-300};
+  --color-secondary-400: #{$color-secondary-400};
+  --color-secondary-500: #{$color-secondary-500};
+  --color-secondary-600: #{$color-secondary-600};
+  --color-secondary-700: #{$color-secondary-700};
+  --color-secondary-800: #{$color-secondary-800};
+  --color-secondary-900: #{$color-secondary-900};
+  --color-secondary-light: #{$color-secondary-100};
+  --color-secondary-dark: #{$color-secondary-700};
+
+  // Semantic colors remain consistent
+  --color-success: #{$color-success};
+  --color-success-light: #{$color-success-light};
+  --color-success-dark: #{$color-success-dark};
+  --color-error: #{$color-error};
+  --color-error-light: #{$color-error-light};
+  --color-error-dark: #{$color-error-dark};
+  --color-warning: #{$color-warning};
+  --color-warning-light: #{$color-warning-light};
+  --color-warning-dark: #{$color-warning-dark};
+  --color-info: #{$color-info};
+  --color-info-light: #{$color-info-light};
+  --color-info-dark: #{darken($color-info, 10%)};
+
+  // Neutral/Text colors for light background
+  --color-text: #{$color-neutral-900};
+  --color-text-secondary: #{$color-neutral-800};
+  --color-text-muted: #{$color-neutral-600};
+  --color-text-light: #{$color-neutral-500};
+  --color-text-lighter: #{$color-neutral-400};
+
+  // Background colors
+  --color-bg: #{$color-neutral-0};
+  --color-bg-secondary: #{$color-neutral-50};
+  --color-bg-tertiary: #{$color-neutral-100};
+  --color-bg-disabled: #{$color-neutral-100};
+  --color-bg-hover: #{$color-neutral-100};
+
+  // Border colors
+  --color-border: #{$color-neutral-200};
+  --color-border-hover: #{$color-neutral-300};
+  --color-border-active: #{$color-primary-500};
+
+  // Component backgrounds
+  --color-input-bg: #{$color-neutral-0};
+  --color-input-border: #{$color-neutral-300};
+  --color-code-bg: #{$color-neutral-100};
+  --color-code: #{$color-neutral-900};
+  --color-quote-bg: #{$color-neutral-50};
+  --color-mark-bg: #{$color-secondary-200};
+  --color-mark-text: #{$color-neutral-900};
+
+  // Shadows - subtle for light theme
+  --shadow-sm: #{$shadow-sm};
+  --shadow-base: #{$shadow-base};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+}
+
+// Light theme data attribute (for explicit switching)
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-primary: #{$color-primary-500};
+  --color-primary-light: #{$color-primary-100};
+  --color-primary-dark: #{$color-primary-700};
+  --color-secondary: #{$color-secondary-500};
+  --color-secondary-light: #{$color-secondary-100};
+  --color-secondary-dark: #{$color-secondary-700};
+  --color-text: #{$color-neutral-900};
+  --color-text-muted: #{$color-neutral-600};
+  --color-text-light: #{$color-neutral-500};
+  --color-bg: #{$color-neutral-0};
+  --color-bg-secondary: #{$color-neutral-50};
+  --color-bg-tertiary: #{$color-neutral-100};
+  --color-bg-hover: #{$color-neutral-100};
+  --color-border: #{$color-neutral-200};
+  --color-border-hover: #{$color-neutral-300};
+  --color-input-bg: #{$color-neutral-0};
+  --color-code-bg: #{$color-neutral-100};
+  --color-code: #{$color-neutral-900};
+}

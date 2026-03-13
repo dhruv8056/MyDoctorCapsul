@@ -1,0 +1,7 @@
+/**
+ * Themes Index
+ * Central export point for theme styles using @forward
+ */
+
+@forward './light';
+@forward './dark';

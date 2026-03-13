@@ -1,0 +1,177 @@
+/**
+ * Login Component Styles
+ * Updated to use modern Dart Sass modules and CSS variables
+ */
+
+@use '../../abstracts' as *;
+
+.login-container {
+  padding: $space-4;
+  background: linear-gradient(to bottom right, var(--color-bg-secondary), var(--color-bg-tertiary));
+}
+
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: toRem(448);
+  background-color: var(--color-bg);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+}
+
+.login-logo-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+  border-bottom-left-radius: $radius-lg;
+  border-bottom-right-radius: $radius-lg;
+  width: toRem(160);
+  height: toRem(64);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-logo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.login-content {
+  padding-top: toRem(96);
+  padding-bottom: toRem(40);
+  padding-left: $space-6;
+  padding-right: $space-6;
+
+  @include media(sm) {
+    padding-left: $space-8;
+    padding-right: $space-8;
+  }
+}
+
+.login-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: $space-2;
+}
+
+.login-subtitle {
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: $space-6;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.login-label {
+  color: var(--color-primary);
+  font-weight: $font-weight-700;
+}
+
+.login-input {
+  width: 100%;
+  padding: $space-3;
+  border: 1px solid var(--color-border);
+  border-radius: $radius-md;
+  outline: none;
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  transition: all $transition-base;
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 toRem(2) rgba(var(--color-primary), 0.2);
+  }
+
+  &.error_border {
+    border-color: var(--color-error);
+
+    &:focus {
+      box-shadow: 0 0 0 toRem(2) var(--color-error-light);
+    }
+  }
+}
+
+.login-error {
+  color: var(--color-error);
+  font-size: $font-size-sm;
+  margin-top: $space-1;
+}
+
+.login-button-cancel {
+  width: 100%;
+  padding: $space-3 $space-6;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  border-radius: $radius-md;
+  background-color: transparent;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+  }
+
+  @include media(sm) {
+    width: auto;
+  }
+}
+
+.login-button-submit {
+  width: 100%;
+  padding: $space-3 $space-6;
+  background-color: var(--color-secondary);
+  color: $color-neutral-900;
+  border-radius: $radius-md;
+  border: none;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-secondary-dark);
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @include media(sm) {
+    width: auto;
+  }
+}
+
+.login-signup-text {
+  margin-top: $space-6;
+  color: var(--color-text-muted);
+  font-size: $font-size-sm;
+  text-align: center;
+}
+
+.login-signup-link {
+  color: var(--color-secondary);
+  font-weight: $font-weight-700;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

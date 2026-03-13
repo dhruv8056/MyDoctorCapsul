@@ -1,0 +1,91 @@
+/**
+ * Dark Theme
+ * CSS custom properties for dark mode
+ * Applied to [data-theme="dark"] attribute on html element
+ */
+
+@use '../abstracts' as *;
+
+// Dark theme - applied via data-theme attribute
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  // Primary colors - brightened for dark background
+  --color-primary: #{$color-primary-400};
+  --color-primary-50: #{$color-primary-900};
+  --color-primary-100: #{$color-primary-800};
+  --color-primary-200: #{$color-primary-700};
+  --color-primary-300: #{$color-primary-600};
+  --color-primary-400: #{$color-primary-400};
+  --color-primary-500: #{$color-primary-400};
+  --color-primary-600: #{$color-primary-300};
+  --color-primary-700: #{$color-primary-200};
+  --color-primary-800: #{$color-primary-100};
+  --color-primary-900: #{$color-primary-50};
+  --color-primary-light: #{$color-primary-300};
+  --color-primary-dark: #{$color-primary-600};
+
+  // Secondary colors - brightened for dark background
+  --color-secondary: #{$color-secondary-400};
+  --color-secondary-50: #{$color-secondary-900};
+  --color-secondary-100: #{$color-secondary-800};
+  --color-secondary-200: #{$color-secondary-700};
+  --color-secondary-300: #{$color-secondary-600};
+  --color-secondary-400: #{$color-secondary-400};
+  --color-secondary-500: #{$color-secondary-400};
+  --color-secondary-600: #{$color-secondary-300};
+  --color-secondary-700: #{$color-secondary-200};
+  --color-secondary-800: #{$color-secondary-100};
+  --color-secondary-900: #{$color-secondary-50};
+  --color-secondary-light: #{$color-secondary-300};
+  --color-secondary-dark: #{$color-secondary-600};
+
+  // Semantic colors - adjusted for dark background
+  --color-success: #{lighten($color-success, 10%)};
+  --color-success-light: #{$color-success-dark};
+  --color-success-dark: #{lighten($color-success, 15%)};
+  --color-error: #{lighten($color-error, 10%)};
+  --color-error-light: #{$color-error-dark};
+  --color-error-dark: #{lighten($color-error, 15%)};
+  --color-warning: #{$color-warning};
+  --color-warning-light: #{lighten($color-warning, 20%)};
+  --color-warning-dark: #{lighten($color-warning, 10%)};
+  --color-info: #{lighten($color-info, 10%)};
+  --color-info-light: #{lighten($color-info, 20%)};
+  --color-info-dark: #{lighten($color-info, 5%)};
+
+  // Neutral/Text colors for dark background
+  --color-text: #{$color-neutral-50};
+  --color-text-secondary: #{$color-neutral-100};
+  --color-text-muted: #{$color-neutral-400};
+  --color-text-light: #{$color-neutral-500};
+  --color-text-lighter: #{$color-neutral-600};
+
+  // Background colors
+  --color-bg: #{$color-neutral-900};
+  --color-bg-secondary: #{$color-neutral-800};
+  --color-bg-tertiary: #{$color-neutral-700};
+  --color-bg-disabled: #{$color-neutral-800};
+  --color-bg-hover: #{$color-neutral-700};
+
+  // Border colors
+  --color-border: #{$color-neutral-700};
+  --color-border-hover: #{$color-neutral-600};
+  --color-border-active: #{$color-primary-400};
+
+  // Component backgrounds
+  --color-input-bg: #{$color-neutral-800};
+  --color-input-border: #{$color-neutral-700};
+  --color-code-bg: #{$color-neutral-800};
+  --color-code: #{$color-neutral-100};
+  --color-quote-bg: #{$color-neutral-800};
+  --color-mark-bg: #{$color-secondary-700};
+  --color-mark-text: #{$color-neutral-100};
+
+  // Shadows - enhanced for dark theme
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+}

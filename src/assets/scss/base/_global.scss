@@ -1,0 +1,213 @@
+/**
+ * Global Styles
+ * Default element styles and global CSS variable defaults
+ */
+
+@use '../abstracts' as *;
+
+// ============================================================================
+// CSS CUSTOM PROPERTIES (Color Variables)
+// Default values - overridden by theme module
+// ============================================================================
+
+:root {
+  // Primary colors
+  --color-primary: #{$color-primary-500};
+  --color-primary-light: #{$color-primary-100};
+  --color-primary-dark: #{$color-primary-900};
+
+  // Secondary colors
+  --color-secondary: #{$color-secondary-500};
+  --color-secondary-light: #{$color-secondary-100};
+  --color-secondary-dark: #{$color-secondary-900};
+
+  // Semantic colors
+  --color-success: #{$color-success};
+  --color-success-light: #{$color-success-light};
+  --color-error: #{$color-error};
+  --color-error-light: #{$color-error-light};
+  --color-warning: #{$color-warning};
+  --color-warning-light: #{$color-warning-light};
+  --color-info: #{$color-info};
+  --color-info-light: #{$color-info-light};
+
+  // Neutral/Grayscale
+  --color-text: #{$color-neutral-900};
+  --color-text-muted: #{$color-neutral-600};
+  --color-text-light: #{$color-neutral-500};
+  --color-bg: #{$color-neutral-0};
+  --color-bg-secondary: #{$color-neutral-50};
+  --color-bg-tertiary: #{$color-neutral-100};
+  --color-border: #{$color-neutral-200};
+  --color-border-hover: #{$color-neutral-300};
+
+  // Component-specific
+  --color-input-bg: #{$color-neutral-0};
+  --color-code-bg: #{$color-neutral-100};
+  --color-code: #{$color-neutral-900};
+  --color-quote-bg: #{$color-neutral-50};
+  --color-mark-bg: #{$color-secondary-200};
+  --color-mark-text: #{$color-neutral-900};
+
+  // Z-index
+  --z-index-dropdown: #{$z-index-dropdown};
+  --z-index-sticky: #{$z-index-sticky};
+  --z-index-fixed: #{$z-index-fixed};
+  --z-index-modal-backdrop: #{$z-index-modal-backdrop};
+  --z-index-modal: #{$z-index-modal};
+  --z-index-popover: #{$z-index-popover};
+  --z-index-tooltip: #{$z-index-tooltip};
+}
+
+// ============================================================================
+// GLOBAL ELEMENT DEFAULTS
+// ============================================================================
+
+// Body
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color $transition-base, color $transition-base;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: $radius-md;
+
+  &:hover {
+    background: var(--color-border-hover);
+  }
+}
+
+// Firefox scrollbar
+* {
+  scrollbar-color: var(--color-border) var(--color-bg-secondary);
+  scrollbar-width: thin;
+}
+
+// ============================================================================
+// FORM ELEMENTS
+// ============================================================================
+
+button {
+  @include button-base;
+}
+
+input,
+textarea,
+select {
+  @include input-base;
+}
+
+// ============================================================================
+// FOCUS STATES
+// ============================================================================
+
+button,
+a,
+input,
+textarea,
+select {
+  @include focus-visible;
+}
+
+// ============================================================================
+// UTILITY CLASSES
+// ============================================================================
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $space-4;
+
+  @include media(md) {
+    padding: 0 $space-6;
+  }
+}
+
+// Flexbox utilities
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+// Grid utilities
+.grid {
+  display: grid;
+}
+
+// Text utilities
+.text-truncate {
+  @include text-truncate;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+// Screen reader only
+.sr-only {
+  @include sr-only;
+}
+
+// Display utilities
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  visibility: visible;
+}
+
+// Visibility at breakpoints
+@include media-down(sm) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@include media(md) {
+  .hidden-tablet {
+    display: none !important;
+  }
+}
+
+@include media(lg) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+// Spacing utilities
+.m-0 {
+  margin: 0;
+}
+.mt-4 {
+  margin-top: $space-4;
+}
+.mb-4 {
+  margin-bottom: $space-4;
+}

@@ -1,0 +1,41 @@
+/**
+ * SCSS Functions
+ * Utility functions for calculations and conversions
+ */
+
+@use 'sass:math';
+
+/// Convert pixels to rem
+/// @param {Number} $pixels - Value in pixels
+/// @return {Number} - Value in rem
+/// @example font-size: toRem(16); // outputs 1rem
+@function toRem($pixels) {
+  @if math.is-unitless($pixels) {
+    @return math.div($pixels, 16) + rem;
+  } @else {
+    @error 'toRem() requires a unitless number';
+  }
+}
+
+/// Convert pixels to em
+/// @param {Number} $pixels - Value in pixels
+/// @return {Number} - Value in em
+@function toEm($pixels) {
+  @if math.is-unitless($pixels) {
+    @return math.div($pixels, 16) + em;
+  } @else {
+    @error 'toEm() requires a unitless number';
+  }
+}
+
+/// Get a color from a palette map
+/// @param {Map} $palette - Color palette map
+/// @param {String} $key - Color key
+/// @return {Color} - Color value
+@function get-color($palette, $key) {
+  @if map-has-key($palette, $key) {
+    @return map-get($palette, $key);
+  } @else {
+    @error 'Color key "#{$key}" not found in palette';
+  }
+}

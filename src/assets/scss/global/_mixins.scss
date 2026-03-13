@@ -1,0 +1,457 @@
+/**
+ * Global SCSS Mixins
+ * Reusable mixins for common styles and patterns
+ */
+
+// ============================================================================
+// RESPONSIVE DESIGN MIXINS
+// ============================================================================
+
+/// Media query mixin for mobile-first approach
+/// @param {String} $breakpoint - Breakpoint name (xs, sm, md, lg, xl, 2xl)
+/// @example @include media-up(md) { ... }
+@mixin media-up($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'Invalid breakpoint: #{$breakpoint}';
+  }
+}
+
+/// Media query mixin for desktop-first approach
+/// @param {String} $breakpoint - Breakpoint name
+/// @example @include media-down(md) { ... }
+@mixin media-down($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value {
+    @media (max-width: calc(#{$value} - 1px)) {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'Invalid breakpoint: #{$breakpoint}';
+  }
+}
+
+/// Media query for between two breakpoints
+/// @example @include media-between(md, lg) { ... }
+@mixin media-between($breakpoint-down, $breakpoint-up) {
+  $down: map-get($breakpoints, $breakpoint-down);
+  $up: map-get($breakpoints, $breakpoint-up);
+
+  @if $down and $up {
+    @media (min-width: $down) and (max-width: calc(#{$up} - 1px)) {
+      @content;
+    }
+  }
+
+  @else {
+    @error 'Invalid breakpoints: #{$breakpoint-down}, #{$breakpoint-up}';
+  }
+}
+
+// ============================================================================
+// FLEXBOX & GRID MIXINS
+// ============================================================================
+
+/// Flex center - centers content both horizontally and vertically
+/// @example @include flex-center();
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/// Flex between - spaces items apart
+/// @example @include flex-between();
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/// Flex column - creates a column layout
+/// @param {String} $align - align-items value (default: flex-start)
+/// @example @include flex-column(center);
+@mixin flex-column($align: flex-start) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+}
+
+/// Grid - creates CSS grid layout
+/// @param {String} $columns - grid-template-columns value
+/// @param {String} $gap - gap value (default: 1rem)
+/// @example @include grid('repeat(3, 1fr)', 2rem);
+@mixin grid($columns, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+
+// ============================================================================
+// SPACING UTILITY MIXINS
+// ============================================================================
+
+/// Margin mixin for all sides
+/// @param {Number} $value - margin value
+/// @example @include margin(1rem);
+@mixin margin($value) {
+  margin: $value;
+}
+
+/// Padding mixin for all sides
+/// @param {Number} $value - padding value
+/// @example @include padding(1rem);
+@mixin padding($value) {
+  padding: $value;
+}
+
+/// Margin vertical (top and bottom)
+/// @param {Number} $value - margin value
+/// @example @include margin-y(1rem);
+@mixin margin-y($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+/// Margin horizontal (left and right)
+/// @param {Number} $value - margin value
+/// @example @include margin-x(1rem);
+@mixin margin-x($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+/// Padding vertical (top and bottom)
+/// @param {Number} $value - padding value
+/// @example @include padding-y(1rem);
+@mixin padding-y($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+/// Padding horizontal (left and right)
+/// @param {Number} $value - padding value
+/// @example @include padding-x(1rem);
+@mixin padding-x($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+// ============================================================================
+// TEXT & TYPOGRAPHY MIXINS
+// ============================================================================
+
+/// Text truncate - single line with ellipsis
+/// @example @include text-truncate();
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Multiline text truncate - clamps text to n lines
+/// @param {Number} $lines - number of lines (default: 2)
+/// @example @include line-clamp(3);
+@mixin line-clamp($lines: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+/// Font smoothing - better text rendering
+/// @example @include font-smooth();
+@mixin font-smooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/// Heading styles - consistent heading styles
+/// @param {String} $level - heading level (h1-h6)
+@mixin heading($level: 'h1') {
+  @if $level == 'h1' {
+    font-size: $font-size-5xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+  } @else if $level == 'h2' {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+  } @else if $level == 'h3' {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-normal;
+  } @else if $level == 'h4' {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-normal;
+  } @else if $level == 'h5' {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-normal;
+  } @else if $level == 'h6' {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-normal;
+  }
+}
+
+// ============================================================================
+// SIZE & DIMENSION MIXINS
+// ============================================================================
+
+/// Square - creates equal width and height
+/// @param {Number} $size - width and height value
+/// @example @include square(2rem);
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+/// Aspect ratio - maintains consistent aspect ratio
+/// @param {Number} $width - width ratio
+/// @param {Number} $height - height ratio
+/// @example @include aspect-ratio(16, 9);
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  padding-bottom: calc(($height / $width) * 100%);
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/// Cover - makes element cover container
+/// @example @include cover();
+@mixin cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/// Absolute center - centers an absolute element
+/// @example @include absolute-center();
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// ============================================================================
+// BUTTON MIXINS
+// ============================================================================
+
+/// Button base styles
+/// @example @include button-base();
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+  border-radius: var(--radius-md, $radius-md);
+  font-family: inherit;
+  font-size: inherit;
+  transition: all $transition-base;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @include font-smooth();
+}
+
+/// Button state - hover and active state
+/// @param {Color} $bg-color - background color
+/// @param {Color} $hover-color - hover color
+/// @example @include button-state(#345c7f, #2a4966);
+@mixin button-state($bg-color, $hover-color) {
+  background-color: $bg-color;
+
+  &:hover:not(:disabled) {
+    background-color: $hover-color;
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+// ============================================================================
+// FORM MIXINS
+// ============================================================================
+
+/// Input base styles
+/// @example @include input-base();
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-3 $spacing-4;
+  border: 2px solid var(--color-input-border, $color-neutral-300);
+  border-radius: var(--radius-md, $radius-md);
+  background-color: var(--color-input-bg, #ffffff);
+  color: var(--color-input-text, $color-neutral-900);
+  font-family: inherit;
+  font-size: $font-size-base;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &::placeholder {
+    color: var(--color-input-placeholder, $color-neutral-500);
+  }
+
+  &:hover {
+    border-color: var(--color-input-border-hover, $color-neutral-400);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-input-border-focus, $color-primary-500);
+    box-shadow: 0 0 0 3px var(--color-primary-light, rgba(52, 92, 127, 0.1));
+  }
+
+  &:disabled {
+    background-color: var(--color-input-disabled-bg, $color-neutral-100);
+    color: var(--color-input-disabled-text, $color-neutral-400);
+    cursor: not-allowed;
+  }
+}
+
+// ============================================================================
+// BACKGROUND & BORDER MIXINS
+// ============================================================================
+
+/// Border radius - apply consistent border radius
+/// @param {String} $size - size name (sm, md, lg, xl, 2xl, full)
+/// @example @include border-radius(lg);
+@mixin border-radius($size: md) {
+  $value: var(--radius-#{$size}, null);
+
+  @if $size == 'sm' {
+    $value: varOR($radius-sm, $radius-sm);
+  } @else if $size == 'md' {
+    $value: varOR($radius-md, $radius-md);
+  } @else if $size == 'lg' {
+    $value: varOR($radius-lg, $radius-lg);
+  } @else if $size == 'xl' {
+    $value: varOR($radius-xl, $radius-xl);
+  } @else if $size == '2xl' {
+    $value: varOR($radius-2xl, $radius-2xl);
+  } @else if $size == 'full' {
+    $value: varOR($radius-full, $radius-full);
+  }
+
+  border-radius: $value;
+}
+
+/// Box shadow - apply shadow effects
+/// @param {String} $level - shadow level (sm, md, lg, xl)
+/// @example @include box-shadow(lg);
+@mixin box-shadow($level: base) {
+  @if $level == 'sm' {
+    box-shadow: var(--shadow-sm, $shadow-sm);
+  } @else if $level == 'md' {
+    box-shadow: var(--shadow-md, $shadow-md);
+  } @else if $level == 'lg' {
+    box-shadow: var(--shadow-lg, $shadow-lg);
+  } @else if $level == 'xl' {
+    box-shadow: var(--shadow-xl, $shadow-xl);
+  } @else {
+    box-shadow: var(--shadow, $shadow-base);
+  }
+}
+
+// ============================================================================
+// ANIMATION MIXINS
+// ============================================================================
+
+/// Smooth transition - applies smooth transition
+/// @param {String} $properties - CSS properties to transition (default: all)
+/// @param {String} $duration - duration (default: $transition-base)
+/// @example @include smooth-transition(color background);
+@mixin smooth-transition($properties: all, $duration: $transition-base) {
+  transition: $properties $duration;
+}
+
+/// Fade in animation
+/// @example @include fade-in();
+@mixin fade-in {
+  animation: fade-in $transition-base ease-in-out forwards;
+}
+
+/// Slide in animation
+/// @param {String} $direction - direction (up, down, left, right)
+/// @example @include slide-in(up);
+@mixin slide-in($direction: up) {
+  animation: slide-in-#{$direction} $transition-slow ease-out forwards;
+}
+
+// ============================================================================
+// ACCESSIBILITY MIXINS
+// ============================================================================
+
+/// Focus safe - removes default outline and provides custom focus style
+/// @example @include focus-safe();
+@mixin focus-safe {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary, $color-primary-500);
+    outline-offset: 2px;
+  }
+}
+
+/// Visually hidden - hides element from view but keeps it accessible
+/// @example @include visually-hidden();
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/// Screen reader only - visible only to screen readers
+/// @example @include sr-only();
+@mixin sr-only {
+  @include visually-hidden();
+}
+
+/// Skip link - hidden skip navigation link
+/// @example @include skip-link();
+@mixin skip-link {
+  @include visually-hidden();
+
+  &:focus {
+    position: fixed;
+    top: $spacing-4;
+    left: $spacing-4;
+    padding: $spacing-3 $spacing-4;
+    background-color: var(--color-primary, $color-primary-500);
+    color: var(--color-text-on-primary, #ffffff);
+    border-radius: $radius-md;
+    z-index: $z-index-tooltip;
+    clip: auto;
+  }
+}

@@ -1,0 +1,310 @@
+/**
+ * Typography System
+ * Predefined text styles for consistent typography across the application
+ */
+
+// ============================================================================
+// HEADING STYLES
+// ============================================================================
+
+.text-h1,
+h1 {
+  @include heading('h1');
+  margin-bottom: $spacing-6;
+}
+
+.text-h2,
+h2 {
+  @include heading('h2');
+  margin-bottom: $spacing-5;
+}
+
+.text-h3,
+h3 {
+  @include heading('h3');
+  margin-bottom: $spacing-4;
+}
+
+.text-h4,
+h4 {
+  @include heading('h4');
+  margin-bottom: $spacing-4;
+}
+
+.text-h5,
+h5 {
+  @include heading('h5');
+  margin-bottom: $spacing-3;
+}
+
+.text-h6,
+h6 {
+  @include heading('h6');
+  margin-bottom: $spacing-3;
+}
+
+// ============================================================================
+// BODY TEXT STYLES
+// ============================================================================
+
+.text-lg {
+  font-size: $font-size-lg;
+  line-height: $line-height-normal;
+}
+
+.text-base,
+.text-body {
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+}
+
+.text-sm {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+}
+
+.text-xs {
+  font-size: $font-size-xs;
+  line-height: $line-height-tight;
+}
+
+// ============================================================================
+// FONT WEIGHT STYLES
+// ============================================================================
+
+.font-light {
+  font-weight: $font-weight-light;
+}
+
+.font-normal {
+  font-weight: $font-weight-normal;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+.font-extrabold {
+  font-weight: $font-weight-extrabold;
+}
+
+// ============================================================================
+// LINE HEIGHT STYLES
+// ============================================================================
+
+.leading-tight {
+  line-height: $line-height-tight;
+}
+
+.leading-normal {
+  line-height: $line-height-normal;
+}
+
+.leading-relaxed {
+  line-height: $line-height-relaxed;
+}
+
+.leading-loose {
+  line-height: $line-height-loose;
+}
+
+// ============================================================================
+// TEXT COLOR STYLES
+// ============================================================================
+
+.text-primary {
+  color: var(--color-text-primary, $color-neutral-900);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary, $color-neutral-600);
+}
+
+.text-tertiary {
+  color: var(--color-text-tertiary, $color-neutral-500);
+}
+
+.text-disabled {
+  color: var(--color-text-disabled, $color-neutral-400);
+}
+
+.text-success {
+  color: var(--color-success, $color-success-500);
+}
+
+.text-error {
+  color: var(--color-error, $color-error-500);
+}
+
+.text-warning {
+  color: var(--color-warning, $color-warning-500);
+}
+
+.text-info {
+  color: var(--color-info, $color-info-500);
+}
+
+// ============================================================================
+// TEXT DECORATION & TRANSFORMATION
+// ============================================================================
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
+
+.text-no-underline {
+  text-decoration: none;
+}
+
+.text-no-wrap {
+  white-space: nowrap;
+}
+
+.text-prewrap {
+  white-space: pre-wrap;
+}
+
+.text-preline {
+  white-space: pre-line;
+}
+
+.text-break {
+  word-break: break-word;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+// ============================================================================
+// TEXT TRUNCATION
+// ============================================================================
+
+.truncate {
+  @include text-truncate();
+}
+
+.line-clamp-1 {
+  @include line-clamp(1);
+}
+
+.line-clamp-2 {
+  @include line-clamp(2);
+}
+
+.line-clamp-3 {
+  @include line-clamp(3);
+}
+
+.line-clamp-4 {
+  @include line-clamp(4);
+}
+
+// ============================================================================
+// LETTER SPACING
+// ============================================================================
+
+.tracking-tighter {
+  letter-spacing: $letter-spacing-tighter;
+}
+
+.tracking-tight {
+  letter-spacing: $letter-spacing-tight;
+}
+
+.tracking-normal {
+  letter-spacing: $letter-spacing-normal;
+}
+
+.tracking-wide {
+  letter-spacing: $letter-spacing-wide;
+}
+
+.tracking-wider {
+  letter-spacing: $letter-spacing-wider;
+}
+
+// ============================================================================
+// DISPLAY PROPERTY
+// ============================================================================
+
+.display-block {
+  display: block;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.display-grid {
+  display: grid;
+}
+
+.display-inline-grid {
+  display: inline-grid;
+}
+
+.display-table {
+  display: table;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-contents {
+  display: contents;
+}

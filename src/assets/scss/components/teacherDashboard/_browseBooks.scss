@@ -1,0 +1,187 @@
+/**
+ * Teacher Dashboard - Browse Books Component Styles
+ * Updated to use modern Dart Sass modules and CSS variables
+ */
+
+@use '../../abstracts' as *;
+
+$star-color: #ff9800;
+
+.teacher-dashboard {
+  padding: $space-8;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+
+  .dashboard-title {
+    font-size: toRem(32);
+    color: var(--color-text);
+    margin-bottom: $space-8;
+    text-align: center;
+    font-weight: $font-weight-700;
+    text-transform: uppercase;
+    letter-spacing: toRem(1);
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(toRem(250), 1fr));
+    gap: $space-8;
+    max-width: toRem(1200);
+    margin: 0 auto;
+    position: relative;
+
+    .view-more {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--color-primary);
+      color: $color-neutral-0;
+      border: none;
+      padding: $space-3 $space-5;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      font-size: $font-size-base;
+      font-weight: $font-weight-500;
+      transition: all $transition-base;
+
+      &:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .book-card {
+    background-color: var(--color-bg);
+    border-radius: $radius-md;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: $shadow-base;
+    transition: all $transition-base;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(toRem(-5));
+      box-shadow: $shadow-lg;
+      border-color: var(--color-primary);
+    }
+
+    .book-cover {
+      height: toRem(300);
+      background: var(--color-bg-secondary);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .book-cover-placeholder {
+        width: 100%;
+        height: 100%;
+        @include flex-center;
+        font-size: $font-size-2xl;
+        color: var(--color-text-muted);
+        background: linear-gradient(45deg, var(--color-bg-secondary), var(--color-bg-tertiary));
+      }
+    }
+
+    .book-info {
+      padding: $space-4;
+
+      .book-title {
+        font-size: $font-size-lg;
+        color: var(--color-text);
+        margin: 0 0 $space-1;
+        font-weight: $font-weight-600;
+        line-height: $line-height-snug;
+        @include text-truncate;
+      }
+
+      .book-author {
+        font-size: $font-size-sm;
+        color: var(--color-text-muted);
+        margin: 0 0 $space-2;
+        font-style: italic;
+        @include text-truncate;
+      }
+
+      .book-rating {
+        color: $star-color;
+        font-size: $font-size-base;
+        margin: $space-2 0;
+        display: flex;
+        justify-content: center;
+        gap: toRem(2);
+
+        .star {
+          margin: 0;
+        }
+      }
+
+      .book-price {
+        font-size: $font-size-base;
+        color: var(--color-text);
+        margin: $space-2 0;
+        display: flex;
+        justify-content: center;
+        gap: $space-2;
+
+        .original-price {
+          text-decoration: line-through;
+          color: var(--color-text-muted);
+        }
+
+        .discounted-price {
+          color: var(--color-error);
+          font-weight: $font-weight-700;
+        }
+      }
+
+      .book-actions {
+        display: flex;
+        justify-content: center;
+        gap: $space-3;
+        margin-top: $space-3;
+
+        .cart-icon,
+        .heart-icon {
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: toRem(20);
+          color: var(--color-text-muted);
+          padding: $space-1;
+          transition: color $transition-base;
+
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@include media-down(md) {
+  .teacher-dashboard {
+    padding: $space-4;
+
+    .dashboard-title {
+      font-size: $font-size-2xl;
+    }
+
+    .book-grid {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(200), 1fr));
+      gap: $space-4;
+    }
+
+    .book-card .book-cover {
+      height: toRem(250);
+    }
+  }
+}

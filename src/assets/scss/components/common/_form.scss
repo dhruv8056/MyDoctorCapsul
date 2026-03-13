@@ -1,0 +1,83 @@
+/**
+ * Form Component Styles
+ * Updated to use modern Dart Sass modules and CSS variables
+ */
+
+@use '../../abstracts' as *;
+
+.field {
+  position: relative;
+  width: 100%;
+
+  & input,
+  & select {
+    width: 100%;
+    padding: $space-3 $space-4;
+    border: 1px solid var(--color-border);
+    border-radius: $radius-md;
+    font-size: $font-size-base;
+    color: var(--color-text);
+    background-color: var(--color-input-bg);
+    outline: none;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 toRem(5) rgba(var(--color-primary), 0.2);
+    }
+
+    &.error_border {
+      border-color: var(--color-error);
+
+      &:focus {
+        box-shadow: 0 0 toRem(5) var(--color-error-light);
+      }
+    }
+
+    &[type='password'] {
+      padding-right: toRem(50);
+    }
+
+    &[disabled] {
+      background-color: var(--color-bg-disabled);
+      color: var(--color-text-muted);
+      cursor: not-allowed;
+    }
+  }
+
+  & .input_border {
+    border: 1px solid var(--color-border);
+  }
+
+  & .togglePassword {
+    position: absolute;
+    top: 50%;
+    right: $space-3;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+    transition: color $transition-base;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+
+    & svg {
+      font-size: $font-size-lg;
+    }
+  }
+
+  & .icon {
+    position: absolute;
+    top: 50%;
+    left: $space-3;
+    transform: translateY(-50%);
+    font-size: $font-size-lg;
+    color: var(--color-text-muted);
+  }
+}

@@ -1,0 +1,8 @@
+/**
+ * Components Modules Index
+ * Central export point for all component styles using @forward
+ */
+
+@forward './auth/index';
+@forward './common/index';
+@forward './teacherDashboard/index';

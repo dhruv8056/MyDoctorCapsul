@@ -1,0 +1,135 @@
+/**
+ * Dark Theme
+ * Complete dark theme using CSS custom properties
+ * These will be applied to the document root for :root[data-theme="dark"]
+ */
+
+[data-theme='dark'] {
+  // =========================================================================
+  // PRIMARY COLORS - Lighter shades for dark mode
+  // =========================================================================
+  --color-primary: #{$color-primary-400};
+  --color-primary-light: #{$color-primary-300};
+  --color-primary-lighter: #{$color-primary-200};
+  --color-primary-dark: #{$color-primary-600};
+  --color-primary-darker: #{$color-primary-700};
+
+  // =========================================================================
+  // SECONDARY COLORS
+  // =========================================================================
+  --color-secondary: #{$color-secondary-400};
+  --color-secondary-light: #{$color-secondary-300};
+  --color-secondary-lighter: #{$color-secondary-200};
+  --color-secondary-dark: #{$color-secondary-600};
+  --color-secondary-darker: #{$color-secondary-700};
+
+  // =========================================================================
+  // SEMANTIC COLORS - Adjusted for dark mode
+  // =========================================================================
+  --color-success: #{$color-success-500};
+  --color-success-light: #{lighten($color-success-500, 15%)};
+  --color-success-dark: #{darken($color-success-500, 10%)};
+
+  --color-error: #{$color-error-500};
+  --color-error-light: #{lighten($color-error-500, 15%)};
+  --color-error-dark: #{darken($color-error-500, 10%)};
+
+  --color-warning: #{$color-warning-500};
+  --color-warning-light: #{lighten($color-warning-500, 15%)};
+  --color-warning-dark: #{darken($color-warning-500, 10%)};
+
+  --color-info: #{$color-info-500};
+  --color-info-light: #{lighten($color-info-500, 15%)};
+  --color-info-dark: #{darken($color-info-500, 10%)};
+
+  // =========================================================================
+  // BACKGROUND COLORS - Dark backgrounds
+  // =========================================================================
+  --color-background: #{$color-neutral-900};
+  --color-background-secondary: #{$color-neutral-800};
+  --color-background-tertiary: #{$color-neutral-700};
+
+  // =========================================================================
+  // SURFACE COLORS (Cards, Panels, etc.)
+  // =========================================================================
+  --color-surface: #{$color-neutral-800};
+  --color-surface-hover: #{$color-neutral-700};
+  --color-surface-active: #{$color-neutral-700};
+  --color-surface-selected: #{rgba($color-primary-400, 0.15)};
+  --color-surface-disabled: #{$color-neutral-700};
+
+  // =========================================================================
+  // TEXT COLORS - Light text for dark background
+  // =========================================================================
+  --color-text-primary: #{$color-neutral-50};
+  --color-text-secondary: #{$color-neutral-400};
+  --color-text-tertiary: #{$color-neutral-500};
+  --color-text-disabled: #{$color-neutral-600};
+  --color-text-on-primary: #{$color-neutral-900};
+  --color-text-on-secondary: #{$color-neutral-900};
+
+  // =========================================================================
+  // BORDER COLORS
+  // =========================================================================
+  --color-border: #{$color-neutral-700};
+  --color-border-light: #{$color-neutral-800};
+  --color-border-dark: #{$color-neutral-600};
+  --color-border-focus: #{$color-primary-400};
+
+  // =========================================================================
+  // INTERACTIVE COLORS
+  // =========================================================================
+  --color-link: #{$color-primary-400};
+  --color-link-hover: #{$color-primary-300};
+  --color-link-visited: #{$color-primary-500};
+
+  // =========================================================================
+  // BUTTON COLORS
+  // =========================================================================
+  --color-button-primary-bg: #{$color-primary-600};
+  --color-button-primary-text: #{#ffffff};
+  --color-button-primary-hover: #{$color-primary-500};
+  --color-button-primary-active: #{$color-primary-400};
+  --color-button-primary-disabled: #{$color-neutral-700};
+
+  --color-button-secondary-bg: #{$color-neutral-700};
+  --color-button-secondary-text: #{$color-neutral-100};
+  --color-button-secondary-hover: #{$color-neutral-600};
+  --color-button-secondary-active: #{$color-neutral-500};
+  --color-button-secondary-disabled: #{$color-neutral-800};
+
+  // =========================================================================
+  // OVERLAY & BACKDROP COLORS - Adjusted for dark mode
+  // =========================================================================
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-overlay-light: rgba(0, 0, 0, 0.4);
+  --color-overlay-dark: rgba(0, 0, 0, 0.85);
+
+  // =========================================================================
+  // SHADOW COLORS - Darker shadows for dark mode
+  // =========================================================================
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+
+  // =========================================================================
+  // INPUT/FORM COLORS
+  // =========================================================================
+  --color-input-bg: #{$color-neutral-800};
+  --color-input-border: #{$color-neutral-700};
+  --color-input-border-hover: #{$color-neutral-600};
+  --color-input-border-focus: #{$color-primary-400};
+  --color-input-text: #{$color-neutral-50};
+  --color-input-placeholder: #{$color-neutral-500};
+  --color-input-disabled-bg: #{$color-neutral-900};
+  --color-input-disabled-text: #{$color-neutral-600};
+
+  // =========================================================================
+  // SCROLLBAR COLORS
+  // =========================================================================
+  --color-scrollbar-thumb: #{$color-neutral-700};
+  --color-scrollbar-thumb-hover: #{$color-neutral-600};
+  --color-scrollbar-track: #{$color-neutral-800};
+}

@@ -1,0 +1,10 @@
+/**
+ * Abstracts Index
+ * Central export point for all abstracts using @forward
+ */
+
+@forward './variables';
+@forward './mixins';
+@forward './functions';
+@forward './variables-migration'; // Temporary bridge for old variable names
+

@@ -1,0 +1,8 @@
+/**
+ * Base Index
+ * Central export point for all base styles using @forward
+ */
+
+@forward './reset';
+@forward './typography';
+@forward './global';

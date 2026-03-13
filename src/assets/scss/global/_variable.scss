@@ -1,0 +1,156 @@
+  // Primary Color Scheme
+  $project_name_primary: #345c7f;      // Main theme color
+  $project_name_secondary: #fbbd19;    // Accent color
+  
+  //Sementic Color Scheme
+  $project_name_primary_error: #e63946; 
+  $project_name_primary_success: #3cb371; 
+  $project_name_primary_warning: #ebb316; 
+
+
+  // Theme Colors
+  $project_name_theme_bg: #f9f9f9;      // Light theme background
+  $project_name_theme_dark_text: #353535;    // Dark theme text color
+  $project_name_theme_dark_bg: #353535; // Dark mode background
+  $project_name_theme_light_text: #f9f9f9; // Light text for dark mode
+  
+  // Complementary Colors
+  $project_name_dark_accent: #2a4966;   // Darker shade of primary
+  $project_name_light_accent: #f9f9f9;  // Lighter variation of primary
+  $project_name_bg_light: #f5f6f5;      // Neutral background
+  $project_name_border: #e1e4e6;        // Soft border color
+  $project_name_white: #ffffff;         // Pure white background
+  
+
+   // Text Colors
+   $project_name_text_primary: #f9f9f9;
+   $project_name_text_dark: #353535;
+   $project_name_text_muted: #6e7b87; // Muted primary color
+   $project_name_text_header: #1c3d5a;  // Strong contrast for headers
+   $project_name_text_normal: #555555;  // Regular text color
+   $project_name_text_light: #9b9b9b;   // Lighter shade for subtexts
+  
+   
+  // Button Colors
+  $project_name_btn_primary: $project_name_primary;
+  $project_name_btn_secondary: $project_name_secondary;
+  $project_name_btn_hover_primary: darken($project_name_primary, 10%);
+  $project_name_btn_hover_secondary: darken($project_name_secondary, 10%);
+  $project_name_btn_disabled: #a0a7af; // Greyed_out for disabled state
+  
+  // Hover Effects
+  $project_name_hover_light: lighten($project_name_primary, 40%);
+  $project_name_hover_dark: darken(#2a2a2a, 10%);
+  
+  // Box Shadows
+  $project_name_shadow_primary: #8aa0b8;  // Lighter shade of primary for soft shadow
+  $project_name_shadow_secondary: #e0a617; // Muted secondary for softer appearance
+  $project_name_shadow_soft: #d1d1d1;      // Soft neutral shadow
+  $project_name_shadow_strong: #6b6b6b;    // Darker shadow for strong depth
+  
+ 
+  // Background Colors
+  $project_name_bg_primary: lighten($project_name_primary, 35%);
+  $project_name_bg_secondary: lighten($project_name_secondary, 30%);
+  $project_name_bg_dark: #121212;       // Dark UI Background
+  $project_name_bg_light_alt: #f8f9fa;  // Alternative light background
+  $project_name_bg_hover: lighten($project_name_primary, 45%);
+  
+  // Border Radius (Using toRem function)
+  $project_name_radius_sm: toRem(6);
+  $project_name_radius_md: toRem(10);
+  $project_name_radius_lg: toRem(25);
+  $project_name_radius_full: 100%;
+  
+  // Typography (Using toRem function)
+  $project_name_font_size_sm: toRem(16);
+  $project_name_font_size_md: toRem(20);
+  $project_name_font_size_lg: toRem(26);
+  $project_name_font_size_xl: toRem(30);
+  $project_name_font_size_xxl: toRem(36); // Extra large text
+  
+  // Font Weights
+  $project_name_font_light: 400;
+  $project_name_font_regular: 500;
+  $project_name_font_bold: 600;
+  $project_name_font_extrabold: 700;
+  
+
+  // Add these to your existing variables
+  $project_name_active_indicator: $project_name_primary;
+  $project_name_menu_item_hover: lighten($project_name_primary, 48%);
+  $project_name_menu_item_active: lighten($project_name_primary, 42%);
+
+
+
+  $breakpoints: (
+  xs: 480px,   // Extra Small Devices (Phones)
+  sm: 640px,   // Small Devices (Tablets)
+  md: 768px,   // Medium Devices (Small Laptops)
+  lg: 1024px,  // Large Devices (Laptops)
+  xl: 1280px,  // Extra Large Devices (Desktops)
+  xxl: 1536px  // Extra Extra Large Devices (Large Screens)
+);
+
+
+
+// Scrollbar Variables
+$project_name_scrollbar_width: 8px;                    // Scrollbar width
+$project_name_scrollbar_track: $project_name_bg_light;    // Scrollbar track color
+$project_name_scrollbar_thumb: $project_name_primary;     // Scrollbar thumb color
+$project_name_scrollbar_thumb_hover: darken($project_name_primary, 10%); // Thumb hover color
+$project_name_scrollbar_border_radius: 4px;            // Scrollbar corner radius
+
+@import "https://unpkg.com/lenis@latest/dist/lenis.min.css";
+
+@mixin custom-scrollbar {
+  scrollbar-width: thin; // Makes scrollbar thinner
+  scrollbar-color: $project_name_scrollbar_thumb $project_name_scrollbar_track;
+
+  &::-webkit-scrollbar {
+    width: toRem(0.5); // Further reduces scrollbar width
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $project_name_scrollbar_track;
+    border-radius: $project_name_scrollbar_border_radius;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $project_name_scrollbar_thumb;
+    border-radius: $project_name_scrollbar_border_radius;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: $project_name_scrollbar_thumb_hover;
+    }
+  }
+}
+
+// Mixin for smooth scrolling
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-padding-top: 10px;
+}
+
+// Apply to the entire document
+html, body {
+  @include smooth-scroll;
+}
+
+// Combined mixin for better scrolling experience
+@mixin scrollbar-with-smooth {
+  @include custom-scrollbar;
+  @include smooth-scroll;
+}
+
+// Apply improved scrolling behavior to scrollable elements
+.scrollbar-custom {
+  @include scrollbar-with-smooth;
+  overflow-y: auto;
+  max-height: 100%;
+  scroll-snap-type: y mandatory;
+}
+
