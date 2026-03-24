@@ -1,0 +1,179 @@
+.abha-section {
+  margin-top: 65px;
+
+  .abha-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6dede;
+    border-radius: 16px;
+    padding: 28px 40px;
+    gap: 30px;
+    position: relative;
+  }
+
+  /* LEFT */
+  .abha-left {
+    display: flex;
+    align-items: center;
+    gap: 52px;
+    flex: 2;
+
+    .abha-logo img {
+      width: 244px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .abha-content {
+      .sub-title {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: 2px;
+        font-family: 'Lexend Deca', sans-serif;
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 24px;
+      }
+
+      .create-btn {
+        background: #0b3c5d;
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        transition: 0.3s;
+
+        &:hover {
+          background: #01274e;
+        }
+      }
+    }
+  }
+
+  /* RIGHT */
+  .abha-right {
+    flex: 1;
+    display: flex;
+    position: relative;
+    padding-left: 37px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: repeating-linear-gradient(to bottom, #ffffff 0px, #000000 6px, #ffffff 12px);
+      opacity: 0.4;
+    }
+
+    ul {
+      li {
+        font-size: 17px;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  }
+
+  /* Large Tablet */
+  @media (max-width: 1024px) {
+    .abha-wrapper {
+      padding: 24px;
+      gap: 20px;
+    }
+
+    .abha-left {
+      gap: 30px;
+
+      .abha-logo img {
+        width: 180px;
+      }
+    }
+
+    .abha-content {
+      .title {
+        font-size: 24px;
+      }
+
+      .sub-title {
+        font-size: 16px;
+      }
+
+      .create-btn {
+        font-size: 16px;
+        padding: 10px 22px;
+      }
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    .abha-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 22px;
+    }
+
+    .abha-left {
+      width: 100%;
+      gap: 20px;
+    }
+
+    .abha-right {
+      width: 100%;
+      padding-left: 0;
+      margin-top: 10px;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .abha-left {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .abha-logo img {
+        width: 140px;
+      }
+    }
+
+    .abha-content {
+      .title {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .sub-title {
+        font-size: 14px;
+      }
+
+      .create-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .abha-wrapper {
+      padding: 18px;
+    }
+
+    .abha-right ul li {
+      font-size: 14px;
+    }
+  }
+}

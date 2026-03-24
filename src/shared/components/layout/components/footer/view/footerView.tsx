@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import { FooterColumn, SocialLink } from '../interface/IFooter';
+import footer_logo from '@assets/images/footer_logo.png';
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 
@@ -13,7 +14,7 @@ interface FooterViewProps {
 
 // ─── View ─────────────────────────────────────────────────────────────────────
 
-const FooterView: React.FC<FooterViewProps> = ({ brandName, columns, socialLinks, copyrightText }) => {
+const FooterView: React.FC<FooterViewProps> = ({ columns, socialLinks, copyrightText }) => {
   return (
     <footer className="footer">
       {/* ── Main band ── */}
@@ -22,7 +23,7 @@ const FooterView: React.FC<FooterViewProps> = ({ brandName, columns, socialLinks
           <div className="footer__inner">
             {/* Brand */}
             <div className="footer__brand">
-              <h2 className="footer__brand-name">{brandName}</h2>
+              <img src={footer_logo} alt="MDC Logo" className="logo-image" />{' '}
             </div>
 
             {/* Vertical divider */}

@@ -8,6 +8,7 @@ import AbhaContainer from '../components/abhaSection/container/abha.container';
 import RecommendedHospitalsContainer from '../components/recommendedHospitals/container/recommendedHospitals.container';
 import RecommendedClinicsContainer from '../components/recommendedClinics/container/recommendedClinics.container';
 // import ExpertiseContainer from '../components/expertise/container/expertise.container';
+import ExpertiseContainer from '../components/expertise/container/expertise.container';
 
 const DashboardRoute: React.FC = () => {
   return (
@@ -17,8 +18,8 @@ const DashboardRoute: React.FC = () => {
       <MedicalServicesContainer />
       <AboutServicesView />
       <FindDoctorBySymptomsContaine />
-      {/* <ExpertiseContainer /> */}
       <AbhaContainer />
+      <ExpertiseContainer />
       <RecommendedHospitalsContainer />
       <RecommendedClinicsContainer />
     </>

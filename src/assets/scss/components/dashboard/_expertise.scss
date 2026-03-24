@@ -1,296 +1,123 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// ExpertiseSection.scss
-// ─────────────────────────────────────────────────────────────────────────────
-
-// ── Variables ─────────────────────────────────────────────────────────────────
-
-$color-primary: #3a9fd4;
-$color-primary-light: #ebf4fb;
-$color-text-dark: #1a2332;
-$color-text-medium: #4a5568;
-$color-text-light: #8896a5;
-$color-border: #e8f0f7;
-$color-white: #ffffff;
-$color-bg: #f8fbfe;
-
-$card-border-radius: 20px;
-$card-shadow:
-  0 2px 16px rgba(58, 159, 212, 0.08),
-  0 1px 4px rgba(0, 0, 0, 0.04);
-$card-shadow-hover:
-  0 8px 32px rgba(58, 159, 212, 0.18),
-  0 2px 8px rgba(0, 0, 0, 0.06);
-
-$offset-up: -28px; // Cards on index 0, 2, 4 shift UP
-$offset-down: 28px; // Cards on index 1, 3, 5 shift DOWN
-
-$transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-// ── Section ───────────────────────────────────────────────────────────────────
-
 .expertise-section {
-  padding: 80px 0 120px;
-  background: $color-bg;
-  overflow: hidden;
+  padding: 80px 0;
+  background: #fff;
 
-  // ── Header ────────────────────────────────────────────────────────────────
-
-  &__header {
+  .section-header {
     text-align: center;
-    margin-bottom: 64px;
-  }
+    margin-bottom: 50px;
 
-  &__eyebrow {
-    display: block;
-    font-size: 14px;
-    font-weight: 500;
-    color: $color-text-light;
-    letter-spacing: 0.04em;
-    margin-bottom: 10px;
-    font-family:
-      'Segoe UI',
-      system-ui,
-      -apple-system,
-      sans-serif;
-  }
+    .sub-title {
+      font-size: 14px;
+      color: #8896a5;
+    }
 
-  &__title {
-    font-size: clamp(28px, 4vw, 40px);
-    font-weight: 700;
-    color: $color-text-dark;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin: 0;
-    font-family:
-      'Segoe UI',
-      system-ui,
-      -apple-system,
-      sans-serif;
-  }
-
-  // ── Slider Wrapper ────────────────────────────────────────────────────────
-
-  &__slider-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    // Extra vertical padding so offset cards don't clip
-    padding: 40px 0 40px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  &__swiper {
-    width: 100%;
-    // critical: allow overflow so staggered cards are visible
-    overflow: visible !important;
-    padding: 0 16px !important;
-
-    .swiper-wrapper {
-      align-items: flex-start; // baseline alignment so translateY offsets are clean
+    .title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #1a2332;
     }
   }
 
-  &__slide {
-    // Each slide just holds the card — card controls its own offset
+  .expertise-wrapper {
+    position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
   }
 
-  // ── Nav Buttons ───────────────────────────────────────────────────────────
+  /* ✅ CRITICAL FIX */
+  .expertise-swiper {
+    width: 100%;
+    padding: 40px 0; // space for zigzag
+  }
 
-  &__nav {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
+  /* NAV */
+  .nav-btn {
+    width: 42px;
+    height: 42px;
+    background: #fff;
     border-radius: 50%;
-    border: 1.5px solid $color-border;
-    background: $color-white;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: $color-text-medium;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: all $transition-base;
-    position: relative;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
     z-index: 10;
 
-    svg {
-      width: 18px;
-      height: 18px;
-      display: block;
+    &.prev {
+      margin-right: 10px;
     }
 
-    &:hover:not(&--disabled) {
-      border-color: $color-primary;
-      color: $color-primary;
-      box-shadow: 0 4px 16px rgba(58, 159, 212, 0.2);
-      transform: scale(1.05);
+    &.next {
+      margin-left: 10px;
     }
 
-    &:active:not(&--disabled) {
-      transform: scale(0.97);
-    }
-
-    &--prev {
-      margin-right: 16px;
-    }
-
-    &--next {
-      margin-left: 16px;
-    }
-
-    &--disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-    }
-  }
-}
-
-// ── Card ──────────────────────────────────────────────────────────────────────
-
-.expertise-card {
-  width: 100%;
-  background: $color-white;
-  border-radius: $card-border-radius;
-  border: 1.5px solid $color-border;
-  padding: 28px 20px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: $card-shadow;
-  transition:
-    transform $transition-base,
-    box-shadow $transition-base,
-    border-color $transition-base;
-  will-change: transform;
-
-  // ── Staggered vertical offset ────────────────────────────────────────────
-  // Cards with class --up (index 0, 2, 4 ...) translate UP
-  // Cards with class --down (index 1, 3, 5 ...) translate DOWN
-  // This creates the zigzag / wave layout from the Figma design.
-
-  &--up {
-    transform: translateY($offset-up);
-
-    &:hover {
-      transform: translateY(calc(#{$offset-up} - 6px));
-      box-shadow: $card-shadow-hover;
-      border-color: rgba($color-primary, 0.25);
+    &.disabled {
+      opacity: 0.4;
+      pointer-events: none;
     }
   }
 
-  &--down {
-    transform: translateY($offset-down);
-
-    &:hover {
-      transform: translateY(calc(#{$offset-down} - 6px));
-      box-shadow: $card-shadow-hover;
-      border-color: rgba($color-primary, 0.25);
-    }
-  }
-
-  // ── Icon wrapper ──────────────────────────────────────────────────────────
-
-  &__icon-wrapper {
-    width: 100px;
-    height: 116px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-  }
-
-  // ── Text ──────────────────────────────────────────────────────────────────
-
-  &__content {
-    width: 100%;
-  }
-
-  &__title {
-    font-size: 16px;
-    font-weight: 700;
-    color: $color-text-dark;
-    margin: 0 0 6px;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    font-family:
-      'Segoe UI',
-      system-ui,
-      -apple-system,
-      sans-serif;
-  }
-
-  &__subtitle {
-    font-size: 13px;
-    color: $color-text-light;
-    line-height: 1.5;
-    margin: 0;
-    font-family:
-      'Segoe UI',
-      system-ui,
-      -apple-system,
-      sans-serif;
-  }
-}
-
-// ── Responsive ────────────────────────────────────────────────────────────────
-
-@media (max-width: 767px) {
-  .expertise-section {
-    padding: 56px 0 80px;
-
-    &__header {
-      margin-bottom: 40px;
-    }
-
-    &__slider-wrapper {
-      padding: 32px 0;
-    }
-
-    &__nav {
-      width: 36px;
-      height: 36px;
-
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-
-      &--prev {
-        margin-right: 10px;
-      }
-
-      &--next {
-        margin-left: 10px;
-      }
-    }
-  }
-
+  /* CARD */
   .expertise-card {
-    padding: 22px 16px 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 18px;
+    text-align: center;
+    border: 1px solid #d0d0d0;
+    transition: 0.3s;
+    height: 100%;
 
-    &__icon-wrapper {
-      width: 80px;
-      height: 92px;
-      margin-bottom: 16px;
+    /* ✅ FIX: prevent cut */
+    min-height: 220px;
+
+    &.up {
+      transform: translateY(-25px);
     }
 
-    &__title {
-      font-size: 14px;
+    &.down {
+      transform: translateY(25px);
     }
 
-    &__subtitle {
-      font-size: 12px;
+    &:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .icon {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+
+      img {
+        max-width: 80px;
+        max-height: 80px;
+        object-fit: contain;
+      }
+    }
+    .card-content {
+      background-color: #f5f9ff;
+      padding: 10px;
+      .card-title {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .card-subtitle {
+        font-size: 13px;
+        color: #8896a5;
+      }
+    }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .expertise-card {
+      &.up,
+      &.down {
+        transform: none; // remove zigzag on mobile
+      }
     }
   }
 }
