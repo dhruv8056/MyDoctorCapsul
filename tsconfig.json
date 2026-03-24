@@ -8,7 +8,6 @@
     "skipLibCheck": true,
 
     "outDir": "./build",
-    //"rootDir": ".",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -26,29 +25,32 @@
 
     /* Linting */
     "strict": true,
-    "noImplicitAny": true /* Fix the issue you have with import shared library and then change this back to true */,
+    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    //absolute import
+    /* Absolute imports */
     "baseUrl": "./src",
     "paths": {
-      "@assets/*": ["./assets/*"],
-      "@app/*": ["./app/*"],
-      "@config/*": ["./core/config/*"],
-      "@core/*": ["./core/*"],
-      "@pages/*": ["./features/pages/*"],
-      "@auth/*": ["./features/auth/*"],
-      "@wallet/*": ["./features/wallet/*"],
-      "@student/*": ["./features/student/*"],
-      "@features/*": ["./features/*"],
-      "@shared/*": ["./shared/*"],
-      "@store/*": ["./store/*"],
-      "@src/*": ["/*"]
+      "@assets/*": ["assets/*"],
+      "@app/*": ["app/*"],
+      "@config/*": ["core/config/*"],
+      "@core/*": ["core/*"],
+      "@pages/*": ["features/pages/*"],
+      "@auth/*": ["features/auth/*"],
+      "@wallet/*": ["features/wallet/*"],
+      "@student/*": ["features/student/*"],
+      "@features/*": ["features/*"],
+      "@shared/*": ["shared/*"],
+      "@store/*": ["store/*"]
     }
   },
-  "include": ["src/**/*", "jest.setup.ts", "src/features/home/components/program/view/.tsx"],
+  "include": [
+    "src/**/*",
+    "jest.setup.ts",
+    "src/features/home/components/program/view/**/*.tsx"
+  ],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

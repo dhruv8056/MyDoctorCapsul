@@ -1,0 +1,46 @@
+.forget-password-right {
+  flex: 1;
+  padding-right: 70px;
+  margin-top: 34px;
+  margin-bottom: 54px;
+
+  h3 {
+    margin-bottom: 3px;
+    text-align: center;
+    color: #0e0e0e;
+    font-weight: 600;
+    font-size: 22px;
+    font-family: 'poppins';
+  }
+  p {
+    margin-bottom: 47px;
+    text-align: center;
+    color: #6B7E8F;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Poppins';
+  }
+
+  .forget-form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forget-btn {
+    width: 100%;
+    padding: 12px;
+    background: #014a97;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: #014a97;
+    }
+  }
+}

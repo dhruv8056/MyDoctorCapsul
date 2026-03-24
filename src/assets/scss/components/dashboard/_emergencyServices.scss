@@ -1,0 +1,114 @@
+.emergency-section {
+  padding: 40px 0;
+  background: #fff;
+
+  .emergency-cards {
+    display: flex;
+    gap: 43px;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  .ambulance-card {
+    flex: 1;
+    max-width: 605px;
+    border-radius: 12px;
+    padding: 31px 40px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    background-color: #fef2f2;
+    border: 1px solid #dc2727;
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .ambulance-card-label {
+        font-size: 30px;
+        font-weight: 600;
+        margin: 0;
+        color: #dc2727;
+        font-family: 'Lexend Deca', sans-serif;
+      }
+
+      .card-icon {
+        font-size: 22px;
+      }
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 100%;
+      margin: 0;
+      font-family: 'Lexend Deca', sans-serif;
+      color: rgba(127, 31, 31, 0.7);
+    }
+  }
+
+  .emergency-card {
+    position: relative;
+    flex: 1;
+    max-width: 605px;
+    border-radius: 12px;
+    padding: 31px 40px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    background-color: #ee4141;
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .emergency-card-label {
+        font-size: 30px;
+        font-weight: 600;
+        margin: 0;
+        color: #fff;
+        font-family: 'Lexend Deca', sans-serif;
+      }
+
+      .card-icon {
+        font-size: 22px;
+      }
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 100%;
+      margin: 0;
+      font-family: 'Lexend Deca', sans-serif;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+  .emergency-card::before {
+    content: '';
+    position: absolute;
+
+    /* 👇 this creates space between border & edge (Figma style) */
+    inset: 10px;
+
+    border-radius: 10px;
+    border: 2px dashed #f7b1b1;
+
+    pointer-events: none;
+  }
+}

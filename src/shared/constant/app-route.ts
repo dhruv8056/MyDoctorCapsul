@@ -1,6 +1,7 @@
 export const APP_ROUTE = {
-  LOGIN: '/',
+  SIGNIN: '/signin',
   SIGN_UP: '/signup',
+  FORGET_PASSWORD: '/forget-password',
   DASHBOARD: '/dashboard',
 
   //ROLES WISE ROUTE

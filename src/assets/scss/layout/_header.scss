@@ -1,0 +1,64 @@
+.app-header {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+
+  .header-wrapper {
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* LOGO */
+    .header-logo {
+      font-size: 20px;
+      font-weight: 600;
+      color: #022e8f;
+    }
+
+    /* NAVIGATION */
+    .header-nav {
+      display: flex;
+      gap: 28px;
+
+      a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #0e0e0e;
+        font-weight: 600;
+        transition: 0.2s;
+
+        &:hover {
+          color: #0b61d2;
+        }
+      }
+    }
+
+    /* ACTIONS */
+    .header-actions {
+      display: flex;
+      gap: 12px;
+
+      .signup-btn,
+      .signin-btn {
+        padding: 6px 16px;
+        border: 1px solid #e8e8e8;
+        color: #828282;
+        cursor: pointer;
+        background: transparent;
+        border-radius: 6px;
+        transition: 0.2s;
+
+        &:hover {
+          background: rgba(1, 74, 151, 0.05);
+        }
+
+        &.active {
+          background: #014a97;
+          color: #fff;
+          border-color: #014a97;
+        }
+      }
+    }
+  }
+}
