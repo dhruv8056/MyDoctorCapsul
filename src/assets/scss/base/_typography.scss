@@ -62,10 +62,6 @@ h6,
 p {
   color: var(--color-text, $color-neutral-900);
   line-height: $line-height-relaxed;
-
-  &:not(:last-child) {
-    margin-bottom: $space-4;
-  }
 }
 
 // Small text

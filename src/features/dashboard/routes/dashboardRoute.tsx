@@ -5,6 +5,8 @@ import MedicalServicesContainer from '../components/medicalServices/container/me
 import AboutServicesView from '../components/aboutServices/view/aboutServicesView';
 import FindDoctorBySymptomsContaine from '../components/findDoctorBySymptoms/container/findDoctorBySymptoms.containe';
 import AbhaContainer from '../components/abhaSection/container/abha.container';
+import RecommendedHospitalsContainer from '../components/recommendedHospitals/container/recommendedHospitals.container';
+import RecommendedClinicsContainer from '../components/recommendedClinics/container/recommendedClinics.container';
 // import ExpertiseContainer from '../components/expertise/container/expertise.container';
 
 const DashboardRoute: React.FC = () => {
@@ -17,6 +19,8 @@ const DashboardRoute: React.FC = () => {
       <FindDoctorBySymptomsContaine />
       {/* <ExpertiseContainer /> */}
       <AbhaContainer />
+      <RecommendedHospitalsContainer />
+      <RecommendedClinicsContainer />
     </>
   );
 };

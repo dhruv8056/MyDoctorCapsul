@@ -6,11 +6,15 @@
 
 // Import all modules in proper order
 @use './assets/scss/abstracts' as *; // Variables, mixins, functions
-@use './assets/scss/base' as *;      // Reset, typography, global defaults
-@use './assets/scss/themes' as *;    // Light/dark theme CSS variables
-@use './assets/scss/layout' as *;    // Header, sidebar, footer
+@use './assets/scss/base' as *; // Reset, typography, global defaults
+@use './assets/scss/themes' as *; // Light/dark theme CSS variables
+@use './assets/scss/layout' as *; // Header, sidebar, footer
 @use './assets/scss/components' as *; // Component styles
-@use './assets/scss/utilities' as *;  // Utility classes and helpers
+@use './assets/scss/utilities' as *; // Utility classes and helpers
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // ============================================================================
 // Additional Global Styles (if needed beyond the _global.scss)
@@ -25,12 +29,6 @@ html {
 img {
   max-width: 100%;
   height: auto;
-}
-
-// Remove tap highlight on mobile
-a,
-button {
-  -webkit-tap-highlight-color: transparent;
 }
 
 // Ensure consistent font rendering
