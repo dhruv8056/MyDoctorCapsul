@@ -1,8 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
-
-// ⚠️ VERY IMPORTANT (missing in your code)
 import 'swiper/css';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
@@ -28,58 +26,65 @@ const ExpertiseView: React.FC<ExpertiseViewProps> = ({
   return (
     <div className="expertise-section">
       <div className="container_layout">
-        {/* HEADER */}
-        <div className="section-header">
-          <p className="sub-title">Our Expertise</p>
-          <h2 className="title">Top Specialist</h2>
+        {/* ── Header ── */}
+        <div className="expertise-section__header">
+          <p className="expertise-section__subtitle">Our Expertise</p>
+          <h2 className="expertise-section__title">Top Specialist</h2>
         </div>
 
-        <div className="expertise-wrapper">
-          {/* PREV */}
-          <div className={`nav-btn prev ${isBeginning ? 'disabled' : ''}`} onClick={onPrev}>
-            <Icon icon="solar:arrow-left-linear" width="24" height="24" />
-          </div>
+        {/* ── Slider wrapper ── */}
+        <div className="expertise-section__wrapper">
+          {/* Prev btn */}
+          <button
+            className={`expertise-section__nav expertise-section__nav--prev ${isBeginning ? 'expertise-section__nav--disabled' : ''}`}
+            onClick={onPrev}
+            aria-label="Previous"
+            disabled={isBeginning}
+          >
+            <Icon icon="solar:arrow-left-linear" width="22" height="22" />
+          </button>
 
-          {/* SWIPER */}
+          {/* Swiper */}
           <Swiper
             onSwiper={onSwiperInit}
             onSlideChange={onSlideChange}
-            spaceBetween={14}
+            spaceBetween={16}
             slidesPerView={1.2}
             breakpoints={{
               480: { slidesPerView: 2 },
               768: { slidesPerView: 3 },
-              1024: { slidesPerView: 4 },
-              1280: { slidesPerView: 5 }
+              1025: { slidesPerView: 4 },
+              1281: { slidesPerView: 5 }
             }}
-            className="expertise-swiper"
+            className="expertise-section__swiper"
           >
-            {expertiseData.map((item, index) => {
-              const isUp = index % 2 === 0;
-
-              return (
-                <SwiperSlide key={item.id}>
-                  <div className={`expertise-card ${isUp ? 'up' : 'down'}`}>
-                    {/* ICON */}
-                    <div className="icon">
-                      <img src={item.icon} alt={item.title} />
-                    </div>
-
-                    {/* CONTENT */}
-                    <div className="card-content">
-                      <h3 className="card-title">{item.title}</h3>
-                      <p className="card-subtitle">{item.subtitle}</p>
-                    </div>
+            {expertiseData.map((item, index) => (
+              <SwiperSlide key={item.id}>
+                <div className={`expertise-card ${index % 2 === 0 ? 'expertise-card--up' : 'expertise-card--down'}`}>
+                  {/* ── Image area (white top) ── */}
+                  <div className="expertise-card__image-area">
+                    <img src={item.icon} alt={item.title} className="expertise-card__image" />
                   </div>
-                </SwiperSlide>
-              );
-            })}
+
+                  {/* ── Content area (light blue bottom) ── */}
+                  <div className="expertise-card__content">
+                    <h3 className="expertise-card__title">{item.title}</h3>
+                    <p className="expertise-card__subtitle">{item.subtitle}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
 
-          {/* NEXT */}
-          <div className={`nav-btn next ${isEnd ? 'disabled' : ''}`} onClick={onNext}>
-            <Icon icon="solar:arrow-right-linear" width="24" height="24" />
-          </div>
+          {/* Next btn */}
+          <button
+            className={`expertise-section__nav expertise-section__nav--next ${isEnd ? 'expertise-section__nav--disabled' : ''}`}
+            onClick={onNext}
+            aria-label="Next"
+            disabled={isEnd}
+          >
+            <Icon icon="solar:arrow-right-linear" width="22" height="22" />
+          </button>
         </div>
       </div>
     </div>

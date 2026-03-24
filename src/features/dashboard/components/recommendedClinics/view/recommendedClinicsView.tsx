@@ -48,8 +48,9 @@ const ClinicCard: React.FC<ClinicCardProps> = ({ clinic, onViewDetails }) => {
 
         {/* Row 4 — Specialties */}
         <p className="recommended-clinics__specialties">
-          <Icon icon="icon-park-outline:dot" width="16" height="16" />
-          <strong>Specialties:</strong> {specialties.join(', ')}
+          <Icon icon="icon-park-outline:dot" width="12" height="12" />
+          <span className="recommended-clinics__specialties__title">Specialties:</span>
+          <span className="recommended-clinics__specialties__subtitle">{specialties.join(', ')}</span>
         </p>
       </div>
 

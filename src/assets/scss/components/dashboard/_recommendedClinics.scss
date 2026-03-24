@@ -10,16 +10,17 @@
     margin-bottom: 50px;
   }
 
-  &__subtitle {
+  & &__subtitle {
+    font-family: 'Lexend Deca';
     display: block;
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
     color: #252525;
   }
 
   &__title {
     font-family: 'Lexend Deca';
-    font-size: clamp(22px, 4vw, 32px);
+    font-size: clamp(30px, 4vw, 32px);
     font-weight: 500;
     color: #000000;
     margin: 0;
@@ -102,6 +103,7 @@
   }
 
   &__name {
+    font-family: 'Poppins';
     font-size: 18px;
     font-weight: 600;
     color: #0f172a;
@@ -110,6 +112,7 @@
   }
 
   &__rating-chip {
+    font-family: 'Gilroy', sans-serif;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -131,6 +134,7 @@
 
   // Row 2 — Distance
   &__distance {
+    font-family: 'Gilroy', sans-serif;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -147,12 +151,13 @@
 
   // Row 3 — Open badge
   &__open-badge {
+    font-family: 'Poppins';
     display: inline-flex;
     align-items: center;
     gap: 5px;
     background-color: #dafaec;
     color: #16a34a;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     padding: 4px 12px;
     border-radius: 6px;
@@ -162,19 +167,20 @@
 
   // Row 4 — Specialties
   &__specialties {
+    font-family: 'Poppins';
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     color: #5d5d5d;
     margin: 0;
 
-    strong {
+    &__title {
       font-weight: 600;
-      color: #5d5d5d;
+      font-size: 15px;
       margin-right: 2px;
     }
 
-    p {
+    &__subtitle {
       font-weight: 500;
     }
   }
@@ -185,6 +191,7 @@
   }
 
   &__btn {
+    font-family: 'Lexend Deca';
     display: block;
     width: 100%;
     padding: 11px 0;

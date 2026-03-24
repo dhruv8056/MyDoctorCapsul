@@ -1,25 +1,37 @@
-// Container System
-
 .container_layout {
   width: 100%;
-  max-width: 1320px; // standard large screen
-  margin: 0 auto;
-  padding: 0 24px;
+  margin-inline: auto;
+  padding-inline: clamp(12px, 2vw, 32px);
 
-  // Tablet
-  @media (max-width: 992px) {
-    max-width: 960px;
-    padding: 0 20px;
-  }
-
-  // Mobile
-  @media (max-width: 768px) {
-    max-width: 100%;
-    padding: 0 16px;
-  }
-
-  // Small Mobile
   @media (max-width: 480px) {
-    padding: 0 12px;
+    max-width: 100%;
+  }
+
+  @media (min-width: 481px) and (max-width: 640px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    max-width: 640px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    max-width: 768px;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    max-width: 1024px;
+  }
+
+  @media (min-width: 1281px) and (max-width: 1536px) {
+    max-width: 1280px;
+  }
+
+  @media (min-width: 1537px) and (max-width: 1920px) {
+    max-width: 1440px;
+  }
+
+  @media (min-width: 1921px) {
+    max-width: 1600px;
   }
 }

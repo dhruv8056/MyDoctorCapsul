@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Swiper as SwiperType } from 'swiper';
+import 'swiper/css';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 import General_doctor from '@assets/images/findDoctorBySymptoms/general_doctor.png';
 import Respiratory from '@assets/images/findDoctorBySymptoms/respiratory.png';
@@ -9,114 +11,158 @@ import Gastrointestinal from '@assets/images/findDoctorBySymptoms/Gastrointestin
 import mind from '@assets/images/findDoctorBySymptoms/mind.png';
 import muscul from '@assets/images/findDoctorBySymptoms/muscul.png';
 import skin from '@assets/images/findDoctorBySymptoms/skin.png';
-import { Icon } from '@iconify/react/dist/iconify.js';
 
-const cardData = [
+// ─── Data ─────────────────────────────────────────────────────────────────────
+
+const CARD_DATA = [
   {
+    id: 1,
     title: 'General',
     subtitle: 'Physicians',
     image: General_doctor,
     points: ['Fever, chills', 'Weakness', 'Weight loss/gain'],
-    active: true
+    defaultActive: true
   },
   {
+    id: 2,
     title: 'Respiratory',
     subtitle: 'Pulmonologists Physicians',
     image: Respiratory,
-    points: ['Cough', 'Breathlessness', 'Wheezing']
+    points: ['Cough', 'Breathlessness', 'Wheezing'],
+    defaultActive: false
   },
   {
+    id: 3,
     title: 'Cardiac',
     subtitle: 'Cardiologists',
     image: heart,
-    points: ['Chest pain', 'Palpitations', 'Swelling in legs']
+    points: ['Chest pain', 'Palpitations', 'Swelling in legs'],
+    defaultActive: false
   },
   {
+    id: 4,
     title: 'Gastrointestinal',
     subtitle: 'Gastroenterology',
     image: Gastrointestinal,
-    points: ['Stomach pain', 'Acidity', 'Constipation', 'Loose motions']
+    points: ['Stomach pain', 'Acidity', 'Constipation', 'Loose motions'],
+    defaultActive: false
   },
   {
+    id: 5,
     title: 'Neurological',
     subtitle: 'Neuro Physician or Neurologist',
     image: mind,
-    points: ['Headache', 'Dizziness', 'Seizures', 'Numbness']
+    points: ['Headache', 'Dizziness', 'Seizures', 'Numbness'],
+    defaultActive: false
   },
-
   {
+    id: 6,
     title: 'Musculoskeletal',
     subtitle: 'Orthopedician or Rheumatologist',
     image: muscul,
-    points: ['Joint pain', 'Back pain', 'Muscle stiffness']
+    points: ['Joint pain', 'Back pain', 'Muscle stiffness'],
+    defaultActive: false
   },
   {
+    id: 7,
     title: 'Skin',
     subtitle: 'Dermatologist',
     image: skin,
-    points: ['Rash', 'Itching', 'Pigmentation']
+    points: ['Rash', 'Itching', 'Pigmentation'],
+    defaultActive: false
   }
 ];
 
+// ─── Component ────────────────────────────────────────────────────────────────
+
 const FindDoctorBySymptomsView: React.FC = () => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+  const [activeId, setActiveId] = useState<number>(1);
+
+  const handlePrev = () => swiperRef.current?.slidePrev();
+  const handleNext = () => swiperRef.current?.slideNext();
+
   return (
-    <div className="find-doctor-by-symptoms-section">
+    <section className="fdbs">
       <div className="container_layout">
-        <h2 className="section-title">Find Doctor By Symptoms</h2>
+        {/* ── Title ── */}
+        <h2 className="fdbs__title">Find Doctor By Symptoms</h2>
 
-        <div className="cards-wrapper">
-          {/* Custom Navigation Buttons */}
-          <div className="custom-prev">
-            <span className="arrow left">
-              <Icon icon="solar:arrow-left-linear" width="24" height="24" />
-            </span>
-          </div>
-
-          <div className="custom-next">
-            <span className="arrow right">
-              <Icon icon="solar:arrow-right-linear" width="24" height="24" />
-            </span>
-          </div>
+        {/* ── Slider wrapper ── */}
+        <div className="fdbs__wrapper">
+          {/* Prev */}
+          <button
+            className={`fdbs__nav fdbs__nav--prev${isBeginning ? ' fdbs__nav--disabled' : ''}`}
+            onClick={handlePrev}
+            aria-label="Previous"
+            disabled={isBeginning}
+          >
+            <Icon icon="solar:arrow-left-linear" width="20" height="20" />
+          </button>
 
           <Swiper
-            modules={[Navigation]}
-            spaceBetween={20}
-            slidesPerView={4}
-            navigation={{
-              nextEl: '.custom-next',
-              prevEl: '.custom-prev'
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+              setIsBeginning(swiper.isBeginning);
+              setIsEnd(swiper.isEnd);
             }}
+            onSlideChange={(swiper) => {
+              setIsBeginning(swiper.isBeginning);
+              setIsEnd(swiper.isEnd);
+            }}
+            spaceBetween={16}
+            slidesPerView={1.1}
             breakpoints={{
-              320: { slidesPerView: 1 },
-              480: { slidesPerView: 2 },
-              768: { slidesPerView: 3 },
-              1024: { slidesPerView: 4 }
+              480: { slidesPerView: 2, spaceBetween: 16 },
+              768: { slidesPerView: 3, spaceBetween: 18 },
+              1024: { slidesPerView: 4, spaceBetween: 20 }
             }}
+            className="fdbs__swiper"
           >
-            {cardData.map((card, index) => (
-              <SwiperSlide key={index}>
-                <div className={`find-doctor-by-symptoms-section-card ${card.active ? 'active' : ''}`}>
-                  <h3 className="card-title">{card.title}</h3>
-                  <p className="card-subtitle">{card.subtitle}</p>
+            {CARD_DATA.map((card) => (
+              <SwiperSlide key={card.id}>
+                <div className={`fdbs__card${activeId === card.id ? ' fdbs__card--active' : ''}`} onClick={() => setActiveId(card.id)}>
+                  {/* Background image */}
+                  <div className="fdbs__card-bg-image">
+                    <img src={card.image} alt="" aria-hidden="true" />
+                  </div>
 
-                  {card.image && (
-                    <div className="card-image">
-                      <img src={card.image} alt={card.title} />
-                    </div>
-                  )}
+                  {/* Title */}
+                  <h3 className="fdbs__card-title">{card.title}</h3>
 
-                  <ul className="card-list">
-                    {card.points.map((point, i) => (
-                      <li key={i}>{point}</li>
+                  {/* Subtitle */}
+                  <p className="fdbs__card-subtitle">{card.subtitle}</p>
+
+                  {/* Dashed divider */}
+                  <div className="fdbs__card-divider" aria-hidden="true" />
+
+                  {/* Symptom list */}
+                  <ul className="fdbs__card-list">
+                    {card.points.map((point) => (
+                      <li key={point} className="fdbs__card-list-item">
+                        {point}
+                      </li>
                     ))}
                   </ul>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
+
+          {/* Next */}
+          <button
+            className={`fdbs__nav fdbs__nav--next${isEnd ? ' fdbs__nav--disabled' : ''}`}
+            onClick={handleNext}
+            aria-label="Next"
+            disabled={isEnd}
+          >
+            <Icon icon="solar:arrow-right-linear" width="20" height="20" />
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

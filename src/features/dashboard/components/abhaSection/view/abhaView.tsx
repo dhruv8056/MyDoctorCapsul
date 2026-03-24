@@ -23,15 +23,15 @@ const AbhaView = () => {
           <div className="abha-right">
             <ul>
               <li>
-                <Icon icon="lets-icons:check-fill" className="icon" width={24} height={24} color="#D9C7C8" />
+                <Icon icon="duo-icons:check-circle" className="icon" width={24} height={24} color="#000" />
                 Government Health Benefits
               </li>
               <li>
-                <Icon icon="lets-icons:check-fill" className="icon" width={24} height={24} color="#D9C7C8" />
+                <Icon icon="duo-icons:check-circle" className="icon" width={24} height={24} color="#000" />
                 Secure Health Records
               </li>
               <li>
-                <Icon icon="lets-icons:check-fill" className="icon" width={24} height={24} color="#D9C7C8" />
+                <Icon icon="duo-icons:check-circle" className="icon" width={24} height={24} color="#000" />
                 Hassle-Free Hospital Visits
               </li>
             </ul>

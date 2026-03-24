@@ -62,17 +62,19 @@
   }
 
   &__col-title {
-    font-size: 16px;
-    font-weight: 700;
+    font-family: 'Lexend Deca';
+    font-size: 20px;
+    font-weight: 600;
     color: #ffffff;
-    margin: 0 0 4px;
+    margin: 0 0 20px;
     line-height: 25px;
   }
 
   &__link {
+    font-family: 'Lexend Deca';
     font-size: 15px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.82);
+    font-weight: 300;
+    color: #b3c9e0;
     text-decoration: none;
     transition: color 0.18s ease;
     display: block;
@@ -102,8 +104,10 @@
   }
 
   &__copy {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.75);
+    font-family: 'Montserrat', 'Gilroy';
+    font-size: 12px;
+    font-weight: 400;
+    color: #b6bfca;
     margin: 0;
   }
 

@@ -71,7 +71,20 @@
       top: 0;
       height: 100%;
       width: 2px;
-      background: repeating-linear-gradient(to bottom, #ffffff 0px, #000000 6px, #ffffff 12px);
+
+      // 🎨 Full vertical gradient
+      background: linear-gradient(to bottom, #ffffff 0%, #000000 50%, #ffffff 100%);
+
+      // ✂️ Create dashed effect
+      mask: repeating-linear-gradient(
+        to bottom,
+        #000 0 8px,
+        // dash height
+        transparent 8px 11px // gap
+      );
+
+      -webkit-mask: repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 11px);
+
       opacity: 0.4;
     }
 
