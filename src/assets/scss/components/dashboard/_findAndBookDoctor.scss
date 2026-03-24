@@ -1,0 +1,237 @@
+.find-and-book-doctor-section {
+  background-color: #f5f9ff;
+  padding-top: 47px;
+
+  .section-title {
+    font-size: 20px;
+    color: #252525;
+    text-align: center;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 400;
+  }
+
+  .section-description {
+    font-size: 30px;
+    color: #000;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 40px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 500;
+  }
+
+  /* TOP FILTER BUTTONS */
+  .section-btn {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 29px;
+    flex-wrap: wrap;
+
+    .find-doctor-button {
+      padding: 12px 26px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.25s ease;
+
+      background-color: #fff;
+      color: #01274e;
+      border: 1px solid rgba(1, 74, 151, 0.5);
+
+      &:hover {
+        background-color: #e6eef8;
+      }
+
+      &.active {
+        background-color: #01274e;
+        color: #fff;
+        border: 1px solid #01274e;
+      }
+    }
+  }
+
+  /* CARD SECTION */
+  .section-doctor-cards {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 35px;
+
+    .swiper {
+      padding-bottom: 30px;
+    }
+
+    .swiper-pagination {
+      bottom: 0;
+    }
+
+    .swiper-pagination-bullet {
+      background: #d9d9d9;
+      opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #676767;
+      width: 10px;
+      border-radius: 10px;
+    }
+  }
+
+  .doctor-card {
+    display: flex;
+    border: 1px solid #bce0ff;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fefefe;
+    max-width: 684px;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  /* LEFT IMAGE */
+  .doctor-left {
+    img {
+      margin-top: 20px;
+      width: 210px;
+      height: 282px;
+      object-fit: contain;
+    }
+  }
+
+  /* RIGHT SIDE FULL CONTENT */
+  .doctor-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* TOP SECTION */
+  .doctor-top {
+    display: flex;
+    gap: 2px;
+  }
+
+  /* MIDDLE */
+  .doctor-middle {
+    flex: 0 0 60%;
+    padding: 20px 20px 0 20px;
+    .doctor-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-family: 'Lexend Deca', sans-serif;
+      color: #252525;
+    }
+
+    .doctor-meta {
+      font-size: 15px;
+      color: rgba(37, 37, 37, 0.7);
+      font-weight: 300;
+      font-family: 'Lexend Deca', sans-serif;
+
+      .fee {
+        background-color: rgba(217, 229, 244, 1);
+        padding: 3px;
+        border-radius: 5px;
+        color: rgba(0, 123, 255, 1);
+        margin-left: 10px;
+        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+
+    .doctor-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      margin: 10px 0;
+      font-size: 14px;
+      color: #252525;
+      font-weight: 600;
+      font-family: 'Lexend Deca', sans-serif;
+
+      span {
+        margin-left: 10px; // space before distance
+        color: rgba(37, 37, 37, 1);
+        font-weight: 400;
+        font-size: 15px;
+      }
+    }
+
+    .doctor-timing {
+      p {
+        border-left: 2px solid rgba(0, 0, 0, 0.2);
+        padding-left: 12px;
+        margin-bottom: 10px;
+
+        font-size: 15px;
+        color: rgba(37, 37, 37, 0.7);
+        font-family: 'Lexend Deca', sans-serif;
+        font-weight: 300;
+      }
+    }
+  }
+
+  /* RIGHT */
+  .doctor-right {
+    flex: 0 0 40%;
+    max-width: 206px;
+
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    img {
+      width: 100%;
+      max-width: 206px;
+      height: 80px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 30px;
+      li {
+        list-style: circle;
+        margin-bottom: 6px;
+        color: rgba(37, 37, 37, 0.7);
+        font-family: 'Lexend Deca', sans-serif;
+        font-weight: 300;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .doctor-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    padding: 0 20px 20px 20px;
+
+    button {
+      padding: 10px 10px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .book-btn {
+      background: #014a97;
+      color: #fff;
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .call-btn {
+      background: #27954e;
+      color: #fff;
+      font-family: 'Lexend Deca', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+}

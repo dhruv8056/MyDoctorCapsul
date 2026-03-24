@@ -9,6 +9,7 @@ import RecommendedHospitalsContainer from '../components/recommendedHospitals/co
 import RecommendedClinicsContainer from '../components/recommendedClinics/container/recommendedClinics.container';
 // import ExpertiseContainer from '../components/expertise/container/expertise.container';
 import ExpertiseContainer from '../components/expertise/container/expertise.container';
+import FindAndBookDoctorContainer from '../components/find-and-book-doctor/container/find-and-book-doctor.container';
 
 const DashboardRoute: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const DashboardRoute: React.FC = () => {
       <ExpertiseContainer />
       <RecommendedHospitalsContainer />
       <RecommendedClinicsContainer />
+      <FindAndBookDoctorContainer />
     </>
   );
 };
