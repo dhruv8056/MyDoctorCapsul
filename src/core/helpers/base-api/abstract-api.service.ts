@@ -4,9 +4,6 @@ import store, { RootState } from '@store/app.store';
 import { ApiEndpoint } from '@shared/constant/app-endpoint';
 import { ApiMethod } from '@shared/types/app.type';
 import { IApiResponse } from './interfaces/IApiResponse';
-import { ILogin } from '@shared/components/auth/login/interfaces/IAuth';
-import { NotificationFactory } from '../notification/factory/notification-factory';
-import { TmsNotificationType } from '../notification/enum/notification-type.enum';
 import { APP_MESSAGES } from '@shared/constant/app-message';
 import showToast from '@core/toaster/notification.service';
 import { showToastify } from '@shared/components/common/CustomToast';
@@ -51,15 +48,7 @@ abstract class AbstractApiService {
     }
   }
 
-  protected async request<T>(
-    method: ApiMethod,
-    endpoint: string,
-    data = {},
-    notificationMethod = {},
-    reassurance = '',
-    params = {},
-    notificationBody?: object
-  ): Promise<T> {
+  protected async request<T>(method: ApiMethod, endpoint: string, data = {}, params = {}): Promise<T> {
     const isOnline = navigator.onLine;
     const path = window.location.pathname;
 
@@ -83,7 +72,7 @@ abstract class AbstractApiService {
       }
     } else {
       const state: RootState = store.getState();
-      const user = state.user.data as unknown as ILogin;
+      const user = { state, token: 'hello' };
       const headersWithAuth = {
         ...this.headers,
         ...(user ? { Authorization: `Bearer ${user.token}` } : {})
@@ -106,9 +95,6 @@ abstract class AbstractApiService {
           method === 'delete'
         ) {
           this.showToast(response.data.message, 'success');
-        }
-        if (method !== 'get' && endpoint !== ApiEndpoint.auth) {
-          NotificationFactory.create(notificationMethod as TmsNotificationType)?.log(method, notificationBody!, reassurance);
         }
         return response.data.data as T;
       } catch (error) {
@@ -143,7 +129,7 @@ abstract class AbstractApiService {
   }
 
   protected get<T>(endpoint: string, params = {}): Promise<T> {
-    return this.request<T>('get', endpoint, {}, {}, '', params);
+    return this.request<T>('get', endpoint, {}, params);
   }
 
   protected getBy<T>(endpoint: string, id: string | number): Promise<T> {
@@ -151,55 +137,32 @@ abstract class AbstractApiService {
   }
 
   protected getByWithParmas<T>(endpoint: string, id: string | number, params = {} as object): Promise<T> {
-    return this.request<T>('get', `${endpoint}/${id}`, {}, {}, '', params);
+    return this.request<T>('get', `${endpoint}/${id}`, {}, params);
   }
 
-  public post<T>(
-    endpoint: string,
-    data = {},
-    notificationMethod: TmsNotificationType,
-    reassurance: string,
-    notificationBody: object
-  ): Promise<T> {
-    return this.request<T>('post', endpoint, data, notificationMethod, reassurance, {}, notificationBody);
+  public post<T>(endpoint: string, data = {}): Promise<T> {
+    return this.request<T>('post', endpoint, data);
   }
 
-  protected put<T>(
-    endpoint: string,
-    data = {},
-    notificationMethod: TmsNotificationType,
-    reassurance: string,
-    notificationBody: object
-  ): Promise<T> {
-    return this.request<T>('put', endpoint, data, notificationMethod, reassurance, {}, notificationBody);
+  protected put<T>(endpoint: string, data = {}): Promise<T> {
+    return this.request<T>('put', endpoint, data);
   }
 
-  protected delete<T>(
-    endpoint: string,
-    notificationMethod: TmsNotificationType,
-    reassurance: string,
-    notificationBody: object
-  ): Promise<T> {
-    return this.request<T>('delete', endpoint, {}, notificationMethod, reassurance, {}, notificationBody);
+  protected delete<T>(endpoint: string): Promise<T> {
+    return this.request<T>('delete', endpoint);
   }
 
-  protected async uploadBinaryData<T>(
-    endpoint: string,
-    data: FormData,
-    notificationMethod: TmsNotificationType,
-    reassurance: string,
-    notificationBody: object
-  ): Promise<T> {
+  protected async uploadBinaryData<T>(endpoint: string, data: FormData): Promise<T> {
     try {
       const state: RootState = store.getState();
-      const user = state.user.data as unknown as ILogin;
+      const user = { state, token: 'hello' };
+      // const user = state.user.data as unknown as ILogin;
       const headersWithAuth = {
         ...(user ? { Authorization: `Bearer ${user.token}` } : {})
       };
       const response: AxiosResponse<IApiResponse<T>> = await axios.post(`${endpoint}`, data, {
         headers: headersWithAuth
       });
-      NotificationFactory.create(notificationMethod as TmsNotificationType)?.log('post', notificationBody, reassurance);
       this.showToast(response?.data?.message, 'success');
       return response.data as T;
     } catch (error) {
@@ -209,23 +172,16 @@ abstract class AbstractApiService {
     }
   }
 
-  protected async updateBinaryData<T>(
-    endpoint: string,
-    data: FormData,
-    notificationMethod: TmsNotificationType,
-    reassurance: string,
-    notificationBody?: object
-  ): Promise<T> {
+  protected async updateBinaryData<T>(endpoint: string, data: FormData): Promise<T> {
     try {
       const state: RootState = store.getState();
-      const user = state.user.data as unknown as ILogin;
+      const user = { state, token: 'hello' };
       const headersWithAuth = {
         ...(user ? { Authorization: `Bearer ${user.token}` } : {})
       };
       const response: AxiosResponse<IApiResponse<T>> = await axios.put(`${endpoint}`, data, {
         headers: headersWithAuth
       });
-      NotificationFactory.create(notificationMethod as TmsNotificationType)?.log('put', notificationBody!, reassurance);
       this.showToast(response?.data?.message, 'success');
       return response.data as T;
     } catch (error) {

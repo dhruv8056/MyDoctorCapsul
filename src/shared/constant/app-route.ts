@@ -2,7 +2,6 @@ export const APP_ROUTE = {
   SIGNIN: '/signin',
   SIGN_UP: '/signup',
   FORGET_PASSWORD: '/forget-password',
-  DASHBOARD: '/dashboard',
 
   HOME: '/',
 

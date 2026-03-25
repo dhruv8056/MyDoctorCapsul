@@ -1,7 +1,7 @@
 import React from 'react';
 import { HospitalDiscoveryViewProps } from '../interface/IHospitalDiscovery';
 import ServiceDiscoveryMap from '@shared/components/common/ServiceDiscoveryMap';
-import RecommendedHospitalsContainer from '@features/dashboard/components/recommendedHospitals/container/recommendedHospitals.container';
+import RecommendedHospitalsContainer from '@features/home/components/recommendedHospitals/container/recommendedHospitals.container';
 
 const HospitalDiscoveryView: React.FC<HospitalDiscoveryViewProps> = () => {
   return (

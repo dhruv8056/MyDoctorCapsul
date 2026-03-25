@@ -1,12 +1,9 @@
 class Config {
-  public API_EPBASE_URL: string | undefined;
+  public API_URL_1: string | undefined;
   public NODE_ENV: string | undefined;
-  public API_TMSBASE_URL: string | undefined;
-
 
   constructor() {
-    this.API_EPBASE_URL = import.meta.env.VITE_EPBASE_ENDPOINT || 'https://api.eduplanet.tech/apidev1';
-    this.API_TMSBASE_URL = import.meta.env.VITE_TMSBASE_ENDPOINT || 'https://api.eduplanet.tech/apidev2';
+    this.API_URL_1 = import.meta.env.VITE_ENDPOINT;
     this.NODE_ENV = import.meta.env.VITE_NODE_ENV || 'local';
   }
 

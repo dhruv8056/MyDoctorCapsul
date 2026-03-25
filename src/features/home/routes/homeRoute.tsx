@@ -11,7 +11,7 @@ import RecommendedClinicsContainer from '../components/recommendedClinics/contai
 import ExpertiseContainer from '../components/expertise/container/expertise.container';
 import FindAndBookDoctorContainer from '../components/find-and-book-doctor/container/find-and-book-doctor.container';
 
-const DashboardRoute: React.FC = () => {
+const HomeRoute: React.FC = () => {
   return (
     <>
       <HeroContainer />
@@ -28,4 +28,4 @@ const DashboardRoute: React.FC = () => {
   );
 };
 
-export default DashboardRoute;
+export default HomeRoute;
