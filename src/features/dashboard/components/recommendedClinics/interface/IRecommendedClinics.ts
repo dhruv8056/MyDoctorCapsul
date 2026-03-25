@@ -1,21 +1,9 @@
-// ─── Image Imports (bundler processes these correctly) ────────────────────────
 import clinic1 from '@assets/images/RecommendedClinics/clinic-1.png';
 import clinic2 from '@assets/images/RecommendedClinics/clinic-2.png';
 import clinic3 from '@assets/images/RecommendedClinics/clinic-3.png';
+import { HealthcarePlaceItem } from '@shared/components/common/HealthcareListingCard';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-export interface Clinic {
-  id: number;
-  name: string;
-  image: string;
-  rating: number;
-  distance: string;
-  isOpen24h: boolean;
-  specialties: string[];
-}
-
-// ─── Static Data ──────────────────────────────────────────────────────────────
+export type Clinic = HealthcarePlaceItem;
 
 export const CLINICS_DATA: Clinic[] = [
   {

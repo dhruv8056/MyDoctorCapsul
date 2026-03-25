@@ -7,14 +7,13 @@ import { Hospital, HOSPITALS_DATA } from '../interface/IRecommendedHospitals';
 // Passes only plain props down to the View.
 // ──────────────────────────────────────────────────────────────────────────────
 
-const RecommendedHospitalsContainer: React.FC = () => {
+const RecommendedHospitalsContainer: React.FC<{ variant?: 'default' | 'white' }> = ({ variant }) => {
   const hospitals: Hospital[] = HOSPITALS_DATA;
 
   const handleViewDetails = useCallback((hospital: Hospital) => {
     console.log('View details →', hospital.name);
   }, []);
 
-  return <RecommendedHospitalsView hospitals={hospitals} onViewDetails={handleViewDetails} />;
+  return <RecommendedHospitalsView hospitals={hospitals} onViewDetails={handleViewDetails} variant={variant} />;
 };
-
 export default RecommendedHospitalsContainer;

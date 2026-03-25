@@ -4,13 +4,20 @@ export const APP_ROUTE = {
   FORGET_PASSWORD: '/forget-password',
   DASHBOARD: '/dashboard',
 
+  HOME: '/',
+
+  // healthcare-services
+  HEALTHCARE_SERVICES: '/healthcare-services',
+  HEALTHCARE_SERVICES_HOSPITALS: '/hospitals',
+  HEALTHCARE_SERVICES_CLINICS: '/clinics',
+  HEALTHCARE_SERVICES_AMBULANCES: '/ambulances',
+
   //ROLES WISE ROUTE
   PHARMACY: '/pharmacy',
   USER: '/user',
   DOCTOR: '/doctor',
   SUPER_ADMINS: '/superadmin',
   DIAGNOSTIC_CENTRE: '/diagnostic-centre',
-
 
   //DEMO ROUTES
   SHOP: '/shop',
@@ -25,11 +32,10 @@ export const APP_ROUTE = {
   ADMIN_AUTHOR: '/author',
   ADMIN_BOOK: '/book',
 
-
   //book routes
-  BOOK_MANAGE:'/book-management',
-  TAX_MANAGE:'/tax-management',
-  CUSTOMERS:'/customers',
-  ORDER_MANAGE:'/order-management',
-  REPORTING:'/reporting'
+  BOOK_MANAGE: '/book-management',
+  TAX_MANAGE: '/tax-management',
+  CUSTOMERS: '/customers',
+  ORDER_MANAGE: '/order-management',
+  REPORTING: '/reporting'
 } as const;

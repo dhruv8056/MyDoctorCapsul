@@ -1,18 +1,41 @@
-import { useNavigate } from 'react-router-dom';
+// src/features/header/container/headerContainer.tsx
+import React, { useContext } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import HeaderView from '../view/headerView';
 import { APP_ROUTE } from '@shared/constant/app-route';
+import GlobalContext from '@shared/context/GlobalContext';
 
-const HeaderConatiner = () => {
+// ─── Routes that show the search bar ─────────────────────────────────────────
+const SEARCH_ROUTES: string[] = [
+  APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_HOSPITALS,
+  APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_CLINICS,
+  APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_AMBULANCES
+];
+
+// ─── Container ────────────────────────────────────────────────────────────────
+
+const HeaderContainer: React.FC = () => {
   const navigate = useNavigate();
-  const handleSignInNevigate = () => {
-    navigate(APP_ROUTE.SIGNIN);
-  };
+  const { pathname } = useLocation();
+  const { searchQuery, setSearchQuery } = useContext(GlobalContext);
 
-  const handleSignUpNevigate = () => {
-    navigate(APP_ROUTE.SIGN_UP);
-  };
+  const showSearch = SEARCH_ROUTES.includes(pathname);
 
-  return <HeaderView handleSignInNevigate={handleSignInNevigate} handleSignUpNevigate={handleSignUpNevigate} />;
+  const handleSignInNavigate = () => navigate(APP_ROUTE.SIGNIN);
+  const handleSignUpNavigate = () => navigate(APP_ROUTE.SIGN_UP);
+
+  const handleSearchSubmit = () => {};
+
+  return (
+    <HeaderView
+      handleSignInNavigate={handleSignInNavigate}
+      handleSignUpNavigate={handleSignUpNavigate}
+      showSearch={showSearch}
+      searchQuery={searchQuery}
+      onSearchChange={setSearchQuery}
+      onSearchSubmit={handleSearchSubmit}
+    />
+  );
 };
 
-export default HeaderConatiner;
+export default HeaderContainer;

@@ -32,7 +32,7 @@ const CheckRoleRoute: React.FC<CheckRoleRouteProps> = ({ checkFor }) => {
     );
   }
 
-  return state === 'loggedin' ? <Outlet /> : <Navigate to={APP_ROUTE.LOGIN} />;
+  return state === 'loggedin' ? <Outlet /> : <Navigate to={APP_ROUTE.SIGNIN} />;
 };
 
 export default CheckRoleRoute;

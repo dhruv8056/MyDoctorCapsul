@@ -1,0 +1,234 @@
+// ─── AmbulanceCard ────────────────────────────────────────────────────────────
+
+.amb-card {
+  background: #ffffff;
+  border: 1.08px solid #d9d9d9;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
+  }
+
+  // ── Image ────────────────────────────────────────────────────────────────
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    @media (max-width: 640px) {
+      height: 190px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+
+    .amb-card:hover & {
+      transform: scale(1.03);
+    }
+  }
+
+  // Real-Time Tracking badge — bottom-right of image
+  &__tracking-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: #ffffff;
+    border: 0.5px dashed #015f8a;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #015f8a;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  // ── Body ────────────────────────────────────────────────────────────────
+  &__body {
+    padding: 14px 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+
+  // Top row — name/ETA left, price right
+  &__top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__name-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+
+  &__name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18.73px;
+    font-weight: 600;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__eta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.57px;
+    font-weight: 500;
+    color: #5d5d5d;
+    margin: 0;
+    line-height: 1;
+  }
+
+  &__price-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  &__starting-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #5d5d5d;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  &__price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #014a97;
+    line-height: 1;
+  }
+
+  // Facility pill
+  &__facility-pill {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    background: #e3ffec;
+    padding: 6px 12px;
+    border-radius: 6px;
+    width: fit-content;
+  }
+
+  &__facility-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #16a34a;
+    line-height: 1;
+  }
+
+  &__facility-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #16a34a;
+    line-height: 1;
+  }
+
+  &__facility-sep {
+    font-size: 13px;
+    color: #16a34a;
+    opacity: 0.5;
+    line-height: 1;
+  }
+
+  // ── Footer ────────────────────────────────────────────────────────────────
+  &__footer {
+    padding: 0 16px 16px;
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: 13px 0;
+    background: #014a97;
+    color: #ffffff;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15.7px;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0;
+    line-height: 1;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      background: #013575;
+    }
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+// ─── Find Ambulance Section ───────────────────────────────────────────────────
+
+.find-ambulance {
+  // ── Header ────────────────────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  &__subtitle {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #252525;
+    margin: 0 0 6px;
+    line-height: 1;
+  }
+
+  &__title {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 500;
+    color: #000000;
+    margin: 0;
+    line-height: 1;
+  }
+
+  // ── Grid ─────────────────────────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+}

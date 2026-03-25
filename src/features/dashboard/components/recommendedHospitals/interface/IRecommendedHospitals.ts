@@ -1,21 +1,11 @@
-// ─── Image Imports (bundler processes these correctly) ────────────────────────
 import hospital1 from '@assets/images/RecommendedHospitals/hospitals-1.png';
 import hospital2 from '@assets/images/RecommendedHospitals/hospitals-2.png';
 import hospital3 from '@assets/images/RecommendedHospitals/hospitals-3.png';
+import { HealthcarePlaceItem } from '@shared/components/common/HealthcareListingCard';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-export interface Hospital {
-  id: number;
-  name: string;
-  image: string;
-  rating: number;
-  distance: string;
-  isOpen24h: boolean;
-  specialties: string[];
-}
-
-// ─── Static Data ──────────────────────────────────────────────────────────────
+// Hospital is a PlaceItem — no extra fields needed today.
+// Extend here if hospitals ever need unique properties (e.g. bedCount).
+export type Hospital = HealthcarePlaceItem;
 
 export const HOSPITALS_DATA: Hospital[] = [
   {

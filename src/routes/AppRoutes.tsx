@@ -15,6 +15,7 @@ import SignupContainer from '@shared/components/auth/signUp/container/signup.con
 import SigninContainer from '@shared/components/auth/signIn/container/signin.container';
 import ForgetPassworContainer from '@shared/components/auth/forget-password/container/forgetPassword.container';
 import DashboardRoute from '@features/dashboard/routes/dashboardRoute';
+import HealthcareServiceDiscoveryRoute from '@features/healthcareServiceDiscovery/routes/healthcareServiceDiscoveryRoute';
 
 function AppRoutes() {
   const { processQueue } = useProcessQueue();
@@ -35,6 +36,9 @@ function AppRoutes() {
         <Route path={APP_ROUTE.SIGNIN} element={<SigninContainer />} />
         <Route path={APP_ROUTE.SIGN_UP} element={<SignupContainer />} />
         <Route path={APP_ROUTE.FORGET_PASSWORD} element={<ForgetPassworContainer />} />
+
+        {/* Health care Routes */}
+        <Route path={APP_ROUTE.HEALTHCARE_SERVICES + '*'} element={<HealthcareServiceDiscoveryRoute />} />
       </Route>
 
       <Route path="/" element={<PrivateLayout />}>

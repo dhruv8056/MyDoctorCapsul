@@ -1,0 +1,219 @@
+// ─── ServiceDiscoveryMap ──────────────────────────────────────────────────────
+
+.sdmap {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+
+  // ── Map area ───────────────────────────────────────────────────────────────
+  &__map {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #e8f0f8;
+    // Rounded on ALL sides always — even when panel is below
+    border-radius: 16px;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      height: 240px;
+    }
+    @media (max-width: 480px) {
+      height: 200px;
+    }
+  }
+
+  &__iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  // Empty state
+  &__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #94a3b8;
+    background: #f0f6ff;
+
+    p {
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+
+  // ── "Explore Map" button ───────────────────────────────────────────────────
+  &__explore-btn {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #1a2332;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.14);
+    transition: box-shadow 0.2s ease;
+    z-index: 10;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  // ── Ambulance bottom panel ─────────────────────────────────────────────────
+  &__panel {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #ffffff;
+    border-radius: 0 0 16px 16px;
+
+    @media (max-width: 480px) {
+      padding: 14px 14px 16px;
+    }
+  }
+
+  // Current location row
+  &__location-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  &__location-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  &__location-icon {
+    font-size: 24px;
+    color: #252525;
+    flex-shrink: 0;
+  }
+
+  &__location-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  &__location-label {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(37, 37, 37, 0.7);
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  &__location-address {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #252525;
+    line-height: 1;
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+      white-space: normal;
+    }
+  }
+
+  &__change-btn {
+    flex-shrink: 0;
+    background: #014a97;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    // Darker on hover — not lighter
+    &:hover {
+      background: #013575;
+    }
+    &:active {
+      background: #012a5e;
+    }
+
+    @media (max-width: 480px) {
+      padding: 9px 18px;
+      font-size: 13.5px;
+    }
+  }
+
+  // Ambulance type tabs
+  &__tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__tab {
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: 1px solid #e4e9ec;
+    background: #ffffff;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(1, 39, 78, 1);
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      background: #f0f4f8;
+      border-color: #c8d4de;
+    }
+
+    // Active = filled blue, darker on hover
+    &--active {
+      background: #014a97;
+      color: #ffffff;
+      border-color: #014a97;
+
+      &:hover {
+        background: #013575;
+        border-color: #013575;
+      }
+      &:active {
+        background: #012a5e;
+        border-color: #012a5e;
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding: 10px 18px;
+      font-size: 15px;
+    }
+  }
+}

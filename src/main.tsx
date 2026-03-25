@@ -1,3 +1,4 @@
+// src\main.tsx
 import './index.scss';
 
 import { ThemeProvider } from '@core/theme';

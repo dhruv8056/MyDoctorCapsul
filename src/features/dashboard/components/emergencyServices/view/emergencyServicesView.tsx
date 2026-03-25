@@ -1,10 +1,14 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
+import { useNavigate } from 'react-router-dom';
+import { APP_ROUTE } from '@shared/constant/app-route';
 
 const EmergencyServicesView: React.FC = () => {
+  const navigate = useNavigate();
   const handleClick = (type: string) => {
-    console.log(type);
-    // future: navigate('/ambulance')
+    if (type === 'ambulance') {
+      navigate(APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_AMBULANCES);
+    }
   };
 
   return (

@@ -7,19 +7,61 @@ import service_medicine from '@assets/images/services/service_medicine.png';
 import service_diagnostics from '@assets/images/services/service_diagnostics.png';
 import service_physiotherapy from '@assets/images/services/service_physiotherapy.png';
 import service_insurance from '@assets/images/services/service_insurance.png';
+import { APP_ROUTE } from '@shared/constant/app-route';
+import { useNavigate } from 'react-router-dom';
 
 const services = [
-  { img: service_hospital, title: 'Hospitals' },
-  { img: service_clinics, title: 'Clinics' },
-  { img: service_doctor, title: 'Doctors', desc: 'Consult experienced doctors easily' },
-  { img: service_nurses, title: 'Nurses', desc: 'Book professional nursing support' },
-  { img: service_medicine, title: 'Medicine', desc: 'Medicines from nearby pharmacies' },
-  { img: service_diagnostics, title: 'Diagnostics', desc: 'Book lab tests & health checkups' },
-  { img: service_physiotherapy, title: 'Physiotherapy', desc: 'Explore health insurance plans' },
-  { img: service_insurance, title: 'Insurance', desc: 'Explore health insurance plans' }
+  {
+    img: service_hospital,
+    title: 'Hospitals',
+    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_HOSPITALS
+  },
+  {
+    img: service_clinics,
+    title: 'Clinics',
+    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_CLINICS
+  },
+  {
+    img: service_doctor,
+    title: 'Doctors',
+    desc: 'Consult experienced doctors easily',
+    path: '/' // or your actual route
+  },
+  {
+    img: service_nurses,
+    title: 'Nurses',
+    desc: 'Book professional nursing support',
+    path: '/'
+  },
+  {
+    img: service_medicine,
+    title: 'Medicine',
+    desc: 'Medicines from nearby pharmacies',
+    path: '/'
+  },
+  {
+    img: service_diagnostics,
+    title: 'Diagnostics',
+    desc: 'Book lab tests & health checkups',
+    path: '/'
+  },
+  {
+    img: service_physiotherapy,
+    title: 'Physiotherapy',
+    desc: 'Explore health insurance plans',
+    path: '/'
+  },
+  {
+    img: service_insurance,
+    title: 'Insurance',
+    desc: 'Explore health insurance plans',
+    path: '/'
+  }
 ];
 
 const MedicalServicesView: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="medical-services-section">
       <div className="container_layout">
@@ -28,7 +70,7 @@ const MedicalServicesView: React.FC = () => {
 
         <div className="services-grid">
           {services.map((service, index) => (
-            <div className="service-card" key={index}>
+            <div className="service-card cursor-pointer" key={index} onClick={() => navigate(service.path)}>
               <img src={service.img} alt={service.title} />
               <h3 className="service-title">{service.title}</h3>
               {service.desc && <p className="service-description">{service.desc}</p>}
