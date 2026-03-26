@@ -1,0 +1,98 @@
+.information-overview-section {
+  padding: 0 20px;
+  text-align: center;
+
+  // 🔹 Video Banner
+  &__video {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // 🔹 Profile wrapper (important for overlap)
+  &__profile {
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // 🔹 Profile Image
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  // 🔹 Info
+  &__info {
+    margin-top: 12px;
+  }
+
+  // 🔹 Name
+  &__name {
+    font-size: 30px;
+    font-weight: 600;
+    color: #252525;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  // =========================
+  // 📱 Tablet
+  // =========================
+  @media (min-width: 768px) {
+    &__video {
+      height: 260px;
+    }
+
+    &__profile {
+      margin-top: -60px;
+    }
+
+    &__image {
+      width: 120px;
+      height: 120px;
+    }
+
+    &__name {
+      font-size: 20px;
+    }
+  }
+
+  // =========================
+  // 💻 Desktop
+  // =========================
+  @media (min-width: 1024px) {
+    &__video {
+      height: 320px;
+    }
+
+    &__profile {
+      margin-top: -70px;
+    }
+
+    &__image {
+      width: 140px;
+      height: 140px;
+    }
+
+    &__name {
+      font-size: 22px;
+    }
+  }
+}

@@ -25,7 +25,7 @@ const services = [
     img: service_doctor,
     title: 'Doctors',
     desc: 'Consult experienced doctors easily',
-    path: '/' // or your actual route
+    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_DOCTOR
   },
   {
     img: service_nurses,

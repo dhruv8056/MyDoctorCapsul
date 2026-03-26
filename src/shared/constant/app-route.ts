@@ -10,6 +10,8 @@ export const APP_ROUTE = {
   HEALTHCARE_SERVICES_HOSPITALS: '/hospitals',
   HEALTHCARE_SERVICES_CLINICS: '/clinics',
   HEALTHCARE_SERVICES_AMBULANCES: '/ambulances',
+  HEALTHCARE_SERVICES_DOCTOR: '/doctor',
+  
 
   //ROLES WISE ROUTE
   PHARMACY: '/pharmacy',
@@ -17,6 +19,9 @@ export const APP_ROUTE = {
   DOCTOR: '/doctor',
   SUPER_ADMINS: '/superadmin',
   DIAGNOSTIC_CENTRE: '/diagnostic-centre',
+
+  //DOCTOR INFORMATION
+  HEALTHCARE_INFORMATION: '/Healthcare-information',
 
   //DEMO ROUTES
   SHOP: '/shop',

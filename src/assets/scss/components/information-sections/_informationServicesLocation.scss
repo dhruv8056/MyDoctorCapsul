@@ -1,0 +1,250 @@
+.information-services-location {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  // ─────────────────────────────────────────
+  // LEFT COLUMN
+  // ─────────────────────────────────────────
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  // ─────────────────────────────────────────
+  // SERVICES OFFERED
+  // ─────────────────────────────────────────
+  &__services {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-family: 'Lexend Deca', sans-serif;
+    margin: 0;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    color: #374151;
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      border-color: #1e78f0;
+      color: #1e78f0;
+    }
+
+    // Active / selected tag
+    &--active {
+      background: #e8f1fd;
+      border-color: #1e78f0;
+      color: #1e78f0;
+
+      svg {
+        color: #1e78f0;
+      }
+    }
+  }
+
+  // Divider between services and availability
+  &__divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 0;
+  }
+
+  // ─────────────────────────────────────────
+  // AVAILABILITY TIMING
+  // ─────────────────────────────────────────
+  &__availability {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__availability-box {
+    border: 1.5px solid #1e78f0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__timing-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #374151;
+    font-family: 'Lexend Deca', sans-serif;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: #6b7280;
+    }
+  }
+
+  &__emergency-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e78f0;
+    font-family: 'Lexend Deca', sans-serif;
+    margin-top: 2px;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // ─────────────────────────────────────────
+  // RIGHT COLUMN — LOCATION & ADDRESS
+  // ─────────────────────────────────────────
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  // Map Embed
+  &__map {
+    width: 100%;
+    height: 170px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #e5f0fb;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  }
+
+  &__map-open-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: #fff;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a1a;
+    font-family: 'Lexend Deca', sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      color: #1e78f0;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  // Address block
+  &__address {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: #6b7280;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+
+  &__address-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__address-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  &__address-text {
+    font-size: 12px;
+    color: #6b7280;
+    font-family: 'Lexend Deca', sans-serif;
+    line-height: 1.5;
+  }
+
+  // Book Appointment CTA
+  &__book-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px 0;
+    background-color: #1a2e6f;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: pointer;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}

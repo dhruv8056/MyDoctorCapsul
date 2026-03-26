@@ -1,0 +1,344 @@
+.doctor-information-section {
+  .doctor-information-specialization {
+    font-size: 18px;
+    color: #3b96f6; // blue
+    font-weight: 500;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  .doctor-information-availability {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 4px 12px;
+    background: #d9f4d9;
+    color: #159215;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .doctor-information-experience {
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgba(37, 37, 37, 0.7);
+    font-weight: 400;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  .doctor-information-patient-review {
+    margin: 30px 30px;
+
+    &__title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 31px;
+      font-family: 'Lexend Deca', sans-serif;
+      color: #252525;
+      text-align: center;
+    }
+
+    // 🔹 Horizontal scrollable list (4 cards side by side)
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    // 🔹 Card
+    &__card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+      margin-bottom: 30px;
+
+      &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    // 🔹 Video Thumbnail with play button overlay
+    &__video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 160px;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    // 🔹 Content below video
+    &__content {
+      padding: 10px 12px 12px;
+    }
+
+    // 🔹 Name + Stars row
+    &__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    &__name {
+      font-size: 20px;
+      font-weight: 600;
+      color: #252525;
+      font-family: 'Lexend Deca', sans-serif;
+    }
+
+    // 🔹 Star Rating
+    &__stars {
+      display: flex;
+      gap: 2px;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .star-filled {
+        fill: #f59e0b;
+      }
+
+      .star-empty {
+        fill: #d1d5db;
+      }
+    }
+
+    &__text {
+      font-size: 11px;
+      color: rgba(37, 37, 37, 0.7);
+      line-height: 1.25;
+      font-family: 'Lexend Deca', sans-serif;
+      font-weight: 300;
+    }
+
+    &__title-2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 51px;
+      font-family: 'Lexend Deca', sans-serif;
+      color: rgba(37, 37, 37, 0.7);
+      text-align: center;
+      text-decoration: underline;
+    }
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 🔹 Service & Location Section
+// ─────────────────────────────────────────────────────────────────────────────
+
+.doctor-service-location {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 0 30px 30px;
+  padding: 53px 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 0 16px 24px;
+  }
+
+  // ── Shared title ──────────────────────────────────────────
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #252525;
+    font-family: 'Lexend Deca', sans-serif;
+    margin: 0 0 14px;
+  }
+
+  // ── LEFT COLUMN ───────────────────────────────────────────
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  // Services block
+  &__services {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    color: #252525;
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: default;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease;
+
+    &--active {
+      background: #3b96f6;
+      color: #fff;
+      border-color: #3b96f6;
+
+      .doctor-service-location__tag-icon {
+        color: #fff;
+      }
+    }
+
+    &:hover:not(&--active) {
+      background: #f0f7ff;
+      border-color: #3b96f6;
+    }
+  }
+
+  &__tag-icon {
+    display: flex;
+    align-items: center;
+    color: #3b96f6;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // Availability Timing block
+  &__availability {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__timing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  &__timing-row {
+    font-size: 18px;
+    color: rgba(37, 37, 37, 0.7);
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    padding-left: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  &__emergency-link {
+    font-size: 20px;
+    font-weight: 500;
+    color: #429eff;
+    font-family: 'Lexend Deca', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    padding-left: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // ── RIGHT COLUMN ──────────────────────────────────────────
+  &__right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__location-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden; // 🔥 important for image radius
+    background: #fff;
+  }
+
+  &__map {
+    width: 100%;
+    height: 200px; // 🔥 thoda increase kar (160 → 200 better UI)
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0; // 🔥 remove default border
+      display: block;
+    }
+  }
+
+  &__address-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  &__pin-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #000;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__address-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__address-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #252525;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  &__address-text {
+    font-size: 12px;
+    color: rgba(37, 37, 37, 0.6);
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+}
