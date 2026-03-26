@@ -22,6 +22,10 @@ export const APP_ROUTE = {
   //healthcare-INFORMATION
   HEALTHCARE_INFORMATION: '/healthcare-information',
 
+  //medicine section
+  MEDICINE_SECTION:'/medicine-section',
+
+
   //DEMO ROUTES
   SHOP: '/shop',
   CATEGORY: '/category',

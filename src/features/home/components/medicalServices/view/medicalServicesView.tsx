@@ -37,7 +37,7 @@ const services = [
     img: service_medicine,
     title: 'Medicine',
     desc: 'Medicines from nearby pharmacies',
-    path: '/'
+    path: APP_ROUTE.MEDICINE_SECTION + APP_ROUTE.MEDICINE
   },
   {
     img: service_diagnostics,

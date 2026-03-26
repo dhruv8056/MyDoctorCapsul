@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 
-type CardType = 'rating' | 'review' | 'patients' | 'bookVideo' | 'call' | 'direction';
+type CardType = 'rating' | 'review' | 'patients' | 'bookVideo' | 'call' | 'direction' | 'ambulance';
 
 type CardConfig = {
   label: string;
@@ -24,7 +24,8 @@ const InformationRatingSection: React.FC<InformationRatingSectionProps> = ({ rat
     patients: { label: 'Patients', value: totalPatients },
     bookVideo: { label: 'Book Video', icon: 'material-symbols:video-call-outline' },
     call: { label: 'Call', icon: 'ic:round-call', active: true },
-    direction: { label: 'Direction', icon: 'carbon:direction-fork' }
+    direction: { label: 'Direction', icon: 'carbon:direction-fork' },
+    ambulance: { label: 'Ambulance', icon: 'charm:north-star' }
   };
 
   return (

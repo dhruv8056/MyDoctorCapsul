@@ -17,6 +17,7 @@ import ForgetPassworContainer from '@shared/components/auth/forget-password/cont
 import HealthcareServiceDiscoveryRoute from '@features/healthcareServiceDiscovery/routes/healthcareServiceDiscoveryRoute';
 import HomeRoute from '@features/home/routes/homeRoute';
 import HealthcareInformationRoute from '@features/healthcareinformation/routes/healthcareInformationRoute';
+import MedicineSectionRoute from '@features/medicineSection/routes/medicineSectionRoute';
 
 function AppRoutes() {
   const { processQueue } = useProcessQueue();
@@ -41,6 +42,7 @@ function AppRoutes() {
         {/* Health care Routes */}
         <Route path={APP_ROUTE.HEALTHCARE_SERVICES + '*'} element={<HealthcareServiceDiscoveryRoute />} />
         <Route path={APP_ROUTE.HEALTHCARE_INFORMATION + '*'} element={<HealthcareInformationRoute />} />
+        <Route path={APP_ROUTE.MEDICINE_SECTION + '*'} element={<MedicineSectionRoute />} />
       </Route>
 
       <Route path="/" element={<PrivateLayout />}>

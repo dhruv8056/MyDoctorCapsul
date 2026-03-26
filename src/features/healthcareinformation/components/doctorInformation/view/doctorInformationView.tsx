@@ -85,7 +85,7 @@ const DoctorInformationView: React.FC<IDoctorInformationProps> = ({ doctor }) =>
 
             {/* Availability Timing */}
             <div className="doctor-service-location__availability">
-              <h4 className="doctor-service-location__title">Availability Timing</h4>
+              <h4 className="doctor-service-location__availability-title">Availability Timing</h4>
               <div className="doctor-service-location__timing-list">
                 {availabilityTimings.map((row, idx) => (
                   <p key={idx} className="doctor-service-location__timing-row">
@@ -151,9 +151,8 @@ const DoctorInformationView: React.FC<IDoctorInformationProps> = ({ doctor }) =>
                 </div>
               </div>
             ))}
+            <h3 className="doctor-information-patient-review__title-2">View All 1,540 Reviews</h3>
           </div>
-
-          <h3 className="doctor-information-patient-review__title-2">View All 1,540 Reviews</h3>
         </div>
       </div>
     </div>

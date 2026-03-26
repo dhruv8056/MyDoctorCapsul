@@ -1,0 +1,251 @@
+.clinics-information-section {
+  .clinics-service-location {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 0 30px 30px;
+    padding: 53px 0;
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin: 0 16px 24px;
+    }
+
+    // ── Shared title ──────────────────────────────────────────
+    &__title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #252525;
+      font-family: 'Lexend Deca', sans-serif;
+      margin: 0 0 24px;
+    }
+
+    // ── LEFT COLUMN ───────────────────────────────────────────
+    &__left {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    // Services block
+    &__services {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    &__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 400;
+      color: #252525;
+      font-family: 'Lexend Deca', sans-serif;
+      cursor: default;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+
+      &--active {
+        background: #3b96f6;
+        color: #fff;
+        border-color: #3b96f6;
+
+        .doctor-service-location__tag-icon {
+          color: #fff;
+        }
+      }
+
+      &:hover:not(&--active) {
+        background: #f0f7ff;
+        border-color: #3b96f6;
+      }
+    }
+
+    &__tag-icon {
+      display: flex;
+      align-items: center;
+      color: #3b96f6;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    // Availability Timing block
+    &__availability {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__availability-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #252525;
+      font-family: 'Lexend Deca', sans-serif;
+      margin: 0 0 24px;
+      padding-top: 27px;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    &__timing-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    &__timing-row {
+      font-size: 18px;
+      color: rgba(37, 37, 37, 0.7);
+      font-family: 'Lexend Deca', sans-serif;
+      font-weight: 500;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 10px;
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    &__emergency-link {
+      font-size: 20px;
+      font-weight: 500;
+      color: #429eff;
+      font-family: 'Lexend Deca', sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      padding-left: 10px;
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    // ── RIGHT COLUMN ──────────────────────────────────────────
+    &__right {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__location-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    &__map {
+      width: 100%;
+      height: 150px;
+      border-bottom: 1px solid #e5e7eb;
+      overflow: hidden;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+    }
+
+    &__address-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      background: #fbfbfb;
+      border: 1px solid #e4e4e4;
+    }
+
+    &__pin-icon {
+      flex-shrink: 0;
+      color: #252525;
+      padding-top: 10px;
+    }
+
+    &__address-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    &__address-name {
+      font-size: 19px;
+      font-weight: 600;
+      color: #252525;
+      font-family: 'Lexend Deca', sans-serif;
+    }
+
+    &__address-text {
+      font-size: 18px;
+      color: rgba(37, 37, 37, 0.6);
+      font-family: 'Lexend Deca', sans-serif;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    &__action {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    &__book-btn {
+      width: 100%;
+      padding: 16px 24px;
+      background: #014a97;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      font-family: 'Lexend Deca', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+  }
+
+   .clinics-information-patient-review {
+    margin-top: 62px;
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 24px;
+      font-family: 'Lexend Deca';
+    }
+
+    .review-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
+    &__title-2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 19px;
+      margin-bottom: 51px;
+      font-family: 'Lexend Deca', sans-serif;
+      color: rgba(37, 37, 37, 0.7);
+      text-align: center;
+      text-decoration: underline;
+    }
+  }
+}

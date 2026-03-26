@@ -10,8 +10,11 @@ interface InputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
   disabled?: boolean;
-  width?: string;
-  className?: string;
+
+  // ✅ Tailwind style props
+  containerClass?: string;
+  labelClass?: string;
+  inputClass?: string;
 }
 
 const InputField: React.FC<InputProps> = ({
@@ -23,17 +26,19 @@ const InputField: React.FC<InputProps> = ({
   onChange,
   error,
   disabled,
-  width = 'w-full',
-  className = ''
+
+  containerClass = '',
+  labelClass = '',
+  inputClass = ''
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === 'password';
 
   return (
-    <div className={`input-wrapper ${width} ${className}`}>
-      {label && <label className="input-label">{label}</label>}
+    <div className={`w-full ${containerClass}`}>
+      {label && <label className={`block mb-1 text-sm ${labelClass}`}>{label}</label>}
 
-      <div className="input-box">
+      <div className="relative">
         <input
           type={isPassword && showPassword ? 'text' : type}
           placeholder={placeholder}
@@ -41,17 +46,21 @@ const InputField: React.FC<InputProps> = ({
           name={name}
           onChange={onChange}
           disabled={disabled}
-          className={`input-field ${error ? 'input-error' : ''}`}
+          className={`
+            w-full px-4 py-3 rounded-lg border outline-none transition
+            ${error ? 'border-red-500' : 'border-gray-300'}
+            ${inputClass}
+          `}
         />
 
         {isPassword && (
-          <button type="button" onClick={() => setShowPassword(!showPassword)} className="eye-btn">
+          <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2">
             <Icon icon={showPassword ? 'mdi:eye-off-outline' : 'mdi:eye-outline'} width="20" />
           </button>
         )}
       </div>
 
-      {error && <span className="error-text">{error}</span>}
+      {error && <span className="text-red-500 text-xs mt-1">{error}</span>}
     </div>
   );
 };

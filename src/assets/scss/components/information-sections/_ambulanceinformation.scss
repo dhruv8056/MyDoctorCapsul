@@ -23,6 +23,7 @@
   &__row {
     display: grid;
     gap: 24px;
+    margin-top: 30px;
 
     &--top {
       grid-template-columns: 1fr 1fr;
@@ -310,133 +311,139 @@
   }
 }
 
-// ─── Fare Summary ─────────────────────────────────────────────────────────────
+.fare-Summery-payment-options {
+  padding: 25px 35px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  // ─── Fare Summary ─────────────────────────────────────────────────────────────
 
-.fare-summary {
-  &__card {
-    border: 1.08px solid #d9d9d9;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #ffffff;
-  }
-
-  &__rows {
-    background: #fafafa;
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  &__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-
-  &__row-label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgba(37, 37, 37, 0.8);
-    line-height: 1;
-
-    &--red {
-      color: rgba(242, 26, 26, 0.8);
-    }
-  }
-
-  &__row-amount {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: rgba(37, 37, 37, 0.8);
-    white-space: nowrap;
-
-    &--red {
-      color: rgba(242, 26, 26, 0.8);
-    }
-  }
-
-  &__divider {
-    border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin: 0;
-  }
-
-  &__total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    gap: 12px;
-  }
-
-  &__total-label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #252525;
-    line-height: 1;
-  }
-
-  &__total-amount {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #252525;
-    white-space: nowrap;
-  }
-}
-
-// ─── Payment Options ──────────────────────────────────────────────────────────
-
-.payment-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  &__btn {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 14px 18px;
-    border: 1px solid #e4e9ec;
-    border-radius: 10px;
-    background: #fafafa;
-    font-family: 'Poppins', sans-serif;
-    font-size: 17px;
-    font-weight: 500;
-    color: #252525;
-    cursor: pointer;
-    text-align: left;
-    transition:
-      background-color 0.18s ease,
-      border-color 0.18s ease,
-      color 0.18s ease;
-
-    &:hover:not(&--active) {
-      background: #f0f5fb;
-      border-color: #c8d8e8;
+  .fare-summary {
+    &__card {
+      border: 1.08px solid #d9d9d9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
     }
 
-    &--active {
-      background: #f9f9f9;
-      border-color: #e4e9ec;
-      color: #005a97;
+    &__rows {
+      background: #fafafa;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
-      .payment-options__icon {
-        color: #005a97;
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    &__row-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(37, 37, 37, 0.8);
+      line-height: 1;
+
+      &--red {
+        color: rgba(242, 26, 26, 0.8);
       }
     }
+
+    &__row-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: rgba(37, 37, 37, 0.8);
+      white-space: nowrap;
+
+      &--red {
+        color: rgba(242, 26, 26, 0.8);
+      }
+    }
+
+    &__divider {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      margin: 0;
+    }
+
+    &__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      gap: 12px;
+    }
+
+    &__total-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #252525;
+      line-height: 1;
+    }
+
+    &__total-amount {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #252525;
+      white-space: nowrap;
+    }
   }
 
-  &__icon {
-    font-size: 22px;
-    color: #252525;
-    flex-shrink: 0;
-    transition: color 0.18s ease;
+  // ─── Payment Options ──────────────────────────────────────────────────────────
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__btn {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #e4e9ec;
+      border-radius: 10px;
+      background: #fafafa;
+      font-family: 'Poppins', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: #252525;
+      cursor: pointer;
+      text-align: left;
+      transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease;
+
+      &:hover:not(&--active) {
+        background: #f0f5fb;
+        border-color: #c8d8e8;
+      }
+
+      &--active {
+        background: #f9f9f9;
+        border-color: #e4e9ec;
+        color: #005a97;
+
+        .payment-options__icon {
+          color: #005a97;
+        }
+      }
+    }
+
+    &__icon {
+      font-size: 22px;
+      color: #252525;
+      flex-shrink: 0;
+      transition: color 0.18s ease;
+    }
   }
 }

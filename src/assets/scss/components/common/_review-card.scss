@@ -1,0 +1,78 @@
+.review-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+
+  // 🔹 Header
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  // 🔹 User Section
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #252525;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  &__date {
+    font-size: 8px;
+    color: rgba(37, 37, 37, 0.6);
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 300;
+  }
+
+  // 🔹 Stars
+  &__stars {
+    display: flex;
+    gap: 2px;
+
+    .star-filled {
+      color: #f59e0b;
+      font-size: 14px;
+    }
+
+    .star-empty {
+      color: #d1d5db;
+      font-size: 14px;
+    }
+  }
+
+  // 🔹 Review Text
+  &__text {
+    font-size: 12px;
+    color: rgba(37, 37, 37, 0.75);
+    line-height: 19.5px;
+    font-family: 'Poppins';
+  }
+}
