@@ -1,4 +1,3 @@
-// src/features/healthcareinformation/components/ambulanceInformation/view/ambulanceInformationView.tsx
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { AmbulanceInformationViewProps } from '../interface/IAmbulanceInformation';

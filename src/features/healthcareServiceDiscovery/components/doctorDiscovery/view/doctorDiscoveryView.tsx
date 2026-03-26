@@ -4,6 +4,8 @@ import doctor_1 from '@assets/images/doctor-discovery/doctor-1.png';
 import doctor_2 from '@assets/images/doctor-discovery/doctor-2.png';
 import doctor_3 from '@assets/images/doctor-discovery/doctor-3.png';
 import doctor_4 from '@assets/images/doctor-discovery/doctor-4.png';
+import { APP_ROUTE } from '@shared/constant/app-route';
+import { Link } from 'react-router-dom';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -158,7 +160,9 @@ const DoctorDiscoveryView: React.FC = () => {
               <div className="doctor-discovery-card__content">
                 {/* Name + Specialization row */}
                 <div className="doctor-discovery-card__header">
-                  <h3 className="doctor-discovery-card__name">{doctor.name}</h3>
+                  <Link to={APP_ROUTE.HEALTHCARE_INFORMATION + APP_ROUTE.DOCTOR} className="doctor-discovery-card__name">
+                    {doctor.name}
+                  </Link>
                   <div className="doctor-discovery-card__meta-row">
                     <span className="doctor-discovery-card__specialization">
                       {doctor.specialization} | {doctor.experience}

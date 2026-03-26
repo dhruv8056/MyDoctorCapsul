@@ -7,6 +7,8 @@ import ServicesOffered, { AMBULANCE_SERVICES } from '@shared/components/common/S
 import ambulance1 from '@assets/images/ambulances/ambulance-1.png';
 import ambulance2 from '@assets/images/ambulances/ambulance-2.png';
 import AmbulanceCard, { AmbulanceItem } from '@shared/components/common/Ambulancecard';
+import { useNavigate } from 'react-router-dom';
+import { APP_ROUTE } from '@shared/constant/app-route';
 
 // ─── Static data (move to container/interface when API is ready) ──────────────
 
@@ -34,6 +36,10 @@ const AMBULANCE_UNITS: AmbulanceItem[] = [
 // ─── View ─────────────────────────────────────────────────────────────────────
 
 const AmbulanceDiscoveryView: React.FC<AmbulanceDiscoveryViewProps> = () => {
+  const navigate = useNavigate();
+  const redirectAmbInfo = () => {
+    navigate(APP_ROUTE.HEALTHCARE_INFORMATION + APP_ROUTE.AMBULANCES);
+  };
   return (
     <div className="container_layout my-10">
       {/* ── Map ── */}
@@ -63,12 +69,7 @@ const AmbulanceDiscoveryView: React.FC<AmbulanceDiscoveryViewProps> = () => {
         {/* Grid */}
         <div className="find-ambulance__grid">
           {AMBULANCE_UNITS.map((item) => (
-            <AmbulanceCard
-              key={item.id}
-              item={item}
-              showViewDetails={true}
-              onViewDetails={(item) => console.log('View details →', item.name)}
-            />
+            <AmbulanceCard key={item.id} item={item} showViewDetails={true} onViewDetails={redirectAmbInfo} />
           ))}
         </div>
       </section>
