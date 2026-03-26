@@ -35,9 +35,6 @@ interface IDoctorCard {
   buttons: IDoctorCardButton[];
 }
 
-// ─── Button Config JSON ───────────────────────────────────────────────────────
-// Add more buttons here in future — card layout handles it automatically
-
 const doctorCardButtons: IDoctorCardButton[] = [
   {
     id: 1,

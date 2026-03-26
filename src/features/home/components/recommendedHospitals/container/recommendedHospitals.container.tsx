@@ -7,7 +7,7 @@ import { APP_ROUTE } from '@shared/constant/app-route';
 const RecommendedHospitalsContainer: React.FC<{ variant?: 'default' | 'white' }> = ({ variant }) => {
   const navigate = useNavigate();
   const redirectHospitalInfo = () => {
-    navigate(APP_ROUTE.HEALTHCARE_INFORMATION + APP_ROUTE.DOCTOR);
+    navigate(APP_ROUTE.HEALTHCARE_INFORMATION + APP_ROUTE.HOSPITALS);
   };
   const hospitals: Hospital[] = HOSPITALS_DATA;
 

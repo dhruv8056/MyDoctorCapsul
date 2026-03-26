@@ -151,8 +151,8 @@ const DoctorInformationView: React.FC<IDoctorInformationProps> = ({ doctor }) =>
                 </div>
               </div>
             ))}
-            <h3 className="doctor-information-patient-review__title-2">View All 1,540 Reviews</h3>
           </div>
+          <h3 className="doctor-information-patient-review__title-2">View All 1,540 Reviews</h3>
         </div>
       </div>
     </div>
