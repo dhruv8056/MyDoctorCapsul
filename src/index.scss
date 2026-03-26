@@ -16,6 +16,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Remove default outline for all focusable elements */
+*:focus {
+  outline: none !important;
+}
+
+/* Apply custom focus-visible behavior */
+*:focus-visible {
+  outline: none !important;
+  outline-offset: 0px !important;
+}
+
 // ============================================================================
 // Additional Global Styles (if needed beyond the _global.scss)
 // ============================================================================
