@@ -1,3 +1,4 @@
+// src\shared\components\common\Ambulancecard.tsx
 import React from 'react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────

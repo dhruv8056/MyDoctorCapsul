@@ -1,0 +1,442 @@
+// ─── Ambulance Information Page ───────────────────────────────────────────────
+
+.amb-info {
+  background: #ffffff;
+  padding: 28px 0 56px;
+
+  &__breadcrumb {
+    margin-bottom: 24px;
+  }
+
+  // ── Shared section title ────────────────────────────────────────────────────
+  &__section-title {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #252525;
+    margin: 0 0 14px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  // ── Layout rows ─────────────────────────────────────────────────────────────
+  &__row {
+    display: grid;
+    gap: 24px;
+
+    &--top {
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 32px;
+      align-items: start;
+
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &--bottom {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+
+      @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  // ── Confirm button ───────────────────────────────────────────────────────────
+  &__confirm-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 20px;
+    background: #014a97;
+    color: #ffffff;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease;
+
+    iconify-icon,
+    svg {
+      font-size: 18px;
+    }
+
+    &:hover {
+      background: #013575;
+    }
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+// ─── Location Details ─────────────────────────────────────────────────────────
+
+.loc-details {
+  &__card {
+    border: 1.08px solid #d9d9d9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+  }
+
+  &__icon {
+    font-size: 24px;
+    flex-shrink: 0;
+
+    &--pickup {
+      color: #005a97;
+    }
+    &--drop {
+      color: #ba1a1a;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+
+  &__label {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(37, 37, 37, 0.3);
+    line-height: 1;
+  }
+
+  &__value {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #252525;
+    line-height: 1;
+
+    &--placeholder {
+      color: rgba(37, 37, 37, 0.45);
+    }
+  }
+
+  &__map-icon {
+    font-size: 22px;
+    color: #005a97;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid #000000;
+    opacity: 0.1;
+    margin: 0 20px;
+  }
+
+  &__change-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    padding: 14px 0;
+    background: #fafafa;
+    border: none;
+    border-top: 1px solid #f0f0f0;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #005a97;
+    cursor: pointer;
+    transition: background-color 0.18s ease;
+
+    iconify-icon,
+    svg {
+      font-size: 20px;
+    }
+
+    &:hover {
+      background: #f0f5fb;
+    }
+  }
+}
+
+// ─── Patient Details ──────────────────────────────────────────────────────────
+
+.patient-details {
+  &__card {
+    border: 1.08px solid #d9d9d9;
+    border-radius: 12px;
+    padding: 20px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  &__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 1;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    border: 1px solid #e4e9ec;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #000000;
+    outline: none;
+    transition: border-color 0.18s ease;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.28);
+    }
+    &:focus {
+      border-color: #005a97;
+      background: #ffffff;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 88px;
+  }
+
+  // Emergency Priority row
+  &__emergency {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #014a97;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 4px;
+  }
+
+  &__emergency-label {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1;
+  }
+}
+
+// ─── Toggle Switch ────────────────────────────────────────────────────────────
+
+.toggle-switch {
+  width: 48px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.22s ease;
+  flex-shrink: 0;
+
+  &__thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    transition: transform 0.22s ease;
+    display: block;
+  }
+
+  &--on {
+    background: rgba(255, 255, 255, 0.55);
+
+    .toggle-switch__thumb {
+      transform: translateX(22px);
+    }
+  }
+}
+
+// ─── Fare Summary ─────────────────────────────────────────────────────────────
+
+.fare-summary {
+  &__card {
+    border: 1.08px solid #d9d9d9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  &__rows {
+    background: #fafafa;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__row-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(37, 37, 37, 0.8);
+    line-height: 1;
+
+    &--red {
+      color: rgba(242, 26, 26, 0.8);
+    }
+  }
+
+  &__row-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(37, 37, 37, 0.8);
+    white-space: nowrap;
+
+    &--red {
+      color: rgba(242, 26, 26, 0.8);
+    }
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  &__total-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #252525;
+    line-height: 1;
+  }
+
+  &__total-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #252525;
+    white-space: nowrap;
+  }
+}
+
+// ─── Payment Options ──────────────────────────────────────────────────────────
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e4e9ec;
+    border-radius: 10px;
+    background: #fafafa;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #252525;
+    cursor: pointer;
+    text-align: left;
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
+
+    &:hover:not(&--active) {
+      background: #f0f5fb;
+      border-color: #c8d8e8;
+    }
+
+    &--active {
+      background: #f9f9f9;
+      border-color: #e4e9ec;
+      color: #005a97;
+
+      .payment-options__icon {
+        color: #005a97;
+      }
+    }
+  }
+
+  &__icon {
+    font-size: 22px;
+    color: #252525;
+    flex-shrink: 0;
+    transition: color 0.18s ease;
+  }
+}

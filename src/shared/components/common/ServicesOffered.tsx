@@ -1,3 +1,4 @@
+// src\shared\components\common\ServicesOffered.tsx
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
@@ -14,7 +15,6 @@ interface ServicesOfferedProps {
   activeIds?: string[]; // controlled
   onToggle?: (id: string) => void; // controlled handler
 }
-
 // ─── Default services (ambulance page) ───────────────────────────────────────
 
 export const AMBULANCE_SERVICES: ServiceFilter[] = [

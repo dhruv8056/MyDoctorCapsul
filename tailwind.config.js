@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        lexend: ['Lexend Deca', 'sans-serif']
+      },
       backgroundColor: {
         warning: '#f0ad4e',
         success: '#5cb85c',
