@@ -14,18 +14,18 @@ const services = [
   {
     img: service_hospital,
     title: 'Hospitals',
-    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_HOSPITALS
+    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HOSPITALS
   },
   {
     img: service_clinics,
     title: 'Clinics',
-    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_CLINICS
+    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.CLINICS
   },
   {
     img: service_doctor,
     title: 'Doctors',
     desc: 'Consult experienced doctors easily',
-    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_DOCTOR
+    path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.DOCTOR
   },
   {
     img: service_nurses,

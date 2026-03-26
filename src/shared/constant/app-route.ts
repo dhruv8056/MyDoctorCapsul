@@ -5,23 +5,22 @@ export const APP_ROUTE = {
 
   HOME: '/',
 
-  // healthcare-services
-  HEALTHCARE_SERVICES: '/healthcare-services',
-  HEALTHCARE_SERVICES_HOSPITALS: '/hospitals',
-  HEALTHCARE_SERVICES_CLINICS: '/clinics',
-  HEALTHCARE_SERVICES_AMBULANCES: '/ambulances',
-  HEALTHCARE_SERVICES_DOCTOR: '/doctor',
-  
-
-  //ROLES WISE ROUTE
+  // Common Routes
+  HOSPITALS: '/hospitals',
+  CLINICS: '/clinics',
+  AMBULANCES: '/ambulances',
+  DOCTOR: '/doctor',
+  MEDICINE: '/medicine',
   PHARMACY: '/pharmacy',
   USER: '/user',
-  DOCTOR: '/doctor',
   SUPER_ADMINS: '/superadmin',
   DIAGNOSTIC_CENTRE: '/diagnostic-centre',
 
-  //DOCTOR INFORMATION
-  HEALTHCARE_INFORMATION: '/Healthcare-information',
+  // healthcare-services
+  HEALTHCARE_SERVICES: '/healthcare-services',
+
+  //healthcare-INFORMATION
+  HEALTHCARE_INFORMATION: '/healthcare-information',
 
   //DEMO ROUTES
   SHOP: '/shop',

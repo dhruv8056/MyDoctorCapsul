@@ -7,7 +7,7 @@ const EmergencyServicesView: React.FC = () => {
   const navigate = useNavigate();
   const handleClick = (type: string) => {
     if (type === 'ambulance') {
-      navigate(APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_AMBULANCES);
+      navigate(APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.AMBULANCES);
     }
   };
 

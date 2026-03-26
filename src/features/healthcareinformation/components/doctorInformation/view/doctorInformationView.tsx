@@ -6,6 +6,7 @@ import review_1 from '@assets/images/doctor-information/review-1.png';
 import review_2 from '@assets/images/doctor-information/review-2.png';
 import review_3 from '@assets/images/doctor-information/review-3.png';
 import ServicesOffered from '@shared/components/common/ServicesOffered';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 const patientReviews = [
   {
@@ -111,9 +112,7 @@ const DoctorInformationView: React.FC<IDoctorInformationProps> = ({ doctor }) =>
 
               <div className="doctor-service-location__address-card">
                 <span className="doctor-service-location__pin-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                  </svg>
+                  <Icon icon="mdi:address-marker-outline" width="28" height="28" />
                 </span>
 
                 <div className="doctor-service-location__address-info">

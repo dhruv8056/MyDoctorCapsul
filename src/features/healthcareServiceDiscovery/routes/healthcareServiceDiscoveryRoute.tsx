@@ -8,12 +8,12 @@ import DoctorDiscoveryContainer from '../components/doctorDiscovery/container/do
 const HealthcareServiceDiscoveryRoute = () => {
   return (
     <Routes>
-      <Route index element={<Navigate to={APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HEALTHCARE_SERVICES_HOSPITALS} />} />
+      <Route index element={<Navigate to={APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HOSPITALS} />} />
 
-      <Route path={APP_ROUTE.HEALTHCARE_SERVICES_HOSPITALS} element={<HospitalDiscoveryContainer />} />
-      <Route path={APP_ROUTE.HEALTHCARE_SERVICES_CLINICS} element={<ClinicDiscoveryContainer />} />
-      <Route path={APP_ROUTE.HEALTHCARE_SERVICES_AMBULANCES} element={<AmbulanceDiscoveryContainer />} />
-      <Route path={APP_ROUTE.HEALTHCARE_SERVICES_DOCTOR} element={<DoctorDiscoveryContainer />} />
+      <Route path={APP_ROUTE.HOSPITALS} element={<HospitalDiscoveryContainer />} />
+      <Route path={APP_ROUTE.CLINICS} element={<ClinicDiscoveryContainer />} />
+      <Route path={APP_ROUTE.AMBULANCES} element={<AmbulanceDiscoveryContainer />} />
+      <Route path={APP_ROUTE.DOCTOR} element={<DoctorDiscoveryContainer />} />
     </Routes>
   );
 };

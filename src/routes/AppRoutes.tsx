@@ -40,7 +40,7 @@ function AppRoutes() {
 
         {/* Health care Routes */}
         <Route path={APP_ROUTE.HEALTHCARE_SERVICES + '*'} element={<HealthcareServiceDiscoveryRoute />} />
-        <Route path={APP_ROUTE.HEALTHCARE_INFORMATION} element={<HealthcareInformationRoute />} />
+        <Route path={APP_ROUTE.HEALTHCARE_INFORMATION + '*'} element={<HealthcareInformationRoute />} />
       </Route>
 
       <Route path="/" element={<PrivateLayout />}>

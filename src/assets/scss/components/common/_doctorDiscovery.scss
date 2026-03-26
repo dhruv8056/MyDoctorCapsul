@@ -21,16 +21,15 @@
   }
   .doctor-discovery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); // 🔥 always 2 cards
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     width: 100%;
 
     @media (max-width: 1024px) {
-      grid-template-columns: 1fr; // 🔥 mobile → 1 card
+      grid-template-columns: 1fr;
     }
   }
 
-  // ─── Card ───────────────────────────────────────────────────────────────────
   .doctor-discovery-card {
     display: flex;
     width: 100%;
