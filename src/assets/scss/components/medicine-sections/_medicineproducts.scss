@@ -1,0 +1,385 @@
+// ─── Design Tokens ───────────────────────────────────────────────────────────
+$primary: #014a97;
+$primary-light: #086bc1;
+$white: #ffffff;
+$surface: #fefefe;
+$bg-page: #f9f9f9;
+$border-card: #d9d9d9;
+$border-btn: #e4e9ec;
+$text-dark: #252525;
+$text-heading: #000000;
+$text-btn-idle: #01274e;
+$font: 'Lexend Deca', sans-serif;
+
+// Badge tokens
+$badge-fever-bg: #ecfdf5;
+$badge-fever-txt: #27954e;
+$badge-pain-bg: #fdecec;
+$badge-pain-txt: #ce3535;
+$badge-kids-bg: #f9fad7;
+$badge-kids-txt: #91520b;
+$badge-strong-bg: #eef2ff;
+$badge-strong-txt: #3730a3;
+$badge-cold-bg: #e0f2fe;
+$badge-cold-txt: #0369a1;
+$badge-immunity-bg: #f0fdf4;
+$badge-immunity-txt: #15803d;
+
+// ─── Section Wrapper ─────────────────────────────────────────────────────────
+.medicine-products-section {
+  padding-block: 32px 56px;
+  font-family: $font;
+  background-color: $white;
+}
+
+// ─── Category Filter Bar ─────────────────────────────────────────────────────
+.medicine-category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    user-select: none;
+
+    &--active {
+      background-color: $primary;
+      color: $white;
+      border-color: $primary;
+      box-shadow: 0 4px 14px rgba(1, 74, 151, 0.25);
+
+      &:hover {
+        background-color: darken($primary, 5%);
+        box-shadow: 0 6px 18px rgba(1, 74, 151, 0.35);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(1, 74, 151, 0.2);
+      }
+    }
+
+    &--idle {
+      background-color: $bg-page;
+      color: $text-btn-idle;
+      border-color: $border-btn;
+
+      &:hover {
+        background-color: darken($bg-page, 3%);
+        border-color: darken($border-btn, 8%);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// ─── Section Header ───────────────────────────────────────────────────────────
+.medicine-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  &__title {
+    font-family: $font;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    color: $text-heading;
+    margin: 0;
+  }
+
+  &__count {
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    color: $primary-light;
+  }
+}
+
+// ─── Product Grid ─────────────────────────────────────────────────────────────
+.medicine-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+// ─── Product Card ─────────────────────────────────────────────────────────────
+.medicine-card {
+  display: flex;
+  align-items: stretch;
+  background-color: $surface;
+  border: 1px solid $border-card;
+  border-radius: 12px;
+  overflow: hidden;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+  cursor: default;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(1, 74, 151, 0.1);
+    border-color: rgba(1, 74, 151, 0.2);
+    transform: translateY(-2px);
+  }
+
+  // ── Image Panel ────────────────────────────────────────────────────────────
+  &__image-wrap {
+    flex-shrink: 0;
+    width: 130px;
+    min-height: 140px;
+    border-right: 1px solid $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+
+    @media (max-width: 480px) {
+      width: 110px;
+      min-height: 120px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-height: 110px;
+    border-radius: 4px;
+  }
+
+  &__image-placeholder {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e8f0fb 0%, #dce8f8 100%);
+    color: $primary;
+    opacity: 0.5;
+
+    iconify-icon {
+      font-size: 40px;
+    }
+  }
+
+  // ── Details Panel ──────────────────────────────────────────────────────────
+  &__details {
+    flex: 1;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  &__top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &__name {
+    font-family: $font;
+    font-size: 19.94px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+    color: $text-dark;
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__badge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-family: $font;
+    font-size: 14.95px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+    white-space: nowrap;
+
+    &--Fever {
+      background-color: $badge-fever-bg;
+      color: $badge-fever-txt;
+    }
+    &--Pain {
+      background-color: $badge-pain-bg;
+      color: $badge-pain-txt;
+    }
+    &--Kids {
+      background-color: $badge-kids-bg;
+      color: $badge-kids-txt;
+    }
+    &--Strong {
+      background-color: $badge-strong-bg;
+      color: $badge-strong-txt;
+    }
+    &--Cold {
+      background-color: $badge-cold-bg;
+      color: $badge-cold-txt;
+    }
+    &--Immunity {
+      background-color: $badge-immunity-bg;
+      color: $badge-immunity-txt;
+    }
+  }
+
+  &__description {
+    font-family: $font;
+    font-size: 14.95px;
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: 0;
+    color: rgba(37, 37, 37, 0.7);
+    margin: 0;
+  }
+
+  &__bottom-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 8px;
+  }
+
+  &__pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__price {
+    font-family: $font;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+    color: $primary;
+    margin: 0;
+  }
+
+  &__quantity {
+    font-family: $font;
+    font-size: 14.95px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    color: $primary;
+    margin: 0;
+  }
+
+  &__add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 22px;
+    background-color: $primary;
+    color: $white;
+    border: none;
+    border-radius: 8px;
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      background-color: darken($primary, 8%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(1, 74, 151, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    iconify-icon {
+      font-size: 16px;
+    }
+  }
+}
+
+// ─── Empty State ──────────────────────────────────────────────────────────────
+.medicine-empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  gap: 16px;
+  color: rgba($text-dark, 0.4);
+
+  iconify-icon {
+    font-size: 56px;
+  }
+
+  p {
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+  }
+}

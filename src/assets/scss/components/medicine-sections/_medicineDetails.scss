@@ -1,0 +1,701 @@
+// src/features/medicineSection/components/medicineDetails/styles/_medicineDetails.scss
+
+// ─── Design Tokens ────────────────────────────────────────────────────────────
+$font: 'Lexend Deca', sans-serif;
+$primary: #014a97;
+$primary-light-bg: #e5f2ff;
+$white: #ffffff;
+$surface: #fefefe;
+$page-bg: #f6f6f6;
+$border: #d9d9d9;
+$border-divider: rgba(0, 0, 0, 0.2);
+$text-dark: #252525;
+$text-muted: rgba(37, 37, 37, 0.7);
+$text-label: rgba(37, 37, 37, 0.5);
+$text-body: rgba(37, 37, 37, 0.8);
+$text-delivery: rgba(65, 71, 83, 1);
+$green-brand: #037d36;
+$green-stock: rgba(0, 110, 40, 0.8);
+$green-direction: #27954e;
+$blue-accent: #066ebd;
+$blue-icon: rgba(0, 78, 159, 1);
+$dosage-border: #318951;
+$dosage-color: rgba(0, 110, 40, 0.8);
+$side-color: rgba(118, 6, 166, 0.8);
+$warning-color: rgba(178, 29, 32, 0.8);
+
+// ─── Page Shell ───────────────────────────────────────────────────────────────
+.mdp {
+  font-family: $font;
+  background-color: $white;
+  min-height: 100vh;
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // MASTER 3-COLUMN GRID
+  // col-1: product image  (~260px)
+  // col-2: meta/about/info (1fr, fills remaining left space)
+  // col-3: sticky sidebar (300px, full height)
+  // ────────────────────────────────────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    // Named rows:
+    // [breadcrumb]  auto
+    // [title]       auto
+    // [content]     auto  ← image | composition+price+delivery
+    // [lower]       auto  ← about | important info
+    grid-template-rows: auto auto auto auto;
+
+    // sidebar spans ALL 4 rows
+    align-items: start;
+
+    @media (max-width: 1100px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 580px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ── ROW 1: Breadcrumb — col 1+2 ─────────────────────────────────────────
+  &__breadcrumb-row {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    padding: 20px 28px 16px 0;
+
+    @media (max-width: 900px) {
+      grid-column: 1 / 3;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+    }
+  }
+
+  // ── ROW 2: Name + alias + badges — col 1+2 ───────────────────────────────
+  &__title-row {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    padding: 0 28px 22px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    @media (max-width: 900px) {
+      grid-column: 1 / 3;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+    }
+  }
+
+  &__name {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 0;
+  }
+
+  &__alias {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    color: $text-body;
+    margin: 0;
+  }
+
+  &__badges {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+
+  &__top-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: $green-brand;
+    color: $white;
+    font-size: 14.95px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+
+  &__rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14.95px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+  }
+
+  // ── ROW 3 col-1: Product Image ────────────────────────────────────────────
+  &__image-col {
+    grid-column: 1;
+    grid-row: 3;
+    padding-right: 24px;
+    padding-bottom: 32px;
+
+    @media (max-width: 900px) {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+      grid-row: 3;
+    }
+  }
+
+  &__image-wrap {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f5f8fb;
+    border: 1px solid $border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 260px;
+    color: rgba($primary, 0.18);
+    font-size: 80px;
+  }
+
+  // ── ROW 3 col-2: Composition / Price / Delivery ───────────────────────────
+  &__meta-col {
+    grid-column: 2;
+    grid-row: 3;
+    padding-right: 28px;
+    padding-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: 900px) {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+      grid-row: 4;
+      padding-right: 0;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__field-label {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    color: $text-label;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  &__field-value {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 0;
+
+    &--md {
+      font-size: 21px;
+      font-weight: 400;
+      color: $text-body;
+    }
+  }
+
+  &__strip-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background-color: $primary-light-bg;
+    border-radius: 6px;
+    font-size: 14.95px;
+    font-weight: 500;
+    line-height: 1;
+    color: $primary;
+    width: fit-content;
+  }
+
+  // Price Card
+  &__price-card {
+    background-color: $surface;
+    border: 1px solid $border;
+    border-left: 4px solid $blue-accent;
+    border-radius: 10px;
+    box-shadow: 0px 4px 29.2px 0px rgba(0, 0, 0, 0.08);
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__stock-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    color: $green-stock;
+  }
+
+  &__best-price {
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1;
+    color: $text-body;
+    margin: 0;
+  }
+
+  &__price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  &__price {
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    color: $primary;
+  }
+
+  &__price-unit {
+    font-size: 14.95px;
+    font-weight: 400;
+    line-height: 1;
+    color: $primary;
+  }
+
+  &__shipping {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    color: $text-delivery;
+    margin: 0;
+  }
+
+  &__delivery-time {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 2px 0 0;
+  }
+
+  // ── ROW 4 col-1: About ────────────────────────────────────────────────────
+  &__about-col {
+    grid-column: 1;
+    grid-row: 4;
+    padding-right: 24px;
+    padding-bottom: 48px;
+
+    @media (max-width: 900px) {
+      grid-column: 1;
+      grid-row: 4;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+      grid-row: 5;
+      padding-right: 0;
+    }
+  }
+
+  &__about-heading {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 0 0 14px;
+  }
+
+  // Divider — only as wide as the column (not full width)
+  &__about-divider {
+    border: none;
+    border-top: 1px solid $border-divider;
+    margin: 0 0 16px;
+    width: 100%;
+  }
+
+  &__about-card {
+    background-color: $page-bg;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-size: 14.95px;
+    font-weight: 400;
+    line-height: 23px;
+    color: $text-muted;
+  }
+
+  &__trust {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  &__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    color: $text-dark;
+  }
+
+  // ── ROW 4 col-2: Important Information ───────────────────────────────────
+  &__info-col {
+    grid-column: 2;
+    grid-row: 4;
+    padding-right: 28px;
+    padding-bottom: 48px;
+
+    @media (max-width: 900px) {
+      grid-column: 2;
+      grid-row: 4;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+      grid-row: 6;
+      padding-right: 0;
+    }
+  }
+
+  &__info-heading {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 0 0 16px;
+  }
+
+  &__info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__info-card {
+    background-color: $page-bg;
+    border: 1px solid $border;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--dosage {
+      border-left: 4px solid $dosage-border;
+      border-left-color: $dosage-border;
+    }
+  }
+
+  &__info-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+
+    &--dosage {
+      color: $dosage-color;
+    }
+    &--side-effect {
+      color: $side-color;
+    }
+    &--warning {
+      color: $warning-color;
+    }
+  }
+
+  &__info-desc {
+    font-size: 14.95px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: $text-muted;
+    margin: 0;
+  }
+
+  // ─── SIDEBAR — col-3, spans ALL rows (1-5) ───────────────────────────────
+  // No top border/margin — flush with page top
+  &__sidebar {
+    grid-column: 3;
+    grid-row: 1 / 5;
+    align-self: stretch;
+    background-color: $page-bg;
+    border-left: 1px solid $border;
+    border-right: 1px solid $border;
+    border-bottom: 1px solid $border;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow: hidden;
+    margin-bottom: 50px;
+    border-radius: 0 0 10px 10px;
+
+    @media (max-width: 900px) {
+      grid-column: 1 / 3;
+      grid-row: 5;
+      position: static;
+      max-height: none;
+      border: 1px solid $border;
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 580px) {
+      grid-column: 1;
+      grid-row: 7;
+    }
+  }
+
+  // Pharmacy top area
+  &__pharmacy {
+    padding: 20px 18px 16px;
+  }
+
+  &__pharmacy-heading {
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 0 0 16px;
+  }
+
+  &__pharmacy-card {
+    background-color: $surface;
+    border: 1px solid $border;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__pharmacy-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__pharmacy-img-wrap {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #eef3f9;
+    border: 1px solid $border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__pharmacy-img-placeholder {
+    color: rgba($primary, 0.3);
+    font-size: 26px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__pharmacy-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__pharmacy-name {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1;
+    color: $text-dark;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__pharmacy-dist {
+    font-size: 14.95px;
+    font-weight: 300;
+    line-height: 1;
+    color: $text-muted;
+    margin: 0;
+  }
+
+  &__pharmacy-open {
+    font-size: 14.95px;
+    font-weight: 400;
+    line-height: 1;
+    color: $primary;
+    margin: 0;
+  }
+
+  &__pharmacy-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  &__pharmacy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-family: $font;
+    font-size: 14.95px;
+    font-weight: 500;
+    line-height: 1;
+    color: $white;
+    cursor: pointer;
+    transition:
+      filter 0.2s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      filter: brightness(1.12);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+      filter: brightness(0.95);
+    }
+
+    &--call {
+      background-color: $primary;
+    }
+    &--directions {
+      background-color: $green-direction;
+    }
+  }
+
+  // Spacer between pharmacy and total — grows to fill space
+  &__sidebar-spacer {
+    flex: 1;
+  }
+
+  // Total Payable + Add to Cart — pinned to bottom
+  &__total {
+    background-color: $surface;
+    border-top: 1px solid $border;
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__total-label {
+    font-size: 14.95px;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+  }
+
+  &__total-amount {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1;
+    color: $primary;
+    margin: 0;
+  }
+
+  &__cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: $primary;
+    color: $white;
+    border: none;
+    border-radius: 10px;
+    font-family: $font;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      background-color: #013d7a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(1, 74, 151, 0.32);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+  }
+}

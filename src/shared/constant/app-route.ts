@@ -15,6 +15,8 @@ export const APP_ROUTE = {
   USER: '/user',
   SUPER_ADMINS: '/superadmin',
   DIAGNOSTIC_CENTRE: '/diagnostic-centre',
+  PRODUCT: '/product',
+  DETAILS: '/details',
 
   // healthcare-services
   HEALTHCARE_SERVICES: '/healthcare-services',
@@ -23,8 +25,7 @@ export const APP_ROUTE = {
   HEALTHCARE_INFORMATION: '/healthcare-information',
 
   //medicine section
-  MEDICINE_SECTION:'/medicine-section',
-
+  MEDICINE_SECTION: '/medicine-section',
 
   //DEMO ROUTES
   SHOP: '/shop',
