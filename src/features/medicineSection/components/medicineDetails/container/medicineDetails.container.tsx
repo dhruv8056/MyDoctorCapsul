@@ -2,7 +2,7 @@
 import React, { useCallback } from 'react';
 import { IMedicineDetails } from '../interface/IMedicineDetails';
 import MedicineDetailsView from '../view/medicineDetailsView';
-import medicine_3 from '@assets/images/medicines/medicine-3.png';
+import medicine_3 from '@assets/images/medicines/medicine-4.png';
 import shop from '@assets/images/medicines/shop.png';
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────

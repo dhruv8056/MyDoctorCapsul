@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { MedicineDetailsViewProps } from '../interface/IMedicineDetails';
 import Breadcrumb from '../../../../../shared/components/common/Breadcrumb';
 import { APP_ROUTE } from '@shared/constant/app-route';
+import PharmacyCard from '@shared/components/medicineSection/PharmacyCard';
 
 const BREADCRUMB_ITEMS = [
   { label: 'Home', href: '/', icon: 'mdi:home-outline' },
@@ -175,44 +176,15 @@ const MedicineDetailsView: React.FC<MedicineDetailsViewProps> = ({ medicine, onA
             <div className="mdp__pharmacy">
               <h3 className="mdp__pharmacy-heading">Fulfilment Pharmacy</h3>
 
-              <div className="mdp__pharmacy-card">
-                <div className="mdp__pharmacy-info">
-                  <div className="mdp__pharmacy-img-wrap">
-                    {pharmacy.image ? (
-                      <img src={pharmacy.image} alt={pharmacy.name} />
-                    ) : (
-                      <div className="mdp__pharmacy-img-placeholder">
-                        <Icon icon="mdi:store-outline" />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mdp__pharmacy-text">
-                    <p className="mdp__pharmacy-name">{pharmacy.name}</p>
-                    <p className="mdp__pharmacy-dist">{pharmacy.distanceKm} km away</p>
-                    <p className="mdp__pharmacy-open">Open Until {pharmacy.openUntil}</p>
-                  </div>
-                </div>
-
-                <div className="mdp__pharmacy-actions">
-                  <button
-                    className="mdp__pharmacy-btn mdp__pharmacy-btn--call"
-                    onClick={() => onCall?.(pharmacy.phone)}
-                    aria-label={`Call ${pharmacy.name}`}
-                  >
-                    <Icon icon="mdi:phone-outline" />
-                    Call
-                  </button>
-                  <button
-                    className="mdp__pharmacy-btn mdp__pharmacy-btn--directions"
-                    onClick={() => onDirections?.(pharmacy.mapsUrl)}
-                    aria-label={`Directions to ${pharmacy.name}`}
-                  >
-                    <Icon icon="mdi:directions" />
-                    Directions
-                  </button>
-                </div>
-              </div>
+              <PharmacyCard
+                name={pharmacy.name}
+                distance={`${pharmacy.distanceKm} km`}
+                deliveryTag={`Open Until ${pharmacy.openUntil}`}
+                image={pharmacy.image}
+                className="bg-white"
+                onCall={() => onCall?.(pharmacy.phone)}
+                onDirections={() => onDirections?.(pharmacy.mapsUrl)}
+              />
             </div>
 
             {/* MIDDLE: Empty spacer — grows to fill */}

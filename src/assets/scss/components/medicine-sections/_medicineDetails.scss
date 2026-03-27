@@ -39,13 +39,8 @@ $warning-color: rgba(178, 29, 32, 0.8);
   &__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-    // Named rows:
-    // [breadcrumb]  auto
-    // [title]       auto
-    // [content]     auto  ← image | composition+price+delivery
-    // [lower]       auto  ← about | important info
     grid-template-rows: auto auto auto auto;
+    gap: 1vw;
 
     // sidebar spans ALL 4 rows
     align-items: start;
@@ -510,129 +505,7 @@ $warning-color: rgba(178, 29, 32, 0.8);
     font-weight: 600;
     line-height: 1;
     color: $text-dark;
-    margin: 0 0 16px;
-  }
-
-  &__pharmacy-card {
-    background-color: $surface;
-    border: 1px solid $border;
-    border-radius: 10px;
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  &__pharmacy-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  &__pharmacy-img-wrap {
-    flex-shrink: 0;
-    width: 58px;
-    height: 58px;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #eef3f9;
-    border: 1px solid $border;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__pharmacy-img-placeholder {
-    color: rgba($primary, 0.3);
-    font-size: 26px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__pharmacy-text {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  &__pharmacy-name {
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 1;
-    color: $text-dark;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__pharmacy-dist {
-    font-size: 14.95px;
-    font-weight: 300;
-    line-height: 1;
-    color: $text-muted;
-    margin: 0;
-  }
-
-  &__pharmacy-open {
-    font-size: 14.95px;
-    font-weight: 400;
-    line-height: 1;
-    color: $primary;
-    margin: 0;
-  }
-
-  &__pharmacy-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  &__pharmacy-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 10px 14px;
-    border: none;
-    border-radius: 8px;
-    font-family: $font;
-    font-size: 14.95px;
-    font-weight: 500;
-    line-height: 1;
-    color: $white;
-    cursor: pointer;
-    transition:
-      filter 0.2s ease,
-      transform 0.15s ease;
-
-    &:hover {
-      filter: brightness(1.12);
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
-      filter: brightness(0.95);
-    }
-
-    &--call {
-      background-color: $primary;
-    }
-    &--directions {
-      background-color: $green-direction;
-    }
+    margin: 16px 0;
   }
 
   // Spacer between pharmacy and total — grows to fill space
