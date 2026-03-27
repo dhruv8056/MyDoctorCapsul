@@ -1,0 +1,194 @@
+.prescription-upload {
+  background-color: #014a97;
+
+  background-repeat: no-repeat, no-repeat;
+
+  background-position:
+    left 40px center,
+    right 20px center;
+
+  background-size:
+    200px auto,
+    250px auto;
+
+  height: 211px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: 'Lexend Deca';
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+  }
+
+  &__desc {
+    font-family: 'Lexend Deca';
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 23px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &__btn {
+    padding: 16px 47px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+
+    &--camera {
+      background-color: #ffffff;
+      color: #014a97;
+
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+
+    &--upload {
+      background-color: #125aa6;
+      color: #ffffff;
+      border: 2px dashed #5287be;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+.medicine-categories {
+  margin: 40px 0 65px 0;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 16px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #000000;
+    font-family: 'Lexend Deca';
+  }
+
+  &__view-all {
+    font-size: 20px;
+    font-weight: 400;
+    color: #252525;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lexend Deca';
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  &__btn {
+    padding: 14px 100px;
+    border-radius: 10px;
+    background-color: #014a97;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 60px;
+
+    &:hover {
+      background-color: #014a97;
+      color: #ffffff;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}
+
+.medicine-categories-card {
+  margin: 65px 0 40px 0;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 16px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #000000;
+    font-family: 'Lexend Deca';
+  }
+
+  &__view-all {
+    font-size: 20px;
+    font-weight: 400;
+    color: #252525;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lexend Deca';
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 19px;
+    margin-top: 37px;
+
+    grid-template-columns: 1fr;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

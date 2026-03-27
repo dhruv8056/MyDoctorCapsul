@@ -37,7 +37,7 @@ const InformationRatingSection: React.FC<InformationRatingSectionProps> = ({ rat
           return (
             <div key={key} className={`information-rating-section__card ${item.active ? 'information-rating-section__card--active' : ''}`}>
               <div className="information-rating-section__top">
-                {item.icon && <Icon icon={item.icon} className="information-rating-section__icon" />}
+                {item.icon && <Icon icon={item.icon} className="information-rating-section__icon my-1.5" />}
 
                 {item.value && <span className="information-rating-section__value">{item.value}</span>}
               </div>
