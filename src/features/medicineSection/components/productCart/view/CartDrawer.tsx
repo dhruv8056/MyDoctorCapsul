@@ -15,27 +15,27 @@ interface Props {
 }
 
 const CartDrawer = ({ isOpen, onClose, step, setStep }: Props) => {
-   const [isTrackingOpen, setIsTrackingOpen] = useState(false);
-   const [orderId, setOrderId] = useState("");
+  const [isTrackingOpen, setIsTrackingOpen] = useState(false);
+  const [orderId, setOrderId] = useState('');
 
   const handlePaymentSuccess = () => {
-    const newOrderId = "ORD" + Date.now();
+    const newOrderId = 'ORD' + Date.now();
     setOrderId(newOrderId);
 
     setIsTrackingOpen(true);
-    onClose(); // drawer bandh thai jase
+    onClose();
   };
   return (
-    <>  
-    <Drawer isOpen={isOpen} onClose={onClose}>
-      {step === 'cart' && <CartStep onNext={() => setStep('address')} />}
+    <>
+      <Drawer isOpen={isOpen} onClose={onClose}>
+        {step === 'cart' && <CartStep onNext={() => setStep('address')} />}
 
-      {step === 'address' && <AddressStep onNext={() => setStep('payment')} onBack={() => setStep('cart')} />}
+        {step === 'address' && <AddressStep onNext={() => setStep('payment')} onBack={() => setStep('cart')} />}
 
-      {step === 'payment' && <PaymentStep onBack={() => setStep('address')}  onSuccess={handlePaymentSuccess} />}
-    </Drawer>
-     <OrderTracking open={isTrackingOpen} onClose={() => setIsTrackingOpen(false)} />
-      </>
+        {step === 'payment' && <PaymentStep onBack={() => setStep('address')} onSuccess={handlePaymentSuccess} />}
+      </Drawer>
+      <OrderTracking open={isTrackingOpen} onClose={() => setIsTrackingOpen(false)} />
+    </>
   );
 };
 

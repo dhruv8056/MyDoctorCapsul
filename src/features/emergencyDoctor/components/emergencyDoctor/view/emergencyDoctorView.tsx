@@ -2,12 +2,10 @@ import { useState } from 'react';
 import Breadcrumb from '@shared/components/common/Breadcrumb';
 import { APP_ROUTE } from '@shared/constant/app-route';
 import { Icon } from '@iconify/react';
-import { useNavigate } from 'react-router-dom';
 import EmergencyDoctorTrackingModal from './EmergencyDoctorTrackingModal';
-import emr_doc_1 from '@assets/images/eme-doc-1.png';
+import { useNavigate } from 'react-router-dom';
 
-
-const EmergencyDoctorView = () => {
+const EmergencyDoctorView: React.FC<{ onAction: (item: any) => void }> = ({ onAction }) => {
   const navigate = useNavigate();
   const [isTrackingModalOpen, setIsTrackingModalOpen] = useState(false);
 
@@ -21,17 +19,19 @@ const EmergencyDoctorView = () => {
       id: 1,
       icon: 'mdi:video-plus',
       title: 'Instant Video Call',
+      action: 'drawer',
       description: 'Start a video consultation with an emergency doctor within 2 minutes',
       buttonText: 'CONNECT NOW >>',
-      action: 'none'
+      route: '/'
     },
     {
       id: 2,
       icon: 'mdi:medical-bag',
       title: 'Request Home Visit',
+      action: 'modal',
       description: 'Book a doctor to visit your location with real-time tracking facility',
       buttonText: 'DISPATCH MEDIC >>',
-      action: 'open_modal'
+      route: ''
     }
   ];
 
@@ -47,31 +47,23 @@ const EmergencyDoctorView = () => {
         <div className="emergency-doctor__cards">
           {emergencyOptions.map((item) => (
             <div key={item.id} className="emergency-doctor__card">
-              <Icon icon={item.icon} width="43" height="34" color='#001C3A' />
+              <Icon icon={item.icon} width="43" height="34" color="#001C3A" />
 
               <h3>{item.title}</h3>
               <p>{item.description}</p>
 
-              <button
-                className="emergency-doctor__link"
-                onClick={() => {
-                  if (item.action === 'open_modal') {
-                    setIsTrackingModalOpen(true);
-                  }
-                }}
-              >
+              <button className="emergency-doctor__link" onClick={() => onAction(item)}>
                 {item.buttonText}
               </button>
             </div>
           ))}
         </div>
 
-        {/* 🔥 TOP STATUS SECTION */}
         <div className="emergency-status">
           <div className="emergency-status__avatars">
-            <img src={emr_doc_1} alt="doc" />
-            <img src={emr_doc_1} alt="doc" />
-            <img src={emr_doc_1} alt="doc" />
+            <img src="/images/doc1.jpg" alt="doc" />
+            <img src="/images/doc2.jpg" alt="doc" />
+            <img src="/images/doc3.jpg" alt="doc" />
           </div>
 
           <div className="emergency-status__info">
@@ -96,10 +88,7 @@ const EmergencyDoctorView = () => {
         </div>
       </div>
 
-      <EmergencyDoctorTrackingModal
-        open={isTrackingModalOpen}
-        onClose={() => setIsTrackingModalOpen(false)}
-      />
+      <EmergencyDoctorTrackingModal open={isTrackingModalOpen} onClose={() => setIsTrackingModalOpen(false)} />
     </div>
   );
 };

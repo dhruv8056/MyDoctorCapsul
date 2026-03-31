@@ -4,7 +4,6 @@ import CartDrawer from '../view/CartDrawer';
 
 const ProductCartContainer = () => {
   const { isDrawerOpen, setDrawerOpen, checkoutStep, setCheckoutStep } = useContext(GlobalContext);
-  console.log('🚀 ~ ProductCartContainer ~ isDrawerOpen:', isDrawerOpen);
 
   return <CartDrawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)} step={checkoutStep} setStep={setCheckoutStep} />;
 };
