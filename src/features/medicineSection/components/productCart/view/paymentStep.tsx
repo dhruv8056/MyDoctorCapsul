@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import InputField from '@shared/components/common/InputFiled';
 import { PaymentStepProps } from '../interface/IProductCart';
 
-const PaymentStep: React.FC<PaymentStepProps> = ({ onBack }) => {
+const PaymentStep: React.FC<PaymentStepProps> = ({ onBack , onSuccess  }) => {
   const [activeMethod, setActiveMethod] = useState('card');
 
   return (
@@ -149,7 +149,7 @@ const PaymentStep: React.FC<PaymentStepProps> = ({ onBack }) => {
           <strong>₹125.00</strong>
         </div>
 
-        <button className="payment-step__btn">Pay Now</button>
+        <button className="payment-step__btn"  onClick={() => {onSuccess();}}>Pay Now</button>
       </div>
     </div>
   );

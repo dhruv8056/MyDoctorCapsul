@@ -1,0 +1,129 @@
+/* MAIN POPUP */
+.dynamic-popup .MuiPaper-root {
+  width: 100%;
+  max-width: 1077px;   
+   max-height: 1077px;     /* 🔥 increased width */
+
+  border-radius: 30px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  height: auto;
+  max-height: 95vh;        /* 🔥 increased height */
+}
+
+/* CONTAINER */
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  height: 100%;
+}
+
+/* HEADER */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 25px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+
+  flex-shrink: 0;
+}
+
+.popup-header__left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+.popup-header__center {
+  font-size: 28px;
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+  margin-left: 70px;
+}
+
+.popup-header__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 15px;
+}
+
+.popup-header__text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.popup-header__text .top {
+ opacity: 0.4;
+  transform: rotate(0deg);
+  color: #000000;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.popup-header__text .bottom {
+  color: #000000;
+
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 500; /* Medium */
+
+  font-size: 26px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+/* BODY */
+.popup-body {
+  padding: 20px 18px;
+
+  overflow-y: auto;
+  max-height: calc(95vh - 80px); /* 🔥 perfect scroll */
+}
+
+/* OPTIONAL: smoother scroll */
+.popup-body {
+  scroll-behavior: smooth;
+}
+
+/* OPTIONAL: custom scrollbar */
+.popup-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.popup-body::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.popup-header__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%; // 🔥 full round
+  background: rgba(2, 115, 191, 0.1); // #0273BF with opacity
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // optional (clean UI)
+  flex-shrink: 0;
+
+  // icon color inside
+  svg {
+    color: #0273BF;
+    font-size: 22px; // adjust if needed
+  }
+}

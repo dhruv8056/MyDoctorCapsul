@@ -1,0 +1,193 @@
+.order-tracking {
+  padding: 0 20px;
+  margin-bottom: 69px;
+  margin-top: 41px;
+  margin-left: 70px;
+}
+
+/* TIMELINE */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  padding-left: 6px;
+}
+
+/* ITEM */
+.timeline-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* 🔥 LINE BASE */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  bottom: -95px;
+  width: 2px;
+  background: #dddddd; /* default gray */
+  z-index: 0;
+}
+
+/* 🔥 ACTIVE LINE (green only till active) */
+.timeline-item.completed::before {
+  background: #006610;
+}
+
+.timeline-item.active::before {
+  background: #006610;
+}
+
+/* LAST ITEM */
+.timeline-item:last-child::before {
+  display: none;
+}
+
+/* CIRCLE */
+.circle {
+  width: 35px;
+  height: 30px;
+  min-width: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-top: 15px;
+}
+
+/* COLORS */
+.green {
+  background: #006610;
+}
+.green svg {
+  color: #fff;
+  font-size: 16px;
+}
+
+.blue {
+  background: #0093F6;
+}
+.blue svg {
+  color: #fff;
+  font-size: 16px;
+}
+
+.gray {
+  border: 2px solid #dddddd;
+  background: #fff;
+}
+.gray svg {
+  color: #dddddd;
+  font-size: 16px;
+}
+
+/* CONTENT */
+.content {
+  width: 100%;
+}
+
+/* ================= TEXT SYSTEM ================= */
+
+/* COMPLETED */
+.timeline-item.completed .title {
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 26px;
+  color: #000000;
+}
+
+/* ACTIVE TEXT */
+.timeline-item.active .title {
+  font-family: "Lexend Deca";
+  font-weight: 700;
+  font-size: 30px;
+  color: #0093F6; /* 🔥 CHANGE */
+}
+
+/* ACTIVE TIME */
+.timeline-item.active .time {
+  color: #0093F6; /* 🔥 SAME BLUE */
+}
+
+/* DISABLED */
+.timeline-item.disabled .title {
+  font-family: "Lexend Deca";
+  font-weight: 500;
+  font-size: 26px;
+  color: #999999;
+}
+
+/* TIME TEXT */
+.time {
+  font-family: "Lexend Deca";
+  font-weight: 400;
+  font-size: 20px;
+  color: #6b7280;
+  display: block;
+}
+
+/* DISABLED TIME */
+.timeline-item.disabled .time {
+  color: #999999;
+}
+
+/* ================= TRACKING CARD ================= */
+
+.tracking-card {
+  margin-top: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+  width: 65%;
+  margin-bottom: 30px;
+}
+
+.tracking-card__map {
+  height: 120px;
+  background: linear-gradient(135deg, #d1d5db, #e5e7eb);
+}
+
+.tracking-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.role {
+  font-size: 10px;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+/* BUTTON */
+.live-btn {
+  background-color: #006610 !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  padding: 6px 14px !important;
+  text-transform: none !important;
+  box-shadow: none !important;
+}
+
+.live-btn:hover {
+  background-color: #004d0f !important;
+}

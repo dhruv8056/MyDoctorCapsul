@@ -9,4 +9,11 @@ export interface AddressStepProps {
 
 export interface PaymentStepProps {
   onBack: () => void;
+  onSuccess: () => void;
+}
+
+
+export interface orderTrackingProps {
+  open: boolean;
+  onClose: () => void;
 }
