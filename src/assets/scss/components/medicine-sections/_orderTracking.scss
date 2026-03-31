@@ -29,7 +29,8 @@
   top: 20px;
   bottom: -95px;
   width: 2px;
-  background: #dddddd; /* default gray */
+  background: #dddddd;
+  /* default gray */
   z-index: 0;
 }
 
@@ -64,6 +65,7 @@
 .green {
   background: #006610;
 }
+
 .green svg {
   color: #fff;
   font-size: 16px;
@@ -72,6 +74,7 @@
 .blue {
   background: #0093F6;
 }
+
 .blue svg {
   color: #fff;
   font-size: 16px;
@@ -81,6 +84,7 @@
   border: 2px solid #dddddd;
   background: #fff;
 }
+
 .gray svg {
   color: #dddddd;
   font-size: 16px;
@@ -106,12 +110,14 @@
   font-family: "Lexend Deca";
   font-weight: 700;
   font-size: 30px;
-  color: #0093F6; /* 🔥 CHANGE */
+  color: #0093F6;
+  /* 🔥 CHANGE */
 }
 
 /* ACTIVE TIME */
 .timeline-item.active .time {
-  color: #0093F6; /* 🔥 SAME BLUE */
+  color: #0093F6;
+  /* 🔥 SAME BLUE */
 }
 
 /* DISABLED */

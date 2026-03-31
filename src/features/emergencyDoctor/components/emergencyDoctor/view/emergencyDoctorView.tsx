@@ -1,10 +1,14 @@
+import React, { useState } from 'react';
 import Breadcrumb from '@shared/components/common/Breadcrumb';
 import { APP_ROUTE } from '@shared/constant/app-route';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import EmergencyDoctorTrackingModal from './EmergencyDoctorTrackingModal';
 
 const EmergencyDoctorView = () => {
   const navigate = useNavigate();
+  const [isTrackingModalOpen, setIsTrackingModalOpen] = useState(false);
+
   const BREADCRUMB_ITEMS = [
     { label: 'Home', href: '/' },
     { label: 'emergency doctor', href: APP_ROUTE.EMERGENCY_DOCTOR }
@@ -41,18 +45,40 @@ const EmergencyDoctorView = () => {
         <div className="emergency-doctor__cards">
           {emergencyOptions.map((item) => (
             <div key={item.id} className="emergency-doctor__card">
-              <Icon icon={item.icon} width="43" height="34" color='#001C3A'/>
+              <Icon icon={item.icon} width="43" height="34" color='#001C3A' />
 
               <h3>{item.title}</h3>
               <p>{item.description}</p>
 
-              <button className="emergency-doctor__link" onClick={() => navigate(item.route)}>
+              <button
+                className="emergency-doctor__link"
+                onClick={() => {
+                  if (item.route) {
+                    navigate(item.route);
+                  } else {
+                    setIsTrackingModalOpen(true);
+                  }
+                }}
+              >
                 {item.buttonText}
               </button>
             </div>
           ))}
         </div>
 
+        {/* 🔥 TOP STATUS SECTION */}
+        <div className="emergency-status">
+          <div className="emergency-status__avatars">
+            <img src="/images/doc1.jpg" alt="doc" />
+            <img src="/images/doc2.jpg" alt="doc" />
+            <img src="/images/doc3.jpg" alt="doc" />
+          </div>
+
+          <div className="emergency-status__info">
+            <p className="online-text">14 Specializes doctors currently online</p>
+            <span className="status-badge">SYSTEM RESPONSE: NORMAL</span>
+          </div>
+        </div>
         {/* Bottom CTA */}
         <div className="emergency-doctor__cta">
           <button onClick={() => (window.location.href = 'tel:+911234567890')}>
@@ -61,6 +87,11 @@ const EmergencyDoctorView = () => {
           </button>
         </div>
       </div>
+
+      <EmergencyDoctorTrackingModal
+        open={isTrackingModalOpen}
+        onClose={() => setIsTrackingModalOpen(false)}
+      />
     </div>
   );
 };
