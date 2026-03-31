@@ -112,10 +112,30 @@ export interface IRoutreRole {
   Student: string;
   Superadmin: string;
 }
+
+export type CheckoutStep = 'cart' | 'address' | 'payment';
+
+export interface CartItem {
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
 export interface GlobalContextProps {
   toggleSidebar: boolean;
   setToggleSidebar: React.Dispatch<React.SetStateAction<boolean>>;
   // ── Search ──────────────────────────────────────────────────────────────────
   searchQuery: string;
   setSearchQuery: (value: string) => void;
+  // ── Cart ──────────────────────────────────────────────────────────────────
+  cartItems: CartItem[];
+  setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
+
+  isDrawerOpen: boolean;
+  setDrawerOpen: (val: boolean) => void;
+
+  checkoutStep: CheckoutStep;
+  setCheckoutStep: (step: CheckoutStep) => void;
 }

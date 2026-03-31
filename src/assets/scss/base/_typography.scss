@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('/src/assets/fonts/gilroy/Gilroy-Medium.ttf') format('truetype');
+  src: url('@assets/fonts/gilroy/Gilroy-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('/src/assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype');
+  src: url('@assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -44,7 +44,7 @@
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('/src/assets/fonts/gilroy/Gilroy-Heavy.ttf') format('truetype');
+  src: url('@assets/fonts/gilroy/Gilroy-Heavy.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;

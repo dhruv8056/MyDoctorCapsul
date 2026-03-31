@@ -1,0 +1,21 @@
+.diagnostic-section-card {
+  margin-top: 25px;
+  margin-bottom: 32px;
+  &__title {
+    font-weight: 500;
+    font-size: 28px;
+    font-family: 'Lexend Deca';
+  }
+
+  &__grid {
+    display: grid;
+    gap: 19px;
+    margin-top: 37px;
+
+    grid-template-columns: 1fr;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

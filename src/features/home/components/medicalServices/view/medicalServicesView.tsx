@@ -2,7 +2,7 @@ import React from 'react';
 import service_hospital from '@assets/images/services/service_hospitals.png';
 import service_clinics from '@assets/images/services/service_clinics.png';
 import service_doctor from '@assets/images/services/service_doctor.png';
-import service_nurses from '@assets/images/services/service_nurses.png';
+import service_nurses from '@assets/images/services/service_nurse.png';
 import service_medicine from '@assets/images/services/service_medicine.png';
 import service_diagnostics from '@assets/images/services/service_diagnostics.png';
 import service_physiotherapy from '@assets/images/services/service_physiotherapy.png';
@@ -14,11 +14,13 @@ const services = [
   {
     img: service_hospital,
     title: 'Hospitals',
+    desc: 'Search your near hospitals',
     path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.HOSPITALS
   },
   {
     img: service_clinics,
     title: 'Clinics',
+    desc: 'Search your near clinics',
     path: APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.CLINICS
   },
   {
@@ -43,11 +45,11 @@ const services = [
     img: service_diagnostics,
     title: 'Diagnostics',
     desc: 'Book lab tests & health checkups',
-    path: '/'
+    path: APP_ROUTE.DIAGNOSTIC_SECTION + APP_ROUTE.DIAGNOSTIC_CENTRE
   },
   {
     img: service_physiotherapy,
-    title: 'Physiotherapy',
+    title: 'Physiotherapist',
     desc: 'Explore health insurance plans',
     path: '/'
   },

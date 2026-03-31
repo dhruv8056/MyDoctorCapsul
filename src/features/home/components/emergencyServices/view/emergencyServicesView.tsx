@@ -9,6 +9,9 @@ const EmergencyServicesView: React.FC = () => {
     if (type === 'ambulance') {
       navigate(APP_ROUTE.HEALTHCARE_SERVICES + APP_ROUTE.AMBULANCES);
     }
+    if (type === 'doctor') {
+      navigate(APP_ROUTE.EMERGENCY_DOCTOR);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import InputField from '@shared/components/common/InputFiled';
+import UploadField from '@shared/components/common/UploadField';
 
 interface OrderMedicineModalViewProps {
   isOpen: boolean;
@@ -30,21 +31,21 @@ const OrderMedicineModalView: React.FC<OrderMedicineModalViewProps> = ({ isOpen,
         <div className="order-modal__steps">
           <div className="order-modal__step order-modal__step--active">
             <span className="dot"></span>
-            Upload
+            <span className="step-name">Upload</span>
           </div>
 
           <div className="line"></div>
 
           <div className="order-modal__step">
             <span className="dot"></span>
-            Review
+            <span className="step-name">Review</span>
           </div>
 
           <div className="line"></div>
 
           <div className="order-modal__step">
             <span className="dot"></span>
-            Payment
+            <span className="step-name">Payment</span>
           </div>
         </div>
 
@@ -60,13 +61,10 @@ const OrderMedicineModalView: React.FC<OrderMedicineModalViewProps> = ({ isOpen,
           <p className="order-modal__form-desc">Enter details manually and we’ll source it for you</p>
 
           <div className="order-modal__fields">
-            <InputField placeholder="Medicine Brand Name" />
-            <InputField placeholder="Composition / Strength" />
+            <InputField placeholder="Medicine Brand Name" inputClass="border border-[#E4E9EC] bg-[#F9F9F9]" />
+            <InputField placeholder="Composition / Strength" inputClass="border border-[#E4E9EC] bg-[#F9F9F9]" />
 
-            <div className="order-modal__upload">
-              <Icon icon="mdi:camera-outline" width="20" />
-              <span>Upload Photo</span>
-            </div>
+            <UploadField label="Upload Prescription" />
           </div>
         </div>
 

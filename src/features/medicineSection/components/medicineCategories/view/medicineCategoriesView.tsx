@@ -8,97 +8,12 @@ import CategoryCard from '@shared/components/medicineSection/CategoryCard';
 import PharmacyCard from '@shared/components/medicineSection/PharmacyCard';
 import pharmacy_1 from '@assets/images/medicine/pharmacy-1.png';
 import OrderMedicineModalView from './orderMedicineModalView';
+import { APP_ROUTE } from '@shared/constant/app-route';
+import { useNavigate } from 'react-router-dom';
 
 const BREADCRUMB_ITEMS = [
   { label: 'Home', href: '/', icon: 'mdi:home-outline' },
   { label: 'medicine', isActive: true }
-];
-
-export const MEDICINE_CATEGORIES = [
-  {
-    id: 1,
-    title: 'General',
-    icon: 'mdi:leaf',
-    iconColor: '#1D6FA5',
-    bgColor: '#EAF3FB'
-  },
-  {
-    id: 2,
-    title: 'Cardiology',
-    icon: 'mdi:heart-outline',
-    iconColor: '#E53935',
-    bgColor: '#FDECEC'
-  },
-  {
-    id: 3,
-    title: 'Diabetes',
-    icon: 'mdi:medical-bag',
-    iconColor: '#8E24AA',
-    bgColor: '#F3E5F5'
-  },
-  {
-    id: 4,
-    title: 'Skin Care',
-    icon: 'mdi:face-woman',
-    iconColor: '#FB8C00',
-    bgColor: '#FFF3E0'
-  },
-  {
-    id: 1,
-    title: 'General',
-    icon: 'mdi:leaf',
-    iconColor: '#1D6FA5',
-    bgColor: '#EAF3FB'
-  },
-  {
-    id: 2,
-    title: 'Cardiology',
-    icon: 'mdi:heart-outline',
-    iconColor: '#E53935',
-    bgColor: '#FDECEC'
-  },
-  {
-    id: 3,
-    title: 'Diabetes',
-    icon: 'mdi:medical-bag',
-    iconColor: '#8E24AA',
-    bgColor: '#F3E5F5'
-  },
-  {
-    id: 4,
-    title: 'Skin Care',
-    icon: 'mdi:face-woman',
-    iconColor: '#FB8C00',
-    bgColor: '#FFF3E0'
-  },
-  {
-    id: 1,
-    title: 'General',
-    icon: 'mdi:leaf',
-    iconColor: '#1D6FA5',
-    bgColor: '#EAF3FB'
-  },
-  {
-    id: 2,
-    title: 'Cardiology',
-    icon: 'mdi:heart-outline',
-    iconColor: '#E53935',
-    bgColor: '#FDECEC'
-  },
-  {
-    id: 3,
-    title: 'Diabetes',
-    icon: 'mdi:medical-bag',
-    iconColor: '#8E24AA',
-    bgColor: '#F3E5F5'
-  },
-  {
-    id: 4,
-    title: 'Skin Care',
-    icon: 'mdi:face-woman',
-    iconColor: '#FB8C00',
-    bgColor: '#FFF3E0'
-  }
 ];
 
 const PHARMACY_LIST = [
@@ -109,7 +24,9 @@ const PHARMACY_LIST = [
     timing: 'Open until 10 PM',
     deliveryTag: 'FAST DELIVERY',
     rating: 4.8,
-    image: pharmacy_1
+    image: pharmacy_1,
+    phone: '+91-9876543210',
+    mapsUrl: 'https://maps.google.com'
   },
   {
     id: 1,
@@ -118,11 +35,14 @@ const PHARMACY_LIST = [
     timing: 'Open until 10 PM',
     deliveryTag: 'FAST DELIVERY',
     rating: 4.8,
-    image: pharmacy_1
+    image: pharmacy_1,
+    phone: '+91-9876543210',
+    mapsUrl: 'https://maps.google.com'
   }
 ];
 
-const MedicineCategoriesView: React.FC<IMedicineCategories> = () => {
+const MedicineCategoriesView: React.FC<IMedicineCategories> = ({ onCall, onDirections, category }) => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="container_layout">
@@ -158,8 +78,15 @@ const MedicineCategoriesView: React.FC<IMedicineCategories> = () => {
         </div>
 
         <div className="medicine-categories__grid">
-          {MEDICINE_CATEGORIES.map((item) => (
-            <CategoryCard key={item.id} bgColor={item.bgColor} icon={item.icon} iconColor={item.iconColor} title={item.title} />
+          {category.map((item) => (
+            <CategoryCard
+              key={item.id}
+              bgColor={item.bgColor}
+              icon={item.icon}
+              iconColor={item.iconColor}
+              title={item.title}
+              onClick={() => navigate(APP_ROUTE.MEDICINE_SECTION + APP_ROUTE.MEDICINE + APP_ROUTE.PRODUCT)}
+            />
           ))}
         </div>
 
@@ -185,6 +112,8 @@ const MedicineCategoriesView: React.FC<IMedicineCategories> = () => {
               deliveryTag={item.deliveryTag}
               rating={item.rating}
               image={item.image}
+              onCall={() => onCall?.(item.phone)}
+              onDirections={() => onDirections?.(item.mapsUrl)}
             />
           ))}
         </div>

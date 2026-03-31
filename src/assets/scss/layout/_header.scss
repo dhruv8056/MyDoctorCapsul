@@ -106,6 +106,33 @@
     }
   }
 
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  // Cart Button
+  .cart-btn {
+    height: 38px;
+    width: 38px;
+    border-radius: 8px;
+    border: 1px solid #dedede;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    svg {
+      font-size: 20px;
+      color: #000;
+    }
+  }
+
   // ── Auth buttons ─────────────────────────────────────────────────────────────
   .header-actions {
     flex-shrink: 0;

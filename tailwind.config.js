@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        lexend: ['Lexend Deca', 'sans-serif']
+        lexend: ['Lexend Deca', 'sans-serif'],
+        gilroy: ['Gilroy', 'sans-serif']
       },
       backgroundColor: {
         warning: '#f0ad4e',

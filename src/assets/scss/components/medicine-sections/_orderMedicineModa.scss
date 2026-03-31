@@ -1,11 +1,11 @@
 .order-modal {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 150;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px; // ✅ prevents edge-touching on small screens
+  padding: 16px;
 
   &__overlay {
     position: absolute;
@@ -16,20 +16,29 @@
   &__box {
     position: relative;
     width: 100%;
-    max-width: 680px; // ✅ fixed max-width instead of vw
-    max-height: 90vh; // ✅ never taller than viewport
-    overflow-y: auto; // ✅ scroll inside if content overflows
+    max-width: 1077px;
+    max-height: 90vh;
+    overflow-y: auto;
     background: #ffffff;
     border-radius: 16px;
     padding: 35px 63px;
     z-index: 2;
 
-    // ✅ Tablet
+    &::-webkit-scrollbar {
+      width: 6px; /* thinner scrollbar */
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+
     @media (max-width: 768px) {
       padding: 24px 32px;
     }
 
-    // ✅ Mobile
     @media (max-width: 480px) {
       padding: 20px 20px;
       border-radius: 12px;
@@ -64,51 +73,55 @@
   }
 
   /* Steps */
-  &__steps {
+  .order-modal__steps {
     display: flex;
     align-items: center;
-    margin-bottom: 24px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .order-modal__step {
+      display: flex;
+      flex-direction: column; // dot on top, name below
+      align-items: center;
+      gap: 6px;
+      color: #b3b3b3;
+      font-size: 14px;
+
+      .dot {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #d1d5db;
+        z-index: 1;
+      }
+
+      &--active {
+        color: #000000;
+
+        .dot {
+          background: #0374bf;
+          box-shadow: 0 0 0 8px #efefef;
+        }
+      }
+
+      .step-name {
+        text-align: center;
+        font-weight: 500;
+        font-size: 26px;
+        color: #000000;
+        font-family: 'Lexend Deca';
+      }
+    }
 
     .line {
       flex: 1;
-      height: 1px;
+      height: 2px;
       background: #d1d5db;
       margin: 0 8px;
-    }
-  }
-
-  &__step {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #b3b3b3;
-    font-size: 18px; // ✅ reduced from 26px
-
-    @media (max-width: 480px) {
-      font-size: 13px;
-      gap: 4px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #d1d5db;
-      flex-shrink: 0;
-
-      @media (max-width: 480px) {
-        width: 8px;
-        height: 8px;
-      }
-    }
-
-    &--active {
-      color: #014a97;
-      font-weight: 500;
-
-      .dot {
-        background: #014a97;
-      }
+      position: relative;
+      top: 15px; // vertically align with dot
+      z-index: 0;
     }
   }
 

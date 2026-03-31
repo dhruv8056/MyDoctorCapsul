@@ -18,6 +18,8 @@ import HealthcareServiceDiscoveryRoute from '@features/healthcareServiceDiscover
 import HomeRoute from '@features/home/routes/homeRoute';
 import HealthcareInformationRoute from '@features/healthcareinformation/routes/healthcareInformationRoute';
 import MedicineSectionRoute from '@features/medicineSection/routes/medicineSectionRoute';
+import DiasgnosticsCenterRoute from '@features/diagnosticSection/routes/diasgnosticsCenterRoute';
+import EmergencyDoctorRoute from '@features/emergencyDoctor/routes/emergencyDoctorRoute';
 
 function AppRoutes() {
   const { processQueue } = useProcessQueue();
@@ -43,6 +45,8 @@ function AppRoutes() {
         <Route path={APP_ROUTE.HEALTHCARE_SERVICES + '*'} element={<HealthcareServiceDiscoveryRoute />} />
         <Route path={APP_ROUTE.HEALTHCARE_INFORMATION + '*'} element={<HealthcareInformationRoute />} />
         <Route path={APP_ROUTE.MEDICINE_SECTION + '*'} element={<MedicineSectionRoute />} />
+        <Route path={APP_ROUTE.DIAGNOSTIC_SECTION + '*'} element={<DiasgnosticsCenterRoute />} />
+        <Route path={APP_ROUTE.EMERGENCY_DOCTOR} element={<EmergencyDoctorRoute />} />
       </Route>
 
       <Route path="/" element={<PrivateLayout />}>

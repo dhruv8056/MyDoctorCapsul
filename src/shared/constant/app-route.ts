@@ -14,7 +14,7 @@ export const APP_ROUTE = {
   PHARMACY: '/pharmacy',
   USER: '/user',
   SUPER_ADMINS: '/superadmin',
-  DIAGNOSTIC_CENTRE: '/diagnostic-centre',
+  DIAGNOSTIC_CENTRE: '/centre',
   PRODUCT: '/product',
   DETAILS: '/details',
 
@@ -26,6 +26,14 @@ export const APP_ROUTE = {
 
   //medicine section
   MEDICINE_SECTION: '/medicine-section',
+
+  //diagnostic section
+  DIAGNOSTIC_SECTION: '/diagnostic-section',
+  DIAGNOSTIC_CATEGORIES: '/categories',
+  DIAGNOSTIC_DETAILS: '/details',
+
+  // emergency doctor
+  EMERGENCY_DOCTOR: '/emergency-doctor',
 
   //DEMO ROUTES
   SHOP: '/shop',

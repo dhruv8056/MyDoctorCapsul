@@ -7,7 +7,7 @@ const AboutServicesView: React.FC = () => {
       <div className="container_layout">
         <h2 className="section-title">About</h2>
 
-        <p className="section-description">Your Trusted Healthcare Ecosystem</p>
+        <p className="section-description">All health care service in at place</p>
 
         <div className="about-content">
           <div className="about-text">

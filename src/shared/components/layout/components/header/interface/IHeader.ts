@@ -7,4 +7,5 @@ export interface HeaderViewProps {
   searchQuery: string;
   onSearchChange: (value: string) => void;
   onSearchSubmit: () => void;
+  showCart: boolean;
 }
