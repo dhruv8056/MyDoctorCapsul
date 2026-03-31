@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Breadcrumb from '@shared/components/common/Breadcrumb';
 import { APP_ROUTE } from '@shared/constant/app-route';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
 import EmergencyDoctorTrackingModal from './EmergencyDoctorTrackingModal';
+import emr_doc_1 from '@assets/images/eme-doc-1.png';
+
 
 const EmergencyDoctorView = () => {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ const EmergencyDoctorView = () => {
       title: 'Instant Video Call',
       description: 'Start a video consultation with an emergency doctor within 2 minutes',
       buttonText: 'CONNECT NOW >>',
-      route: '/'
+      action: 'none'
     },
     {
       id: 2,
@@ -29,7 +31,7 @@ const EmergencyDoctorView = () => {
       title: 'Request Home Visit',
       description: 'Book a doctor to visit your location with real-time tracking facility',
       buttonText: 'DISPATCH MEDIC >>',
-      route: ''
+      action: 'open_modal'
     }
   ];
 
@@ -53,9 +55,7 @@ const EmergencyDoctorView = () => {
               <button
                 className="emergency-doctor__link"
                 onClick={() => {
-                  if (item.route) {
-                    navigate(item.route);
-                  } else {
+                  if (item.action === 'open_modal') {
                     setIsTrackingModalOpen(true);
                   }
                 }}
@@ -69,14 +69,22 @@ const EmergencyDoctorView = () => {
         {/* 🔥 TOP STATUS SECTION */}
         <div className="emergency-status">
           <div className="emergency-status__avatars">
-            <img src="/images/doc1.jpg" alt="doc" />
-            <img src="/images/doc2.jpg" alt="doc" />
-            <img src="/images/doc3.jpg" alt="doc" />
+            <img src={emr_doc_1} alt="doc" />
+            <img src={emr_doc_1} alt="doc" />
+            <img src={emr_doc_1} alt="doc" />
           </div>
 
           <div className="emergency-status__info">
             <p className="online-text">14 Specializes doctors currently online</p>
-            <span className="status-badge">SYSTEM RESPONSE: NORMAL</span>
+            <span
+              className="status-badge status-badge--clickable"
+              role="button"
+              tabIndex={0}
+              onClick={() => navigate(APP_ROUTE.EMERGENCY_CALL_HUB)}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(APP_ROUTE.EMERGENCY_CALL_HUB)}
+            >
+              SYSTEM RESPONSE: NORMAL
+            </span>
           </div>
         </div>
         {/* Bottom CTA */}

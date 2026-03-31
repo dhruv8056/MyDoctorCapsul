@@ -34,6 +34,7 @@ export const APP_ROUTE = {
 
   // emergency doctor
   EMERGENCY_DOCTOR: '/emergency-doctor',
+  EMERGENCY_CALL_HUB: '/emergency-doctor/call-hub',
 
   //DEMO ROUTES
   SHOP: '/shop',
