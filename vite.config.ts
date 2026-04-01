@@ -1,26 +1,26 @@
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   root: '.',
   base: '/',
   plugins: [react(), tsconfigPaths()],
   resolve: {
     alias: {
-      assets: './assets',
-      app: './src/app',
-      config: './src/core/config',
-      core: './src/core',
-      pages: './src/features/pages',
-      auth: './src/features/auth',
-      wallet: './src/features/wallet',
-      student: './src/features/student',
-      features: './src/features',
-      shared: './src/shared',
-      store: './src/store',
-      src: './src'
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@app': path.resolve(__dirname, 'src/app'),
+      '@config': path.resolve(__dirname, 'src/core/config'),
+      '@core': path.resolve(__dirname, 'src/core'),
+      '@pages': path.resolve(__dirname, 'src/features/pages'),
+      '@auth': path.resolve(__dirname, 'src/features/auth'),
+      '@wallet': path.resolve(__dirname, 'src/features/wallet'),
+      '@student': path.resolve(__dirname, 'src/features/student'),
+      '@features': path.resolve(__dirname, 'src/features'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@src': path.resolve(__dirname, 'src'),
     }
   },
   build: {
