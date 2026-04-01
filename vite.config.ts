@@ -5,6 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vitejs.dev/config/
 export default defineConfig({
   root: '.',
+  base: '/',
   plugins: [react(), tsconfigPaths()],
   resolve: {
     alias: {
@@ -23,7 +24,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: './build'
+    outDir: 'dist'
   },
   server: {
     port: 2999

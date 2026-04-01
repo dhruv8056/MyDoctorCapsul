@@ -1,20 +1,16 @@
 import AbstractApiService from '@core/helpers/base-api/abstract-api.service';
 import { pathWithId } from '@shared/utils/util';
-import { TmsNotificationType } from '../notification/enum/notification-type.enum';
 
 export class ApiService<T> extends AbstractApiService {
   public readonly PATH;
-  public readonly Notification;
   public readonly Reassurance;
 
   constructor(
     endpoint: string,
-    notificationMethod: TmsNotificationType = TmsNotificationType.Performed,
     Reassurance: string = 'Performed'
   ) {
     super();
     this.PATH = endpoint;
-    this.Notification = notificationMethod;
     this.Reassurance = Reassurance;
   }
 
@@ -30,42 +26,39 @@ export class ApiService<T> extends AbstractApiService {
     return await this.getByWithParmas<T>(this.PATH, id, params);
   }
 
-  async create(data: object, notificationBody?: object): Promise<T> {
-    return await this.post<T>(this.PATH, data, this.Notification, this.Reassurance, notificationBody!);
+  async create(data: object): Promise<T> {
+    return await this.post<T>(this.PATH, data);
   }
 
-  async bulkCreate(data: Array<T>, notificationBody: object): Promise<T> {
-    return await this.post<T>(this.PATH, data, this.Notification, this.Reassurance, notificationBody);
+  async bulkCreate(data: Array<T>, ): Promise<T> {
+    return await this.post<T>(this.PATH, data );
   }
 
-  async update(data: object, id: string | number, notificationBody: object): Promise<T> {
-    return await this.put<T>(pathWithId(this.PATH, id.toString()), data, this.Notification, this.Reassurance, notificationBody);
+  async update(data: object, id: string | number, ): Promise<T> {
+    return await this.put<T>(pathWithId(this.PATH, id.toString()), data );
   }
 
-  async updateWithoutId(data: object, notificationBody: object): Promise<T> {
-    return await this.put<T>(this.PATH, data, this.Notification, this.Reassurance, notificationBody);
+  async updateWithoutId(data: object, ): Promise<T> {
+    return await this.put<T>(this.PATH, data );
   }
-  async updateArrayWithoutId(data: Array<T>, notificationBody: object): Promise<T> {
-    return await this.put<T>(this.PATH, data, this.Notification, this.Reassurance, notificationBody);
+  async updateArrayWithoutId(data: Array<T>, ): Promise<T> {
+    return await this.put<T>(this.PATH, data );
   }
-  async updateArrayWithoutIdForAttendance(data: Array<T>, notificationIds: Array<T>): Promise<T> {
-    return await this.put<T>(this.PATH, data, this.Notification, this.Reassurance, notificationIds);
+  async updateArrayWithoutIdForAttendance(data: Array<T>): Promise<T> {
+    return await this.put<T>(this.PATH, data);
   }
-  async setArchived(id: string | number, notificationBody?: object): Promise<T> {
-    return await this.delete<T>(pathWithId(this.PATH, id.toString()), this.Notification, this.Reassurance, notificationBody!);
+  async setArchived(id: string | number,): Promise<T> {
+    return await this.delete<T>(pathWithId(this.PATH, id.toString()), );
   }
 
-  async updateFormdata(data: FormData, id: string | number, notificationBody?: object): Promise<T> {
+  async updateFormdata(data: FormData, id: string | number,): Promise<T> {
     return await this.updateBinaryData<T>(
       pathWithId(this.PATH, id.toString()),
-      data,
-      this.Notification,
-      this.Reassurance,
-      notificationBody!
+      data
     );
   }
 
-  async createFormData(data: FormData, notificationBody?: object): Promise<T> {
-    return await this.uploadBinaryData<T>(this.PATH, data, this.Notification, this.Reassurance, notificationBody!);
+  async createFormData(data: FormData,): Promise<T> {
+    return await this.uploadBinaryData<T>(this.PATH, data);
   }
 }

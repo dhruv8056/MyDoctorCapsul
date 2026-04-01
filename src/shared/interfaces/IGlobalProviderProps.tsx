@@ -1,6 +1,4 @@
-import { IDynamicFieldData } from '@core/dynamicForm/interfaces/DynamicForm';
-import { IdNameType } from '@shared/types/app.type';
-import { Dayjs } from 'dayjs';
+
 import { ReactNode } from 'react';
 import { JSX } from 'react/jsx-runtime';
 
@@ -63,47 +61,6 @@ export interface HeaderProps {
 export interface SidebarProps {
   toggleSidebar: boolean;
   setToggleSidebar: (value: boolean) => void;
-}
-
-export interface ImageComponentProps {
-  field: IDynamicFieldData;
-  setFieldValue: (field: string, value: File | undefined | (string | File)[], shouldValidate?: boolean) => void;
-  value?: { [key: string]: (File | string)[] };
-  name?: string;
-}
-
-export interface VideoComponentProps {
-  field: IDynamicFieldData;
-  setFieldValue: (field: string, value: File | undefined | (string | File)[], shouldValidate?: boolean) => void;
-  value?: { [key: string]: (File | string)[] };
-  name?: string;
-}
-
-export interface FileComponentProps {
-  field: IDynamicFieldData;
-  setFieldValue: (field: string, value: File | undefined | (string | File)[], shouldValidate?: boolean) => void;
-  value?: { [key: string]: (File | string)[] };
-  name?: string;
-  handleOnChange?: (name: string, file: File) => void;
-}
-
-export interface selectComponentProps {
-  field: IDynamicFieldData;
-  setFieldValue?: SetFieldValueFunction;
-  name?: string;
-}
-export interface selectDateRangePickerProps {
-  field: IDynamicFieldData;
-  setFieldValue?: SetFieldValueFunction | undefined;
-  name?: string;
-}
-export interface SetFieldValueFunction {
-  (fieldName: string, value: string[] | string | boolean | object | Dayjs | null | undefined | IdNameType[]): void;
-}
-export interface DynamicFormProps {
-  field: IDynamicFieldData;
-  setFieldValue?: SetFieldValueFunction;
-  name?: string;
 }
 
 export interface IRoutreRole {

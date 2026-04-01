@@ -1,4 +1,3 @@
-import { TmsNotificationType } from '@core/helpers/notification/enum/notification-type.enum';
 
 export type ApiMethod = 'get' | 'post' | 'put' | 'delete';
 export interface IBaseEntity {
@@ -20,13 +19,6 @@ export type NameType = {
   name: string;
 };
 
-export type NotificationDataType = {
-  type: TmsNotificationType;
-  content: string;
-  recipientId: string[];
-  relatedEntity: string;
-  method: string;
-};
 export type BaseEntityDetail = IBaseEntityWithActive & IBaseEntity;
 
 export type DateFormat = 'month' | 'date' | 'year' | 'weekday' | 'short' | 'monthdate' | 'custom' | 'custom2';

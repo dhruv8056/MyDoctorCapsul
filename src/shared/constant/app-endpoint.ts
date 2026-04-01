@@ -5,10 +5,10 @@ export class ApiEndpoint {
   static NOTIFICATION = 'notification';
 
   static get epbaseUrl() {
-    return `${config.API_EPBASE_URL}/api`;
+    return `${config.API_URL_1}/api`;
   }
   static get tmsbaseUrl() {
-    return `${config.API_TMSBASE_URL}/api`;
+    return `${config.API_URL_1}/api`;
   }
   static get notification() {
     return `${this.tmsbaseUrl}/${this.NOTIFICATION}`;

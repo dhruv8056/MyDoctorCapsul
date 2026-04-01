@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ApiMethod, IBaseEntity, NotificationDataType } from '@shared/types/app.type';
+import { IBaseEntity } from '@shared/types/app.type';
 
 import { ApiService } from '../core/helpers/base-api/api.service';
-import { NotificationFactory } from '@core/helpers/notification/factory/notification-factory';
-import { INotificationBody } from '@core/helpers/notification/interface/INotification';
 
 export const AbstractActionService = <T extends IBaseEntity>(
   actionType: string,
@@ -26,10 +24,10 @@ export const AbstractActionService = <T extends IBaseEntity>(
     return response;
   });
 
-  const createAction = createAsyncThunk<T, { data: T; notificationBody?: INotificationBody }>(
+  const createAction = createAsyncThunk<T, { data: T }>(
     `${actionType}/create`,
-    async ({ data, notificationBody = {} }, thunkAPI) => {
-      const response = await service.create(data, notificationBody);
+    async ({ data }, thunkAPI) => {
+      const response = await service.create(data);
       if (callFetchAction) {
         thunkAPI.dispatch(fetchAction());
       }
@@ -37,10 +35,10 @@ export const AbstractActionService = <T extends IBaseEntity>(
     }
   );
 
-  const bulkCreateAction = createAsyncThunk<T, { data: T; notificationBody?: INotificationBody }>(
+  const bulkCreateAction = createAsyncThunk<T, { data: T }>(
     `${actionType}/create`,
-    async ({ data, notificationBody = {} }, thunkAPI) => {
-      const response = await service.bulkCreate(data as unknown as T[], notificationBody);
+    async ({ data }, thunkAPI) => {
+      const response = await service.bulkCreate(data as unknown as T[]);
       if (callFetchAction) {
         thunkAPI.dispatch(fetchAction());
       }
@@ -48,10 +46,10 @@ export const AbstractActionService = <T extends IBaseEntity>(
     }
   );
 
-  const updateAction = createAsyncThunk<T, { data: T; notificationBody?: INotificationBody }>(
+  const updateAction = createAsyncThunk<T, { data: T }>(
     `${actionType}/update`,
-    async ({ data, notificationBody = {} }, thunkAPI) => {
-      const response = await service.update(data, data.id!, notificationBody);
+    async ({ data }, thunkAPI) => {
+      const response = await service.update(data, data.id!);
       if (callFetchAction) {
         thunkAPI.dispatch(fetchAction());
       }
@@ -59,10 +57,10 @@ export const AbstractActionService = <T extends IBaseEntity>(
     }
   );
 
-  const updateArrayAction = createAsyncThunk<T, { data: unknown; id: string; notificationBody?: INotificationBody }>(
+  const updateArrayAction = createAsyncThunk<T, { data: unknown; id: string }>(
     `${actionType}/updatearray`,
-    async ({ data, id, notificationBody = {} }, thunkAPI) => {
-      const response = await service.update(data as object, id, notificationBody);
+    async ({ data, id }, thunkAPI) => {
+      const response = await service.update(data as object, id);
       if (callFetchAction) {
         thunkAPI.dispatch(fetchAction());
       }
@@ -70,10 +68,10 @@ export const AbstractActionService = <T extends IBaseEntity>(
     }
   );
 
-  const updateArrayActionWithoutId = createAsyncThunk<T, { data: unknown; notificationBody?: INotificationBody }>(
+  const updateArrayActionWithoutId = createAsyncThunk<T, { data: unknown }>(
     `${actionType}/updatearraywithoutId`,
-    async ({ data, notificationBody = {} }, thunkAPI) => {
-      const response = await service.updateArrayWithoutId(data as unknown as Array<T>, notificationBody);
+    async ({ data }, thunkAPI) => {
+      const response = await service.updateArrayWithoutId(data as unknown as Array<T>);
       if (callFetchAction) {
         thunkAPI.dispatch(fetchAction());
       }
@@ -81,10 +79,10 @@ export const AbstractActionService = <T extends IBaseEntity>(
     }
   );
 
-  const deleteAction = createAsyncThunk<T, { id: string | number; notificationBody?: INotificationBody }>(
+  const deleteAction = createAsyncThunk<T, { id: string | number }>(
     `${actionType}/delete`,
-    async ({ id, notificationBody = {} }, thunkAPI) => {
-      const response = await service.setArchived(id, notificationBody);
+    async ({ id }, thunkAPI) => {
+      const response = await service.setArchived(id);
       if (callFetchAction) {
         thunkAPI.dispatch(fetchAction());
       }
@@ -105,6 +103,3 @@ export const AbstractActionService = <T extends IBaseEntity>(
   };
 };
 
-export const NotificationAction = createAsyncThunk<void, { data: NotificationDataType }>('notification', async ({ data }) => {
-  return await NotificationFactory.create(data.type)?.log(data.method as ApiMethod, data, data.relatedEntity);
-});
