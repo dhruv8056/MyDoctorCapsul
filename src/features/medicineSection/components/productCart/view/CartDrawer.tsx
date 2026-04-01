@@ -17,6 +17,7 @@ interface Props {
 const CartDrawer = ({ isOpen, onClose, step, setStep }: Props) => {
   const [isTrackingOpen, setIsTrackingOpen] = useState(false);
   const [orderId, setOrderId] = useState('');
+  console.log("🚀 ~ CartDrawer ~ orderId:", orderId)
 
   const handlePaymentSuccess = () => {
     const newOrderId = 'ORD' + Date.now();

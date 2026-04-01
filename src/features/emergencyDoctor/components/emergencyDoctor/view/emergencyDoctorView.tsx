@@ -4,6 +4,7 @@ import { APP_ROUTE } from '@shared/constant/app-route';
 import { Icon } from '@iconify/react';
 import EmergencyDoctorTrackingModal from './EmergencyDoctorTrackingModal';
 import { useNavigate } from 'react-router-dom';
+import emr_doc from '@assets/images/eme-doc-1.png';
 
 const EmergencyDoctorView: React.FC<{ onAction: (item: any) => void }> = ({ onAction }) => {
   const navigate = useNavigate();
@@ -61,9 +62,9 @@ const EmergencyDoctorView: React.FC<{ onAction: (item: any) => void }> = ({ onAc
 
         <div className="emergency-status">
           <div className="emergency-status__avatars">
-            <img src="/images/doc1.jpg" alt="doc" />
-            <img src="/images/doc2.jpg" alt="doc" />
-            <img src="/images/doc3.jpg" alt="doc" />
+            <img src={emr_doc} alt="doc" />
+            <img src={emr_doc} alt="doc" />
+            <img src={emr_doc} alt="doc" />
           </div>
 
           <div className="emergency-status__info">
