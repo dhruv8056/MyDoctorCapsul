@@ -4,7 +4,7 @@ import { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
-import General_doctor from '@assets/images/findDoctorBySymptoms/generaldoctor.png';
+// import General_doctor from '@assets/images/findDoctorBySymptoms/generaldoctor.png';
 import Respiratory from '@assets/images/findDoctorBySymptoms/respiratory.png';
 import heart from '@assets/images/findDoctorBySymptoms/heart.png';
 import Gastrointestinal from '@assets/images/findDoctorBySymptoms/Gastrointestinal.png';
@@ -19,7 +19,7 @@ const CARD_DATA = [
     id: 1,
     title: 'General',
     subtitle: 'Physicians',
-    image: General_doctor,
+    image: Respiratory,
     points: ['Fever, chills', 'Weakness', 'Weight loss/gain'],
     defaultActive: true
   },
